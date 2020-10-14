@@ -431,7 +431,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    57
+                    263
                 </div>
                 
 
@@ -452,11 +452,38 @@
 <p>1.安装依赖库</p>
 <pre><code>yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</code></pre>
 <p>2.安装编译工具</p>
-<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> gcc perl-ExtUtils-MakeMaker package</code></pre>
+<pre><code>yum install gcc perl-ExtUtils-MakeMaker package</code></pre>
 <p>3.查看git的版本y</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> version</code></pre>
+<pre><code>git version</code></pre>
 <p>4.删除git</p>
-<pre class=" language-bash"><code class="language-bash">yum remove <span class="token function">git</span> -y</code></pre>
+<pre><code>yum remove git -y</code></pre>
+<p>5.下载解压最新版</p>
+<pre><code>cd /usr/local/src #下载的目录 wget https://www.kernel.org/pub/software/scm/git/git-2.28.0.tar.gz #下载最新版 tar -zxvf git-2.28.0.tar.gz #解压到当前文件夹</code></pre>
+<p>6.编辑并安装</p>
+<pre><code>cd git-2.28.0    #进入文件夹
+make prefix=/usr/local/git all    #编译源码
+make prefix=/usr/local/git install    #安装路径</code></pre>
+<p>7.配置git的环境变量</p>
+<pre><code>echo &#39;export PATH=$PATH:/usr/local/git/bin&#39; &gt;&gt; /etc/bashrc</code></pre>
+<p>8.刷新环境变量</p>
+<pre><code>source /etc/bashrc</code></pre>
+<p>9.查看版本号</p>
+<pre><code>git --version</code></pre>
+<p>10创建git用户并且修改权限</p>
+<pre><code>adduser qin 
+passwd qin 
+chmod 740 /etc/sudoers 
+
+vim /etc/sudoers 
+root ALL=(ALL) ALL fuchen ALL=(ALL) ALL</code></pre>
+<p>11.本地windows10使用Gitbash创建密钥</p>
+<pre><code>ssh-keygen -t rsa</code></pre>
+<p>12.将本地创建id_rsa.pub中文件复制</p>
+<pre><code>su fuchen
+mkdir ~/.ssh
+vim ~/.ssh/authorized_keys</code></pre>
+<p>13.本地测试</p>
+<pre><code>ssh -v qin@服务器ip</code></pre>
 
             </div>
             <hr/>
@@ -956,7 +983,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57</span>&nbsp;字
+                class="white-color">263</span>&nbsp;字
             
             
             
