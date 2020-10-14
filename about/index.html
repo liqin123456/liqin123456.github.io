@@ -64,53 +64,12 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="" class="waves-effect waves-light">
-
+    <a href="/categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
       <span>分类</span>
-      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
-    <ul class="sub-nav menus_item_child ">
-      
-      <li>
-        <a href="/daima">
-          
-          <i class="fas fa-bug" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>编程</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/ctf">
-          
-          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>CTF刷题</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/neiwang">
-          
-          <i class="fas fa-biohazard" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>内网专题</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/interesting">
-          
-          <i class="fas fa-atlas" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>有趣工具</span>
-        </a>
-      </li>
-      
-    </ul>
     
   </li>
   
@@ -186,56 +145,12 @@
         
         <li class="m-nav-item">
 	  
-		<a href="javascript:;">
+		<a href="/categories" class="waves-effect waves-light">
 			
-				<i class="fa-fw fas fa-bookmark"></i>
+			    <i class="fa-fw fas fa-bookmark"></i>
 			
 			分类
-			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
-            <ul  style="background:  ;" >
-              
-                <li>
-
-                  <a href="/daima " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-bug" style="position: absolute;left:50px" ></i>
-			      
-		          <span>编程</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/ctf " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
-			      
-		          <span>CTF刷题</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/neiwang " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-biohazard" style="position: absolute;left:50px" ></i>
-			      
-		          <span>内网专题</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/interesting " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-atlas" style="position: absolute;left:50px" ></i>
-			      
-		          <span>有趣工具</span>
-                  </a>
-                </li>
-              
-            </ul>
           
         </li>
         
@@ -348,6 +263,11 @@
 
 
 
+<div class="statis">
+    <span class="count"><a href="/categories">1</a></span>
+    <span class="name">分类</span>
+</div>
+
 
 
 <div class="statis">
@@ -372,6 +292,11 @@
 </div>
 
 
+
+<div class="statis">
+    <span class="count"><a href="/categories">1</a></span>
+    <span class="name">分类</span>
+</div>
 
 
 
@@ -546,7 +471,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [],
+                data: [{"name":"linux","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
