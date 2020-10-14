@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>nginx配置ssl</title>
+      <link href="2020/10/14/nginx-pei-zhi-ssl/"/>
+      <url>2020/10/14/nginx-pei-zhi-ssl/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://freessl.cn/">FreeSSL</a></p><p><img src="/medias/1.png"></p><p><img src="/medias/2.png"><br>这时候回到linux 创建ssl的目录</p><pre><code>mkdir /etc/nginx/ssl</code></pre><p>添加浏览器生成的CA证书</p><pre><code>vim CA</code></pre><p>编辑证书文件</p><pre><code>vim bbs.crt</code></pre><p>编辑私钥文件</p><pre><code>vim bbs.key</code></pre><p>配置conf配置文件</p><pre><code>server    &#123;        listen 443 ssl;        index index.html index.htm index.php;        root /data/wwwroot/bbs.centos.com;        server_name bbs.centos.com;        ssl_certificate /usr/local/nginx/conf/ssl/bbs.crt;        ssl_certificate_key /usr/local/nginx/conf/ssl/bbs.key;        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo部署到阿里云</title>
       <link href="2020/10/13/hello-world/"/>
       <url>2020/10/13/hello-world/</url>

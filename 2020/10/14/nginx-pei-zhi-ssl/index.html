@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo部署到阿里云, secqin">
+    <meta name="keywords" content="nginx配置ssl, secqin">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo部署到阿里云 | secqin</title>
+    <title>nginx配置ssl | secqin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -203,12 +203,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo部署到阿里云</h1>
+                    <h1 class="description center-align post-title">nginx配置ssl</h1>
                 </div>
             </div>
         </div>
@@ -329,6 +329,10 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
                             <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
                                 <span class="chip bg-color">服务器</span>
                             </a>
@@ -354,7 +358,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-13
+                    2020-10-14
                 </div>
                 
 
@@ -363,14 +367,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    464
+                    99
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -380,77 +384,26 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#一.云服务器配置Git</p>
-<p>1.安装依赖库</p>
-<pre><code>yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</code></pre>
-<p>2.安装编译工具</p>
-<pre><code>yum install gcc perl-ExtUtils-MakeMaker package</code></pre>
-<p>3.查看git的版本y</p>
-<pre><code>git version</code></pre>
-<p>4.删除git</p>
-<pre><code>yum remove git -y</code></pre>
-<p>5.下载解压最新版</p>
-<pre><code>cd /usr/local/src #下载的目录 wget https://www.kernel.org/pub/software/scm/git/git-2.28.0.tar.gz #下载最新版 tar -zxvf git-2.28.0.tar.gz #解压到当前文件夹</code></pre>
-<p>6.编辑并安装</p>
-<pre><code>cd git-2.28.0    #进入文件夹
-make prefix=/usr/local/git all    #编译源码
-make prefix=/usr/local/git install    #安装路径</code></pre>
-<p>7.配置git的环境变量</p>
-<pre><code>echo &#39;export PATH=$PATH:/usr/local/git/bin&#39; &gt;&gt; /etc/bashrc</code></pre>
-<p>8.刷新环境变量</p>
-<pre><code>source /etc/bashrc</code></pre>
-<p>9.查看版本号</p>
-<pre><code>git --version</code></pre>
-<p>10创建git用户并且修改权限</p>
-<pre><code>adduser qin 
-passwd qin 
-chmod 740 /etc/sudoers 
-
-vim /etc/sudoers 
-root ALL=(ALL) ALL fuchen ALL=(ALL) ALL</code></pre>
-<p>11.本地windows10使用Gitbash创建密钥</p>
-<pre><code>ssh-keygen -t rsa</code></pre>
-<p>12.将本地创建id_rsa.pub中文件复制</p>
-<pre><code>su qin
-mkdir ~/.ssh
-vim ~/.ssh/authorized_keys</code></pre>
-<p>13.本地测试</p>
-<pre><code>ssh -v qin@服务器ip</code></pre>
-<p>#云服务器网站配置<br>1.创建网站目录并且设置权限</p>
-<pre><code>su root
-mkdir /home/hexo
-chown fuchen:fuchen -R /home/hexo</code></pre>
-<p>2.安装Nginx</p>
-<pre><code>yum install -y nginx
-systemctl start nginx.service    #启动服务</code></pre>
-<p>3.修改Nginx配置文件</p>
-<pre class=" language-vim"><code class="language-vim">
-<span class="token number">38</span> server &amp;#<span class="token number">123</span><span class="token punctuation">;</span> 
-<span class="token number">39</span> listen <span class="token number">80</span> default_server<span class="token punctuation">;</span> 
-<span class="token number">40</span> listen <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token number">80</span> default_server<span class="token punctuation">;</span> 
-<span class="token number">41</span> server_name localhost<span class="token punctuation">;</span> #域名 
-<span class="token number">42</span> root <span class="token operator">/</span>var<span class="token operator">/</span>hexo<span class="token punctuation">;</span> #网站目录</code></pre>
-<p>4.重启服务器</p>
-<pre><code>systemctl restart nginx.service</code></pre>
-<p>5.建立git仓库</p>
-<pre><code>su root
-cd /home/fuchen
-git init --bare blog.git
-chown fuchen:fuchen -R blog.git</code></pre>
-<p>6.同步网站根目录</p>
-<pre class=" language-vim"><code class="language-vim">
-#<span class="token operator">!</span><span class="token operator">/</span><span class="token builtin">bin</span><span class="token operator">/</span><span class="token keyword">sh</span>
-git <span class="token operator">-</span><span class="token operator">-</span>work<span class="token operator">-</span>tree<span class="token operator">=</span><span class="token operator">/</span>home<span class="token operator">/</span>hexo <span class="token operator">-</span><span class="token operator">-</span>git<span class="token operator">-</span><span class="token builtin">dir</span><span class="token operator">=</span><span class="token operator">/</span>home<span class="token operator">/</span>fuchen<span class="token operator">/</span>blog<span class="token operator">.</span>git checkout <span class="token operator">-</span><span class="token keyword">f</span></code></pre>
-<p>7.修改权限</p>
-<pre><code>chmod +x /home/fuchen/blog.git/hooks/post-receive</code></pre>
-<p>8.在windows10本地hexo目录修改_config.yml文件</p>
-<pre><code>deploy:
-  type: git
-  repository: fuchen@49.232.59.235:/home/fuchen/blog.git    #用户名@服务器Ip:git仓库位置
-  branch: master</code></pre>
-<p>9.在本机gitbash部署</p>
-<pre><code>hexo clean
-hexo g -d</code></pre>
+                <p><a target="_blank" rel="noopener" href="https://freessl.cn/">FreeSSL</a></p>
+<p><img src="/medias/1.png"></p>
+<p><img src="/medias/2.png"><br>这时候回到linux 创建ssl的目录</p>
+<pre><code>mkdir /etc/nginx/ssl</code></pre>
+<p>添加浏览器生成的CA证书</p>
+<pre><code>vim CA</code></pre>
+<p>编辑证书文件</p>
+<pre><code>vim bbs.crt</code></pre>
+<p>编辑私钥文件</p>
+<pre><code>vim bbs.key</code></pre>
+<p>配置conf配置文件</p>
+<pre><code>server
+    &#123;
+        listen 443 ssl;
+        index index.html index.htm index.php;
+        root /data/wwwroot/bbs.centos.com;
+        server_name bbs.centos.com;
+        ssl_certificate /usr/local/nginx/conf/ssl/bbs.crt;
+        ssl_certificate_key /usr/local/nginx/conf/ssl/bbs.key;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</code></pre>
 
             </div>
             <hr/>
@@ -476,7 +429,7 @@ hexo g -d</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2020/10/13/hello-world/">http://example.com/2020/10/13/hello-world/</a>
+                    <a href="http://example.com/2020/10/14/nginx-pei-zhi-ssl/">http://example.com/2020/10/14/nginx-pei-zhi-ssl/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -513,6 +466,10 @@ hexo g -d</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
                             
                                 <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
                                     <span class="chip bg-color">服务器</span>
@@ -683,9 +640,10 @@ hexo g -d</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/10/14/nginx-pei-zhi-ssl/">
                     <div class="card-image">
@@ -703,9 +661,9 @@ hexo g -d</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -718,6 +676,7 @@ hexo g -d</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -737,7 +696,7 @@ hexo g -d</code></pre>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2020/10/13/hello-world/">
@@ -771,7 +730,6 @@ hexo g -d</code></pre>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
