@@ -380,8 +380,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#一.云服务器配置Git</p>
-<p>1.安装依赖库</p>
+                <!-- toc -->
+<p>###一.云服务器配置Git###<br>1.安装依赖库</p>
 <pre><code>yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</code></pre>
 <p>2.安装编译工具</p>
 <pre><code>yum install gcc perl-ExtUtils-MakeMaker package</code></pre>
@@ -416,7 +416,8 @@ mkdir ~/.ssh
 vim ~/.ssh/authorized_keys</code></pre>
 <p>13.本地测试</p>
 <pre><code>ssh -v qin@服务器ip</code></pre>
-<p>#云服务器网站配置<br>1.创建网站目录并且设置权限</p>
+<!-- toc -->
+<p>###云服务器网站配置###<br>1.创建网站目录并且设置权限</p>
 <pre><code>su root
 mkdir /home/hexo
 chown fuchen:fuchen -R /home/hexo</code></pre>
