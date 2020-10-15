@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="云kali使用的小细节, secqin">
+    <meta name="keywords" content="docker入门, secqin">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>云kali使用的小细节 | secqin</title>
+    <title>docker入门 | secqin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -203,12 +203,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">云kali使用的小细节</h1>
+                    <h1 class="description center-align post-title">docker入门</h1>
                 </div>
             </div>
         </div>
@@ -329,27 +329,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/kali/">
-                                <span class="chip bg-color">kali</span>
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/linux/" class="post-category">
-                                linux
-                            </a>
-                        
-                            <a href="/categories/linux/kali/" class="post-category">
-                                kali
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -367,14 +354,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    104
+                    677
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -384,20 +371,54 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!-- kali默认用户权限提升 -->
+                <!-- toc -->
 
-<h3 id="kali默认用户权限提升"><a href="#kali默认用户权限提升" class="headerlink" title="kali默认用户权限提升"></a>kali默认用户权限提升</h3><p>2020年以后版本kali默认用户是普通用户,每次操作都要sudo太麻烦<br>1.先切换为超级用户</p>
-<pre><code>sudo -s</code></pre>
-<p>2.id命令看我们现在的id</p>
-<pre><code>id</code></pre>
-<p>3.开始修改账号权限</p>
-<pre><code>vim /etc/passwd</code></pre>
-<p>可以看到root用户ID是0 我们需要找到自己的用户名位置并且修改ID位0.</p>
-<p>重启</p>
-<pre><code>reboot</code></pre>
-<!-- 关闭锁屏和休眠 -->
+<h3 id="容器三大基本概念"><a href="#容器三大基本概念" class="headerlink" title="容器三大基本概念"></a>容器三大基本概念</h3><p>镜像 image<br>容器 container<br>仓库 repository<br>docker整个生命周期就是这三个概念。</p>
+<!-- toc -->
 
-<h3 id="关闭锁屏和休眠"><a href="#关闭锁屏和休眠" class="headerlink" title="关闭锁屏和休眠"></a>关闭锁屏和休眠</h3><p><img src="https://gitee.com/secqin/tu/raw/master/img/3.png"></p>
+<h3 id="docker容器-container"><a href="#docker容器-container" class="headerlink" title="docker容器(container)"></a>docker容器(container)</h3><p>image和container的关系，就像面向对象程序设计中的 类和实例一样，镜像是静态的定义（class），容器是镜像运行时的实体（object）。<br>容器可以被创建、启动、停止、删除、暂停<br>Docker利用容器来运行应用。</p>
+<p>容器是从镜像创建的运行实例。它可以被启动、开始、停止、删除。每个容器都是相互隔离的，保证安全的平台。</p>
+<p>可以把容器看做是一个简易版的Linux环境（包括root用户权限、进程空间、用户空间和网络空间等）和运行在其中的应用程序。</p>
+<p>注意：镜像是只读的，容器在启动的时候创建一层可写层作为最上层。</p>
+<!-- toc -->
+
+<h3 id="docker仓库-repository"><a href="#docker仓库-repository" class="headerlink" title="docker仓库(repository)"></a>docker仓库(repository)</h3><p>仓库是集中存放镜像文件的场所。有时候把仓库和仓库注册服务器（Registry）混为一谈，并不严格区分。实际上，仓库注册服务器上往往存放着多个仓库，每个仓库中又包含了多个镜像，每个镜像有不同的标签(tag)。</p>
+<p>仓库分为公开仓库(Public)和私有仓库(Private)两种形式。</p>
+<p>最大的公开仓库是Docker Hub，存放了数量庞大的镜像供用户下载。国内的公开仓库包括Docker Pool等，可以提供大陆用户更稳定快读的访问。</p>
+<p>当用户创建了自己的镜像之后就可以使用push命令将它上传到公有或者私有仓库，这样下载在另外一台机器上使用这个镜像时候，只需需要从仓库上pull下来就可以了。</p>
+<p>注意：Docker仓库的概念跟Git类似，注册服务器可以理解为GitHub这样的托管服务。</p>
+<!-- toc -->
+
+<h3 id="CentOS安装docker"><a href="#CentOS安装docker" class="headerlink" title="CentOS安装docker"></a>CentOS安装docker</h3><p>1.卸载旧版本</p>
+<pre><code>sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine</code></pre>
+<p>2.设置存储库</p>
+<pre><code>sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo</code></pre>
+<p>3.安装docker社区版</p>
+<pre><code>sudo yum install docker-ce</code></pre>
+<p>4.启动关闭docker</p>
+<pre><code>systemctl start docker</code></pre>
+<!-- toc -->
+
+<h3 id="docker版本"><a href="#docker版本" class="headerlink" title="docker版本"></a>docker版本</h3><p>Docker 是一个开源的商业产品，有两个版本：社区版（Community Edition，缩写为 CE）和企业版（Enterprise Edition，缩写为 EE）。<br>企业版包含了一些收费服务，个人开发者一般用不到。本文的介绍都针对社区版。</p>
+<!-- toc -->
+
+<h3 id="Docker镜像加速器"><a href="#Docker镜像加速器" class="headerlink" title="Docker镜像加速器"></a>Docker镜像加速器</h3><p><a target="_blank" rel="noopener" href="https://www.daocloud.io/mirror#accelerator-doc">https://www.daocloud.io/mirror#accelerator-doc</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pyyu/p/6925606.html">https://www.cnblogs.com/pyyu/p/6925606.html</a><br>一条命令加速<br>curl -sSL <a target="_blank" rel="noopener" href="https://get.daocloud.io/daotools/set_mirror.sh">https://get.daocloud.io/daotools/set_mirror.sh</a> | sh -s <a target="_blank" rel="noopener" href="http://95822026.m.daocloud.io/">http://95822026.m.daocloud.io</a></p>
 
             </div>
             <hr/>
@@ -423,7 +444,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.secqin.top/2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/">http://www.secqin.top/2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/</a>
+                    <a href="http://www.secqin.top/2020/10/15/docker-ru-men/">http://www.secqin.top/2020/10/15/docker-ru-men/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -461,8 +482,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/kali/">
-                                    <span class="chip bg-color">kali</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
                                 </a>
                             
                         </div>
@@ -630,9 +651,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/10/15/docker-ru-men/">
                     <div class="card-image">
@@ -650,9 +672,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -661,6 +683,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -679,13 +702,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/15/yun-kali-pei-zhi-vnc/">
+                <a href="/2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="云kali配置vnc">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="云kali使用的小细节">
                         
-                        <span class="card-title">云kali配置vnc</span>
+                        <span class="card-title">云kali使用的小细节</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -706,16 +729,16 @@
                                     linux
                                 </a>
                             
+                            <a href="/categories/linux/kali/" class="post-category">
+                                    kali
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                        <span class="chip bg-color">服务器</span>
-                    </a>
                     
                     <a href="/tags/kali/">
                         <span class="chip bg-color">kali</span>
