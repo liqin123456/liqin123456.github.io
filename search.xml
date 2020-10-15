@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>云kali配置vnc</title>
+      <link href="2020/10/15/yun-kali-pei-zhi-vnc/"/>
+      <url>2020/10/15/yun-kali-pei-zhi-vnc/</url>
+      
+        <content type="html"><![CDATA[<!-- toc --> <p>###VNC安装过程###<br>首先安装”x11vnc”工具</p><pre><code>apt install x11vnc -y</code></pre><p>设置VNC密码</p><pre><code>x11vnc -storepasswd 123456 /etc/x11vnc.pass</code></pre><p>参数说明：<br>-storepasswd：保存一个新的密码<br>123456：这个是密码<br><strong>接下来是关键设置</strong><br>vim新建一个x11vnc.service文件</p><pre><code>vim /lib/systemd/system/x11vnc.service</code></pre><p>填入以下内容</p><pre><code>[Unit]Description=Start x11vnc at startupAfter=multi-user.target[Service]Type=simpleExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pass -rfbport 5900 -shared[Install]WantedBy=multi-user.target</code></pre><p>保存</p><p>配置vnc开机自启动</p><pre><code>systemctl enable x11vnc.service</code></pre><p>重启</p><pre><code>reboot</code></pre><p>看一下5900端口是否被监听</p><pre><code>netstat -tunlp</code></pre><p>完成!!!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kali </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>kali部署在阿里云上</title>
       <link href="2020/10/15/kali-bu-shu-zai-a-li-yun-shang/"/>
       <url>2020/10/15/kali-bu-shu-zai-a-li-yun-shang/</url>
