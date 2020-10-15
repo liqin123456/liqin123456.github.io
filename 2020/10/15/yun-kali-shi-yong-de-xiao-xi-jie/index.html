@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="云kali配置vnc, secqin">
+    <meta name="keywords" content="云kali使用的小细节, secqin">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>云kali配置vnc | secqin</title>
+    <title>云kali使用的小细节 | secqin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -203,12 +203,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">云kali配置vnc</h1>
+                    <h1 class="description center-align post-title">云kali使用的小细节</h1>
                 </div>
             </div>
         </div>
@@ -329,10 +329,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                <span class="chip bg-color">服务器</span>
-                            </a>
-                        
                             <a href="/tags/kali/">
                                 <span class="chip bg-color">kali</span>
                             </a>
@@ -347,6 +343,10 @@
                         
                             <a href="/categories/linux/" class="post-category">
                                 linux
+                            </a>
+                        
+                            <a href="/categories/linux/kali/" class="post-category">
+                                kali
                             </a>
                         
                     </div>
@@ -367,7 +367,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    141
+                    104
                 </div>
                 
 
@@ -384,31 +384,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!-- toc --> 
+                <!-- kali默认用户权限提升 -->
 
-<p>###VNC安装过程###<br>首先安装”x11vnc”工具</p>
-<pre><code>apt install x11vnc -y</code></pre>
-<p>设置VNC密码</p>
-<pre><code>x11vnc -storepasswd 123456 /etc/x11vnc.pass</code></pre>
-<p>参数说明：<br>-storepasswd：保存一个新的密码<br>123456：这个是密码<br><strong>接下来是关键设置</strong><br>vim新建一个x11vnc.service文件</p>
-<pre><code>vim /lib/systemd/system/x11vnc.service</code></pre>
-<p>填入以下内容</p>
-<pre><code>[Unit]
-Description=Start x11vnc at startup
-After=multi-user.target
-[Service]
-Type=simple
-ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pass -rfbport 5900 -shared
-[Install]
-WantedBy=multi-user.target</code></pre>
-<p>保存</p>
-<p>配置vnc开机自启动</p>
-<pre><code>systemctl enable x11vnc.service</code></pre>
+<h3 id="kali默认用户权限提升"><a href="#kali默认用户权限提升" class="headerlink" title="kali默认用户权限提升"></a>kali默认用户权限提升</h3><p>2020年以后版本kali默认用户是普通用户,每次操作都要sudo太麻烦<br>1.先切换为超级用户</p>
+<pre><code>sudo -s</code></pre>
+<p>2.id命令看我们现在的id</p>
+<pre><code>id</code></pre>
+<p>3.开始修改账号权限</p>
+<pre><code>vim /etc/passwd</code></pre>
+<p>可以看到root用户ID是0 我们需要找到自己的用户名位置并且修改ID位0.</p>
 <p>重启</p>
 <pre><code>reboot</code></pre>
-<p>看一下5900端口是否被监听</p>
-<pre><code>netstat -tunlp</code></pre>
-<p>完成!!!</p>
+<!-- 关闭锁屏和休眠 -->
+
+<h3 id="关闭锁屏和休眠"><a href="#关闭锁屏和休眠" class="headerlink" title="关闭锁屏和休眠"></a>关闭锁屏和休眠</h3><p><img src="https://gitee.com/secqin/tu/raw/master/img/3.png"></p>
 
             </div>
             <hr/>
@@ -434,7 +423,7 @@ WantedBy=multi-user.target</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.secqin.top/2020/10/15/yun-kali-pei-zhi-vnc/">http://www.secqin.top/2020/10/15/yun-kali-pei-zhi-vnc/</a>
+                    <a href="http://www.secqin.top/2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/">http://www.secqin.top/2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -471,10 +460,6 @@ WantedBy=multi-user.target</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                    <span class="chip bg-color">服务器</span>
-                                </a>
                             
                                 <a href="/tags/kali/">
                                     <span class="chip bg-color">kali</span>
@@ -645,9 +630,10 @@ WantedBy=multi-user.target</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/">
                     <div class="card-image">
@@ -665,9 +651,9 @@ WantedBy=multi-user.target</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -684,6 +670,7 @@ WantedBy=multi-user.target</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -702,13 +689,13 @@ WantedBy=multi-user.target</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/15/kali-bu-shu-zai-a-li-yun-shang/">
+                <a href="/2020/10/15/yun-kali-pei-zhi-vnc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="kali部署在阿里云上">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="云kali配置vnc">
                         
-                        <span class="card-title">kali部署在阿里云上</span>
+                        <span class="card-title">云kali配置vnc</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
