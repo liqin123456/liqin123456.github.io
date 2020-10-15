@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>kali部署在阿里云上</title>
+      <link href="2020/10/15/kali-bu-shu-zai-a-li-yun-shang/"/>
+      <url>2020/10/15/kali-bu-shu-zai-a-li-yun-shang/</url>
+      
+        <content type="html"><![CDATA[<!-- toc --><h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><p>1.一台云服务器(我是centos7.6)<br>2.一块系统盘之外的盘</p><!-- toc --><h3 id="下载kali镜像"><a href="#下载kali镜像" class="headerlink" title="下载kali镜像"></a>下载kali镜像</h3><pre><code>wget  http://mirrors.163.com/kali-images/kali-2020.3/kali-linux-2020.3-installer-amd64.iso```下载系统镜像到根目录下面。&lt;!-- toc --&gt;### 操作centos ###挂载好我们添加的数据盘之后，首先执行一下```fdisk -l```看一下磁盘的情况：在这里我将把镜像写入vdb1这块数据盘，请确保里面没有需要的数据了，所以更加建议创建一个临时的云硬盘来做这件事情。Linux 下写 ISO 是很简单的，用dd就可以了，非 root 的情况下别忘了sudo哦。(写入自己另外加的盘)</code></pre><p>[root@VM_110_228_centos ~]# dd if=kali-linux-2019.2-amd64.iso of=/dev/vdb<br>3942400+0 records in<br>3942400+0 records out<br>2018508800 bytes (2.0 GB) copied, 53.312 s, 37.9 MB/s</p><pre><code>这需要等待十几分钟。我的这台 CVM 上的vdb是服务器自带的硬盘接下来我们需要把安装程序跑起来，途径也是多样的，我选择直接操作 GRUB 2 的命令行。不过，先调整一下超时时间来避免来不及操作。编辑/etc/default/grub这个文件</code></pre><p>vim /etc/default/grub</p><pre><code>将GRUB_TIMEOUT调得足够长，例如 60 秒。然后运行</code></pre><p>grub2-mkconfig -o /boot/grub2/grub.cfg</p><pre><code>写入配置。重启</code></pre><p>reboot</p><pre><code>&lt;!-- toc --&gt;### 重启后的kali配置 ###进入网页VNC若之前配置无误，现在应该正处于 GRUB 菜单此时按c键进入命令行模式，来手动引导现在的发行版基本都是使用 GRUB 2 了，如果还是 GRUB 的话要把下面的set root=(hd1)改成root (hd1)。</code></pre><p>grub&gt; set root=(hd1)<br>grub&gt; chainloader +1<br>grub&gt; boot</p><p>```<br>在这里需要注意一下，hd1对应的是我的vdb。你可以在 GRUB 命令行中运行ls看看有哪些磁盘设备，不要选错了。boot之后就立马进入了 kali的安装界面，我们选择 install kali</p><p>kali会检测安装安装光盘，这时候我们选择手动探测加载光盘，然后我们选 none</p><p>这个时候会出错我们输入 /dev/vdb1 这一步很重要，这就是我们前面挂载的临时硬盘</p><p>然后回车后就可以接着安装，磁盘分区的位置我们选我们的系统盘。</p><p>安装grub启动器也是安装到第一个磁盘</p><p>成功后可以在web控制台看到kali的界面了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> kali </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nginx配置ssl</title>
       <link href="2020/10/14/nginx-pei-zhi-ssl/"/>
       <url>2020/10/14/nginx-pei-zhi-ssl/</url>
