@@ -354,14 +354,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    677
+                    986
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -419,6 +419,29 @@ sudo yum-config-manager \
 
 <h3 id="Docker镜像加速器"><a href="#Docker镜像加速器" class="headerlink" title="Docker镜像加速器"></a>Docker镜像加速器</h3><p><a target="_blank" rel="noopener" href="https://www.daocloud.io/mirror#accelerator-doc">https://www.daocloud.io/mirror#accelerator-doc</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pyyu/p/6925606.html">https://www.cnblogs.com/pyyu/p/6925606.html</a><br>一条命令加速<br>curl -sSL <a target="_blank" rel="noopener" href="https://get.daocloud.io/daotools/set_mirror.sh">https://get.daocloud.io/daotools/set_mirror.sh</a> | sh -s <a target="_blank" rel="noopener" href="http://95822026.m.daocloud.io/">http://95822026.m.daocloud.io</a></p>
+<!-- toc -->
+
+<h3 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h3><pre><code>docker images #看有哪些镜像
+docker search centos #搜索镜像
+docker pull centos #下载镜像
+docker run -it centos #启动一个容器
+exit #回到宿主机里面
+docker ps #看容器记录,后台有进程运行的容器(exit就看不到了)
+docker ps -a #看所有容器记录(包括退出了的)
+docker rm 容器id的前三位
+docker run centos#直接运行centos镜像,会生成容器记录,但是无终端,(-it可以进入终端)
+ps -ef(在容器里面执行,看容器里面的进程)
+docker rum -d centos /bin/sh -c &quot;while true;do echo hello centos;sleep 1;done&quot;(-d 后台运行,一定会生成容器记录,docker ps 一定可以看到记录,应为后台有程序运行)
+docker logs -f 89c看容器记录(容器id前3位,-f不间断打印)
+docker stop 89c(停止正在运行的容器)
+docker start 89c(开启停止的容器)
+docker ps -aq(-a显示所有容器运行记录,q只显示id)
+docker rm `docker ps -aq`(删除所有容器id记录,反引号取命令的运行结果)
+docker images -aq(删除的是镜像)
+docker rmi `docker images -aq`(删除所有镜像)</code></pre>
+<!-- toc -->
+
+<h3 id="导出-入镜像"><a href="#导出-入镜像" class="headerlink" title="导出/入镜像"></a>导出/入镜像</h3><pre><code>docker save centos &gt; win目录/centos.tar.gz</code></pre>
 
             </div>
             <hr/>
@@ -947,7 +970,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.7k</span>&nbsp;字
+                class="white-color">3k</span>&nbsp;字
             
             
             
