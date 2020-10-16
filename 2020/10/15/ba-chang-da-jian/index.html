@@ -358,7 +358,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    494
+                    521
                 </div>
                 
 
@@ -500,7 +500,13 @@ docker-compose stop #停止容器</code></pre>
 <p><strong>2.第一次搭建DVWA，在苹果系统下的safari浏览器下无法初始化数据库，并提示如下：</strong></p>
 <pre><code>CSRF token is incorrect</code></pre>
 <p><strong>解决：</strong> 使用苹果系统下的其他浏览器即可，比如Chrome。</p>
-<h2 id="0x4-声明"><a href="#0x4-声明" class="headerlink" title="0x4 声明"></a>0x4 声明</h2><p>该项目只是收集了当下比较流行的漏洞学习平台，若有侵权，请联系我！同时欢迎大家提交更多有意思的漏洞学习平台，让我们一起把它们放到docker上，方便更多人的工作和学习！</p>
+<h2 id="0x04-声明"><a href="#0x04-声明" class="headerlink" title="0x04 声明"></a>0x04 声明</h2><p>该项目只是收集了当下比较流行的漏洞学习平台，若有侵权，请联系我！同时欢迎大家提交更多有意思的漏洞学习平台，让我们一起把它们放到docker上，方便更多人的工作和学习！</p>
+<h2 id="0x05-使用时-我碰到的问题"><a href="#0x05-使用时-我碰到的问题" class="headerlink" title="0x05 使用时,我碰到的问题"></a>0x05 使用时,我碰到的问题</h2><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-16_18-53-25.jpg"></p>
+<pre><code>vim /etc/profile</code></pre>
+<p>结尾添加上</p>
+<pre><code>export COMPOSE_HTTP_TIMEOUT=500
+export DOCKER_CLIENT_TIMEOUT=500</code></pre>
+<pre><code>source /etc/profile</code></pre>
 
             </div>
             <hr/>
@@ -1021,7 +1027,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3k</span>&nbsp;字
+                class="white-color">3.1k</span>&nbsp;字
             
             
             
