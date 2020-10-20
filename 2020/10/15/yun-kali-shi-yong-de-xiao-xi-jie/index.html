@@ -203,7 +203,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '123456';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -397,7 +397,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!-- kali默认用户权限提升 -->
+                <hr>
+<!-- kali默认用户权限提升 -->
 
 <h3 id="kali默认用户权限提升"><a href="#kali默认用户权限提升" class="headerlink" title="kali默认用户权限提升"></a>kali默认用户权限提升</h3><p>2020年以后版本kali默认用户是普通用户,每次操作都要sudo太麻烦<br>1.先切换为超级用户</p>
 <pre><code>sudo -s</code></pre>

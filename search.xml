@@ -86,7 +86,7 @@
       <link href="2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/"/>
       <url>2020/10/15/yun-kali-shi-yong-de-xiao-xi-jie/</url>
       
-        <content type="html"><![CDATA[<!-- kali默认用户权限提升 --><h3 id="kali默认用户权限提升"><a href="#kali默认用户权限提升" class="headerlink" title="kali默认用户权限提升"></a>kali默认用户权限提升</h3><p>2020年以后版本kali默认用户是普通用户,每次操作都要sudo太麻烦<br>1.先切换为超级用户</p><pre><code>sudo -s</code></pre><p>2.id命令看我们现在的id</p><pre><code>id</code></pre><p>3.开始修改账号权限</p><pre><code>vim /etc/passwd</code></pre><p>可以看到root用户ID是0 我们需要找到自己的用户名位置并且修改ID位0.</p><p>重启</p><pre><code>reboot</code></pre><!-- 关闭锁屏和休眠 --><h3 id="关闭锁屏和休眠"><a href="#关闭锁屏和休眠" class="headerlink" title="关闭锁屏和休眠"></a>关闭锁屏和休眠</h3><p><img src="https://gitee.com/secqin/tu/raw/master/img/3.png"></p>]]></content>
+        <content type="html"><![CDATA[<hr><!-- kali默认用户权限提升 --><h3 id="kali默认用户权限提升"><a href="#kali默认用户权限提升" class="headerlink" title="kali默认用户权限提升"></a>kali默认用户权限提升</h3><p>2020年以后版本kali默认用户是普通用户,每次操作都要sudo太麻烦<br>1.先切换为超级用户</p><pre><code>sudo -s</code></pre><p>2.id命令看我们现在的id</p><pre><code>id</code></pre><p>3.开始修改账号权限</p><pre><code>vim /etc/passwd</code></pre><p>可以看到root用户ID是0 我们需要找到自己的用户名位置并且修改ID位0.</p><p>重启</p><pre><code>reboot</code></pre><!-- 关闭锁屏和休眠 --><h3 id="关闭锁屏和休眠"><a href="#关闭锁屏和休眠" class="headerlink" title="关闭锁屏和休眠"></a>关闭锁屏和休眠</h3><p><img src="https://gitee.com/secqin/tu/raw/master/img/3.png"></p>]]></content>
       
       
       <categories>
