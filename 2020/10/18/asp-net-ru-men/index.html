@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="kali部署在阿里云上, secqin">
+    <meta name="keywords" content="ASP.NET入门, secqin">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>kali部署在阿里云上 | secqin</title>
+    <title>ASP.NET入门 | secqin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -203,7 +203,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '123456';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -216,12 +216,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">kali部署在阿里云上</h1>
+                    <h1 class="description center-align post-title">ASP.NET入门</h1>
                 </div>
             </div>
         </div>
@@ -342,27 +342,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                <span class="chip bg-color">服务器</span>
-                            </a>
-                        
-                            <a href="/tags/kali/">
-                                <span class="chip bg-color">kali</span>
+                            <a href="/tags/%E5%BC%80%E5%8F%91/">
+                                <span class="chip bg-color">开发</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/linux/" class="post-category">
-                                linux
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -371,7 +358,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-15
+                    2020-10-18
                 </div>
                 
 
@@ -380,14 +367,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    610
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -399,41 +386,7 @@
             <div id="articleContent">
                 <!-- toc -->
 
-<h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><p>1.一台云服务器(我是centos7.6)<br>2.一块系统盘之外的盘</p>
-<!-- toc -->
-
-<h3 id="下载kali镜像"><a href="#下载kali镜像" class="headerlink" title="下载kali镜像"></a>下载kali镜像</h3><pre><code>wget  http://mirrors.163.com/kali-images/kali-2020.3/kali-linux-2020.3-installer-amd64.iso</code></pre>
-<p>下载系统镜像到根目录下面。</p>
-<!-- toc -->
-
-<h3 id="操作centos"><a href="#操作centos" class="headerlink" title="操作centos"></a>操作centos</h3><p>挂载好我们添加的数据盘之后，首先执行一下</p>
-<pre><code>fdisk -l</code></pre>
-<p>看一下磁盘的情况：</p>
-<p>在这里我将把镜像写入vdb1这块数据盘，请确保里面没有需要的数据了，所以更加建议创建一个临时的云硬盘来做这件事情。Linux 下写 ISO 是很简单的，用dd就可以了，非 root 的情况下别忘了sudo哦。(写入自己另外加的盘)</p>
-<pre><code>[root@VM_110_228_centos ~]# dd if=kali-linux-2019.2-amd64.iso of=/dev/vdb
-3942400+0 records in
-3942400+0 records out
-2018508800 bytes (2.0 GB) copied, 53.312 s, 37.9 MB/s</code></pre>
-<p>这需要等待十几分钟。我的这台 CVM 上的vdb是服务器自带的硬盘</p>
-<p>接下来我们需要把安装程序跑起来，途径也是多样的，我选择直接操作 GRUB 2 的命令行。不过，先调整一下超时时间来避免来不及操作。编辑/etc/default/grub这个文件</p>
-<pre><code>vim /etc/default/grub</code></pre>
-<p>将GRUB_TIMEOUT调得足够长，例如 60 秒。然后运行</p>
-<pre><code>grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre>
-<p>写入配置。<br>重启</p>
-<pre><code>reboot</code></pre>
-<!-- toc -->
-
-<h3 id="重启后的kali配置"><a href="#重启后的kali配置" class="headerlink" title="重启后的kali配置"></a>重启后的kali配置</h3><p>进入网页VNC<br>若之前配置无误，现在应该正处于 GRUB 菜单<br>此时按c键进入命令行模式，来手动引导<br>现在的发行版基本都是使用 GRUB 2 了，如果还是 GRUB 的话要把下面的set root=(hd1)改成root (hd1)。</p>
-<pre><code>grub&gt; set root=(hd1)
-grub&gt; chainloader +1
-grub&gt; boot</code></pre>
-<p>在这里需要注意一下，hd1对应的是我的vdb。你可以在 GRUB 命令行中运行ls看看有哪些磁盘设备，不要选错了。boot之后就立马进入了 kali的安装界面，我们选择 install kali</p>
-<p>kali会检测安装安装光盘，这时候我们选择手动探测加载光盘，然后我们选 none</p>
-<p>这个时候会出错我们输入 /dev/vdb1 这一步很重要，这就是我们前面挂载的临时硬盘</p>
-<p>然后回车后就可以接着安装，磁盘分区的位置我们选我们的系统盘。</p>
-<p>安装grub启动器也是安装到第一个磁盘</p>
-<p>成功后可以在web控制台看到kali的界面了</p>
-
+<h3 id=""><a href="#" class="headerlink" title="###"></a>###</h3>
             </div>
             <hr/>
 
@@ -458,7 +411,7 @@ grub&gt; boot</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.secqin.top/2020/10/15/kali-bu-shu-zai-a-li-yun-shang/">http://www.secqin.top/2020/10/15/kali-bu-shu-zai-a-li-yun-shang/</a>
+                    <a href="http://www.secqin.top/2020/10/18/asp-net-ru-men/">http://www.secqin.top/2020/10/18/asp-net-ru-men/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -496,12 +449,8 @@ grub&gt; boot</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                    <span class="chip bg-color">服务器</span>
-                                </a>
-                            
-                                <a href="/tags/kali/">
-                                    <span class="chip bg-color">kali</span>
+                                <a href="/tags/%E5%BC%80%E5%8F%91/">
+                                    <span class="chip bg-color">开发</span>
                                 </a>
                             
                         </div>
@@ -543,17 +492,18 @@ grub&gt; boot</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/10/15/yun-kali-pei-zhi-vnc/">
+                <a href="/2020/10/18/asp-net-ru-men/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="云kali配置vnc">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ASP.NET入门">
                         
-                        <span class="card-title">云kali配置vnc</span>
+                        <span class="card-title">ASP.NET入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -563,30 +513,23 @@ grub&gt; boot</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            secqin
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                        <span class="chip bg-color">服务器</span>
-                    </a>
-                    
-                    <a href="/tags/kali/">
-                        <span class="chip bg-color">kali</span>
+                    <a href="/tags/%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">开发</span>
                     </a>
                     
                 </div>
@@ -600,13 +543,13 @@ grub&gt; boot</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/14/nginx-pei-zhi-ssl/">
+                <a href="/2020/10/16/centos-an-zhuang-python/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="nginx配置ssl">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="centos安装python">
                         
-                        <span class="card-title">nginx配置ssl</span>
+                        <span class="card-title">centos安装python</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -617,16 +560,12 @@ grub&gt; boot</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            secqin
                             
                         </span>
                     </div>
@@ -636,10 +575,6 @@ grub&gt; boot</code></pre>
                     
                     <a href="/tags/linux/">
                         <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                        <span class="chip bg-color">服务器</span>
                     </a>
                     
                 </div>
