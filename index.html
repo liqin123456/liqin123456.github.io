@@ -226,7 +226,7 @@
     (function() {
         let pwd = 'cf5198b193ce0bb4c2fa73fc3f6a7991ede4b81c26bc86b71f5d9df7f0e12396';
         if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本网站密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
                 location.href = '/';
             }
