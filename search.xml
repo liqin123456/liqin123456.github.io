@@ -8,7 +8,7 @@
       <link href="2020/10/26/vue-kai-shi-shi-yong/"/>
       <url>2020/10/26/vue-kai-shi-shi-yong/</url>
       
-        <content type="html"><![CDATA[<h3 id="vue安装使用"><a href="#vue安装使用" class="headerlink" title="vue安装使用"></a>vue安装使用</h3><p>引入</p><pre><code>&lt;head&gt;&lt;script src="./static/vue.min.js"&gt;&lt;/script&gt;&lt;/head&gt;</code></pre><!-- toc --><h3 id="Hello-Vue例子"><a href="#Hello-Vue例子" class="headerlink" title="Hello Vue例子"></a>Hello Vue例子</h3><pre><code>div id="app"&gt;{{ greeting }}&lt;/div&gt;    &lt;script&gt;        // 数据模板引擎        new Vue({            el: "#app",            data: {                greeting: "Hello Vue",            }        })    &lt;/script&gt;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-vue安装使用"><a href="#1-vue安装使用" class="headerlink" title="1.vue安装使用"></a>1.vue安装使用</h3><p>引入</p><pre><code>&lt;head&gt;&lt;script src="./static/vue.min.js"&gt;&lt;/script&gt;&lt;/head&gt;</code></pre><!-- toc --><h3 id="2-Hello-Vue例子"><a href="#2-Hello-Vue例子" class="headerlink" title="2.Hello Vue例子"></a>2.Hello Vue例子</h3><pre><code>div id="app"&gt;{{ greeting }}&lt;/div&gt;    &lt;script&gt;        // 数据模板引擎        new Vue({            el: "#app",            data: {                greeting: "Hello Vue",            }        })    &lt;/script&gt;</code></pre><!-- toc --><h3 id="2-Hello-Vue例子-原生js"><a href="#2-Hello-Vue例子-原生js" class="headerlink" title="2.Hello Vue例子(原生js)"></a>2.Hello Vue例子(原生js)</h3><pre><code>&lt;!-- toc --&gt;### 2.Hello Vue例子 ###</code></pre>]]></content>
       
       
       <categories>
