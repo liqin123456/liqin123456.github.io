@@ -400,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    180
+                    307
                 </div>
                 
 
@@ -464,6 +464,44 @@ oDiv.innerText = "Hello World";</code></pre>
             el: "#app",
             data: {
                 greeting: "&lt;h1&gt;Hello Vue&lt;/h1&gt;",
+            }
+        })
+    &lt;/script&gt;</code></pre>
+<!-- toc -->
+
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><pre><code>&lt;div id="app"&gt;
+        &lt;ul&gt;
+            &lt;li v-for="aihao in funingbo"&gt;{{ aihao }}&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;ul&gt;
+            &lt;li v-for="student in students"&gt;姓名：{{ student.name}}, 年龄：{{ student.age }}, 爱好: {{ student.hobby }}&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
+        new Vue({
+            el: "#app",
+            data: {
+                funingbo: ["披黄袍", "吃鸡", "大鱼大肉", "骑士"],
+                students: [
+                    {
+                        name: "张敏聪",
+                        age: 28,
+                        hobby: 'girls',
+                    },
+                    {
+                        name: "徐卫星",
+                        age: 35,
+                        hobby: 'oldboy',
+                    },
+                    {
+                        name: "赵岩",
+                        age: 21,
+                        hobby: 'sao'
+                    }
+                ]
             }
         })
     &lt;/script&gt;</code></pre>
@@ -1133,7 +1171,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.3k</span>&nbsp;字
+                class="white-color">3.4k</span>&nbsp;字
             
             
             
