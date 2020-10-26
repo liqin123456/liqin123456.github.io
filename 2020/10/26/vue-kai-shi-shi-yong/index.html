@@ -400,14 +400,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    502
+                    594
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -546,6 +546,29 @@ oDiv.innerText = "Hello World";</code></pre>
             }
         })
     &lt;/script&gt;</code></pre>
+<ul>
+<li><p>切换性能<br>v-show的切换性能高一些，display: none<br>v-if的切换是通过append</p>
+</li>
+<li><p>加载性能<br>v-show的慢<br>v-if快</p>
+<!-- toc -->
+
+</li>
+</ul>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><pre><code>&lt;div id="app"&gt;
+        &lt;a v-bind:href="jingdong" &gt;去京东&lt;/a&gt;
+
+        &lt;!--&lt;div :class="{ active: isActive }"&gt;&lt;/div&gt;--&gt;
+        &lt;div :class="[ isActive ]"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                jingdong: "https://www.jd.com",
+                isActive: 'active',
+            }
+        })</code></pre>
 
             </div>
             <hr/>
@@ -1212,7 +1235,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.6k</span>&nbsp;字
+                class="white-color">3.7k</span>&nbsp;字
             
             
             
