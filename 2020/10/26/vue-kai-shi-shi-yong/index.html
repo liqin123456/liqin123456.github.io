@@ -400,14 +400,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    723
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -608,7 +608,151 @@ oDiv.innerText = "Hello World";</code></pre>
 <!-- toc -->
 
 <h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p>用户交互(双向数据绑定)</p>
-<pre><code></code></pre>
+<pre><code>&lt;div id="app"&gt;
+        &lt;input type="text" v-model="name"/&gt;
+
+        &lt;input type="checkbox" value="男" v-model="genders"/&gt;
+        &lt;input type="checkbox" value="女" v-model="genders"/&gt;
+
+        &lt;select v-model="girlfriends"&gt;
+            &lt;option&gt;康抻&lt;/option&gt;
+            &lt;option&gt;鞠莹莹&lt;/option&gt;
+            &lt;option&gt;嘉琪&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;textarea&gt;&lt;/textarea&gt;
+
+        &lt;hr&gt;
+        {{ name }}
+        {{ genders }}
+        {{ girlfriends }}
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                name: "juyingying",
+                genders: [],
+                girlfriends: []
+            },
+        })
+    &lt;/script&gt;</code></pre>
+<!-- toc -->
+
+<h3 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性(computed)"></a>计算属性(computed)</h3><pre><code>&lt;div id="app"&gt;
+        &lt;table border="1"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;学科&lt;/th&gt;
+                    &lt;th&gt;成绩&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Python&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model="python"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Vue&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model="vue"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Go&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model="go"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;总成绩&lt;/td&gt;
+                    &lt;td&gt;{{ sumScore }}&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;hr&gt;
+        {{ python }}
+        {{ vue }}
+        {{ go }}
+        {{ sumScore }}
+        {{ python1 }}
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                python: 88,
+                vue: 100,
+                go: 65
+            },
+            computed: {
+                sumScore: function () {
+                    console.log(1);
+                    return this.python + this.vue + this.go;
+                },
+            },
+            watch: {
+                python: function () {
+                    return this.python + 1;
+                }
+            }
+        })
+    &lt;/script&gt;</code></pre>
+<!-- toc -->
+
+<h3 id="侦听属性-computed"><a href="#侦听属性-computed" class="headerlink" title="侦听属性(computed)"></a>侦听属性(computed)</h3><pre><code>&lt;div id="app"&gt;
+        &lt;table border="1"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;学科&lt;/th&gt;
+                    &lt;th&gt;成绩&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Python&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model="python"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Vue&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model="vue"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Go&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model="go"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;总成绩&lt;/td&gt;
+                    &lt;td&gt;{{ sumScore }}&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;hr&gt;
+        {{ python }}
+        {{ vue }}
+        {{ go }}
+        {{ sumScore }}
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                python: 88,
+                vue: 100,
+                go: 65
+            },
+            computed: {
+                sumScore: function () {
+                    console.log(1);
+                    return this.python + this.vue + this.go;
+                },
+            },
+            watch: {
+                python: function () {
+                    return this.python + 1;
+                }
+            }
+        })
+    &lt;/script&gt;</code></pre>
 
             </div>
             <hr/>
@@ -1261,7 +1405,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.8k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             
