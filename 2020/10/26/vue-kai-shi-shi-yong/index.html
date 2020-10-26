@@ -400,14 +400,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    307
+                    443
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -502,6 +502,31 @@ oDiv.innerText = "Hello World";</code></pre>
                         hobby: 'sao'
                     }
                 ]
+            }
+        })
+    &lt;/script&gt;</code></pre>
+<!-- toc -->
+
+<h3 id="vue注释小问题"><a href="#vue注释小问题" class="headerlink" title="vue注释小问题"></a>vue注释小问题</h3><p>在pycharm使用ctrl+/注释的是但是一直出错,后来发现是注释的缘故应该用//,因为pycharm不认识.vue后缀</p>
+<!-- toc -->
+
+<h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><pre><code>&lt;div id="app"&gt;
+        &lt;div v-if="role == 'cainingning'"&gt;
+            &lt;h1&gt;欢迎美女光临~~~&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div v-else-if="role == 'juyingying'"&gt;
+            &lt;h1&gt;欢迎美女再次光临&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div v-else&gt;
+            &lt;h1&gt;gun&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        let vm = new Vue({ //vm.role=svnkj(可以修改值)
+            el: "#app",
+            data: {
+                role: "cainingning"
             }
         })
     &lt;/script&gt;</code></pre>
@@ -1171,7 +1196,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.4k</span>&nbsp;字
+                class="white-color">3.5k</span>&nbsp;字
             
             
             
