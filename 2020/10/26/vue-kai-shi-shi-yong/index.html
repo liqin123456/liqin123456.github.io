@@ -400,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    594
+                    608
                 </div>
                 
 
@@ -554,7 +554,14 @@ oDiv.innerText = "Hello World";</code></pre>
 
 </li>
 </ul>
-<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><pre><code>&lt;div id="app"&gt;
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><pre><code>&lt;style&gt;
+        .active {
+            width: 500px;
+            height: 500px;
+            background-color: lawngreen;
+        }
+    &lt;/style&gt;</code></pre>
+<pre><code>&lt;div id="app"&gt;
         &lt;a v-bind:href="jingdong" &gt;去京东&lt;/a&gt;
 
         &lt;!--&lt;div :class="{ active: isActive }"&gt;&lt;/div&gt;--&gt;
