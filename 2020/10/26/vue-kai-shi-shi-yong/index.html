@@ -400,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    620
+                    709
                 </div>
                 
 
@@ -577,6 +577,34 @@ oDiv.innerText = "Hello World";</code></pre>
                 isActive: 'active',
             }
         })</code></pre>
+<!-- toc -->
+
+<h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><pre><code>&lt;style&gt;
+        .active {
+            color: green;
+        }
+&lt;/style&gt;</code></pre>
+<pre><code>&lt;div id="app"&gt;                                                   
+    &lt;h1 :class="{ active: isActive }"&gt;闷骚哥&lt;/h1&gt;                   
+
+    &lt;!--&lt;button v-on:click="changeColor"&gt;点击让闷骚哥变绿&lt;/button&gt;--&gt;    
+    &lt;button @click="changeColor"&gt;点击让闷骚哥变绿&lt;/button&gt;               
+&lt;/div&gt;                                                           
+
+&lt;script&gt;                                                                                               
+    let vm = new Vue({                                           
+        el: "#app",                                              
+        data: {                                                  
+            isActive: false                                      
+        },                                                       
+        methods: {                                               
+            changeColor: function () {                           
+                this.isActive = !this.isActive;                  
+            },                                                   
+
+        }                                                        
+    })                                                           
+&lt;/script&gt;                                                        </code></pre>
 
             </div>
             <hr/>
@@ -1243,7 +1271,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.7k</span>&nbsp;字
+                class="white-color">3.8k</span>&nbsp;字
             
             
             
