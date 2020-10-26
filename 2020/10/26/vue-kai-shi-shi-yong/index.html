@@ -400,14 +400,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -698,7 +698,7 @@ oDiv.innerText = "Hello World";</code></pre>
     &lt;/script&gt;</code></pre>
 <!-- toc -->
 
-<h3 id="侦听属性-computed"><a href="#侦听属性-computed" class="headerlink" title="侦听属性(computed)"></a>侦听属性(computed)</h3><pre><code>&lt;div id="app"&gt;
+<h3 id="侦听属性-watch"><a href="#侦听属性-watch" class="headerlink" title="侦听属性(watch)"></a>侦听属性(watch)</h3><pre><code>&lt;div id="app"&gt;
         &lt;table border="1"&gt;
             &lt;thead&gt;
                 &lt;tr&gt;
@@ -733,6 +733,65 @@ oDiv.innerText = "Hello World";</code></pre>
     &lt;/div&gt;
 
     &lt;script&gt;
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                python: 88,
+                vue: 100,
+                go: 65
+            },
+            computed: {
+                sumScore: function () {
+                    console.log(1);
+                    return this.python + this.vue + this.go;
+                },
+            },
+            watch: {
+                python: function () {
+                    return this.python + 1;
+                }
+            }
+        })
+    &lt;/script&gt;</code></pre>
+<!-- toc -->
+
+<h3 id="指令修饰符"><a href="#指令修饰符" class="headerlink" title="指令修饰符"></a>指令修饰符</h3><pre><code>&lt;div id="app"&gt;
+        &lt;table border="1"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;学科&lt;/th&gt;
+                    &lt;th&gt;成绩&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Python&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model.number.lazy="python"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Vue&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model.lazy="vue"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Go&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" v-model.trim="go"/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;总成绩&lt;/td&gt;
+                    &lt;td&gt;{{ sumScore }}&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;hr&gt;
+        {{ python }}
+        {{ vue }}
+        {{ go }}
+        {{ sumScore }}
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
         let vm = new Vue({
             el: "#app",
             data: {
@@ -1405,7 +1464,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.3k</span>&nbsp;字
+                class="white-color">4.6k</span>&nbsp;字
             
             
             
