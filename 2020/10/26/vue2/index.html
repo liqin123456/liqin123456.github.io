@@ -408,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    224
+                    310
                 </div>
                 
 
@@ -457,6 +457,39 @@
 <li>有两种方式 1.在<div id="app">里面添加<global-component> 2.不添加,在Vue根中的template添加<global-component> (两种方式会在源代码中有区别)</global-component></global-component></div></li>
 </ul>
 <p>因为组件是可复用的 Vue 实例,所以它们与 new Vue 接收相同的选项，例如 data、computed、watch、methods 以及生命周期钩子等。仅有的例外是像 el这样根实例特有的选项。</p>
+<!-- toc -->
+
+<h3 id="组件复用"><a href="#组件复用" class="headerlink" title="组件复用"></a>组件复用</h3><pre><code>        &lt;global-component&gt;&lt;/global-component&gt;
+        &lt;global-component&gt;&lt;/global-component&gt;
+        &lt;global-component&gt;&lt;/global-component&gt;</code></pre>
+<!-- toc -->
+
+<h3 id="局部组件"><a href="#局部组件" class="headerlink" title="局部组件"></a>局部组件</h3><pre><code>&lt;div id="app"&gt;
+
+    &lt;/div&gt;
+
+        &lt;script&gt;
+        let Header = {
+            template:`
+                &lt;div class="header"&gt;
+                    &lt;h1&gt;{{ greeting }}&lt;/h1&gt;
+                &lt;/div&gt;
+            `,
+            data(){
+                return {
+                    greeting: 'hello world',
+                }
+            },
+        };
+
+        new Vue({
+            el: '#app',
+            template: `&lt;app-header&gt;&lt;/app-header&gt;`,
+            components: {
+                'app-header': Header,
+            }
+        })
+    &lt;/script&gt;</code></pre>
 
             </div>
             <hr/>
@@ -1127,7 +1160,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.8k</span>&nbsp;字
+                class="white-color">4.9k</span>&nbsp;字
             
             
             
