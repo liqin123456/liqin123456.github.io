@@ -408,9 +408,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!-- toc -->
-
-<h3 id="容器三大基本概念"><a href="#容器三大基本概念" class="headerlink" title="容器三大基本概念"></a>容器三大基本概念</h3><p>镜像 image<br>容器 container<br>仓库 repository<br>docker整个生命周期就是这三个概念。</p>
+                <h3 id="容器三大基本概念"><a href="#容器三大基本概念" class="headerlink" title="容器三大基本概念"></a>容器三大基本概念</h3><p>镜像 image<br>容器 container<br>仓库 repository<br>docker整个生命周期就是这三个概念。</p>
 <!-- toc -->
 
 <h3 id="docker容器-container"><a href="#docker容器-container" class="headerlink" title="docker容器(container)"></a>docker容器(container)</h3><p>image和container的关系，就像面向对象程序设计中的 类和实例一样，镜像是静态的定义（class），容器是镜像运行时的实体（object）。<br>容器可以被创建、启动、停止、删除、暂停<br>Docker利用容器来运行应用。</p>
@@ -468,7 +466,7 @@ docker ps -a #看所有容器记录(包括退出了的)
 docker rm 容器id的前三位
 docker run centos#直接运行centos镜像,会生成容器记录,但是无终端,(-it可以进入终端)
 ps -ef(在容器里面执行,看容器里面的进程)
-docker rum -d centos /bin/sh -c &quot;while true;do echo hello centos;sleep 1;done&quot;(-d 后台运行,一定会生成容器记录,docker ps 一定可以看到记录,应为后台有程序运行)
+docker rum -d centos /bin/sh -c "while true;do echo hello centos;sleep 1;done"(-d 后台运行,一定会生成容器记录,docker ps 一定可以看到记录,应为后台有程序运行)
 docker logs -f 89c看容器记录(容器id前3位,-f不间断打印)
 docker stop 89c(停止正在运行的容器)
 docker start 89c(开启停止的容器)
