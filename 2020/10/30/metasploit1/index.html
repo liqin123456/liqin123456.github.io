@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue组件, secqin">
+    <meta name="keywords" content="metasploit1, secqin">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue组件 | secqin</title>
+    <title>metasploit1 | secqin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +240,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue组件</h1>
+                    <h1 class="description center-align post-title">metasploit1</h1>
                 </div>
             </div>
         </div>
@@ -366,12 +366,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BC%80%E5%8F%91/">
-                                <span class="chip bg-color">开发</span>
+                            <a href="/tags/msf/">
+                                <span class="chip bg-color">msf</span>
                             </a>
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/%E5%86%85%E7%BD%91/">
+                                <span class="chip bg-color">内网</span>
                             </a>
                         
                     </div>
@@ -382,12 +382,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/vue/" class="post-category">
-                                vue
-                            </a>
-                        
-                            <a href="/categories/vue/%E5%BC%80%E5%8F%91/" class="post-category">
-                                开发
+                            <a href="/categories/msf/" class="post-category">
+                                msf
                             </a>
                         
                     </div>
@@ -399,7 +395,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-26
+                    2020-10-30
                 </div>
                 
 
@@ -408,7 +404,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    310
+                    0
                 </div>
                 
 
@@ -425,72 +421,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-Vue组件系统之全局组件的注册"><a href="#1-Vue组件系统之全局组件的注册" class="headerlink" title="1.Vue组件系统之全局组件的注册"></a>1.Vue组件系统之全局组件的注册</h3><pre><code>    &lt;div id="app"&gt;
-        &lt;!--&lt;global-component&gt;&lt;/global-component&gt;--&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        Vue.component("global-component", {
-            template: `&lt;div&gt;
-                    &lt;h3&gt;{{ wanrong }}&lt;/h3&gt;
-                    &lt;h2&gt;{{ wanrong }}&lt;/h2&gt;
-                &lt;/div&gt;
-            `,
-            data() {
-                return {
-                    wanrong: "Hello wanrong!",
-                }
-            }
-        }
-        );
-
-        new Vue({
-            el: "#app",
-            template: `&lt;global-component&gt;&lt;/global-component&gt;`
-        })
-    &lt;/script&gt;</code></pre>
-<!-- toc -->
-
-<h3 id="vue组件注意事项"><a href="#vue组件注意事项" class="headerlink" title="vue组件注意事项"></a>vue组件注意事项</h3><ul>
-<li>data必须是函数,有return值返回</li>
-<li>没有el属性</li>
-<li><div></div>标签必须加,不加会出一些问题,新手不用了解原因,加上就完了</li>
-<li>有两种方式 1.在<div id="app">里面添加<global-component> 2.不添加,在Vue根中的template添加<global-component> (两种方式会在源代码中有区别)</global-component></global-component></div></li>
-</ul>
-<p>因为组件是可复用的 Vue 实例,所以它们与 new Vue 接收相同的选项，例如 data、computed、watch、methods 以及生命周期钩子等。仅有的例外是像 el这样根实例特有的选项。</p>
-<!-- toc -->
-
-<h3 id="组件复用"><a href="#组件复用" class="headerlink" title="组件复用"></a>组件复用</h3><pre><code>        &lt;global-component&gt;&lt;/global-component&gt;
-        &lt;global-component&gt;&lt;/global-component&gt;
-        &lt;global-component&gt;&lt;/global-component&gt;</code></pre>
-<!-- toc -->
-
-<h3 id="局部组件"><a href="#局部组件" class="headerlink" title="局部组件"></a>局部组件</h3><pre><code>&lt;div id="app"&gt;
-
-    &lt;/div&gt;
-
-        &lt;script&gt;
-        let Header = {
-            template:`
-                &lt;div class="header"&gt;
-                    &lt;h1&gt;{{ greeting }}&lt;/h1&gt;
-                &lt;/div&gt;
-            `,
-            data(){
-                return {
-                    greeting: 'hello world',
-                }
-            },
-        };
-
-        new Vue({
-            el: '#app',
-            template: `&lt;app-header&gt;&lt;/app-header&gt;`,
-            components: {
-                'app-header': Header,
-            }
-        })
-    &lt;/script&gt;</code></pre>
-
+                
             </div>
             <hr/>
 
@@ -515,7 +446,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.secqin.top/2020/10/26/vue2/">http://www.secqin.top/2020/10/26/vue2/</a>
+                    <a href="http://www.secqin.top/2020/10/30/metasploit1/">http://www.secqin.top/2020/10/30/metasploit1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,12 +484,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BC%80%E5%8F%91/">
-                                    <span class="chip bg-color">开发</span>
+                                <a href="/tags/msf/">
+                                    <span class="chip bg-color">msf</span>
                                 </a>
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/%E5%86%85%E7%BD%91/">
+                                    <span class="chip bg-color">内网</span>
                                 </a>
                             
                         </div>
@@ -873,13 +804,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/30/metasploit1/">
+                <a href="/2020/10/30/hong-bao-shu-shi-jian-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="metasploit1">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="红宝书实践1">
                         
-                        <span class="card-title">metasploit1</span>
+                        <span class="card-title">红宝书实践1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -894,27 +825,11 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/msf/" class="post-category">
-                                    msf
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            secqin
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/msf/">
-                        <span class="chip bg-color">msf</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%86%85%E7%BD%91/">
-                        <span class="chip bg-color">内网</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -926,13 +841,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/26/badusb-ru-men/">
+                <a href="/2020/10/26/vue2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="badusb入门">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vue组件">
                         
-                        <span class="card-title">badusb入门</span>
+                        <span class="card-title">vue组件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -947,8 +862,16 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            secqin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vue/" class="post-category">
+                                    vue
+                                </a>
+                            
+                            <a href="/categories/vue/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -956,8 +879,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/badusb/">
-                        <span class="chip bg-color">badusb</span>
+                    <a href="/tags/%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">开发</span>
+                    </a>
+                    
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
