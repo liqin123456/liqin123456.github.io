@@ -404,7 +404,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    153
+                    323
                 </div>
                 
 
@@ -421,7 +421,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-开始使用"><a href="#1-开始使用" class="headerlink" title="1.开始使用"></a>1.开始使用</h3><ol>
+                <p>[toc]</p>
+<h3 id="1-开始使用"><a href="#1-开始使用" class="headerlink" title="1.开始使用"></a>1.开始使用</h3><ol>
 <li>启动<pre><code>(linux终端界面用)
 msfconsole
 msfconsole -q(安静启动)
@@ -439,8 +440,22 @@ show encoders(30来个)
 show nops</code></pre>
 <img src="https://gitee.com/secqin/tu/raw/master/img/2.jpg"><br>search(搜索)(关键)<pre><code>search ms10-046</code></pre>
 <img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-20-10.jpg"><br>Rank:显示利用难度,以及稳不稳<br>Nmae:漏洞的相对路径<br>只要脚本里面含ms10-046就会被列出来<pre><code>search name:mysql
-search cve:2015</code></pre>
-<img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-24-59.jpg"><br>search后面可以带,其他参数精准定位(platform,author之类的):<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-26-44.jpg"></li>
+search cve:2015
+search ms08-067</code></pre>
+<img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-24-59.jpg"><br>search后面可以带,其他参数精准定位(platform,author之类的):<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-26-44.jpg"><pre><code>(进入模块后)
+info</code></pre>
+<img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-35-58.jpg"><br>避免8个字符(8个字符为坏字符)<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-38-59.jpg"><br>set(关键命令)<pre><code>set RHOST(大小写随意,目标IP)
+set rport</code></pre>
+<pre><code>show options</code></pre>
+<img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_14-40-27.jpg"><pre><code>show targets(显示可以利用的系统)
+show payloads(显示当前exploit可以利用的payload(win和Linux的payload不一样))</code></pre>
+不常用的show(20%)<pre><code>show advanced(高级选项)
+show evasion(混淆模块)
+show missing(看那些参数没有设置,配合show options)</code></pre>
+<pre><code>edit(脚本开发与修改)</code></pre>
+<pre><code>check(探测目标是不是有这个利用漏洞,并没有真正利用,只是检查,大部分模块没有check功能,毕竟多此一举,没有必要)
+back(从模块部分返回msf5界面)</code></pre>
+</li>
 </ol>
 
             </div>
@@ -1109,7 +1124,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5k</span>&nbsp;字
+                class="white-color">5.2k</span>&nbsp;字
             
             
             
