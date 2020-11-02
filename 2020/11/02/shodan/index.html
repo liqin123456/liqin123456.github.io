@@ -391,7 +391,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    369
                 </div>
                 
 
@@ -408,7 +408,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="1-常用Shodan库函数"><a href="#1-常用Shodan库函数" class="headerlink" title="1.常用Shodan库函数"></a>1.常用Shodan库函数</h3><pre><code>    shodan.Shodan(key) ：初始化连接API
+    Shodan.count(query, facets=None)：返回查询结果数量
+    Shodan.host(ip, history=False)：返回一个IP的详细信息
+    Shodan.ports()：返回Shodan可查询的端口号
+    Shodan.protocols()：返回Shodan可查询的协议
+    Shodan.services()：返回Shodan可查询的服务
+    Shodan.queries(page=1, sort='timestamp', order='desc')：查询其他用户分享的查询规则
+    Shodan.scan(ips, force=False)：使用Shodan进行扫描，ips可以为字符或字典类型
+    Shodan.search(query, page=1, limit=None, offset=None, facets=None, minify=True)： 查询Shodan数据
+</code></pre>
+<!-- toc -->
+
+<h3 id="2-写一个小脚本扫描ADB漏洞"><a href="#2-写一个小脚本扫描ADB漏洞" class="headerlink" title="2.写一个小脚本扫描ADB漏洞"></a>2.写一个小脚本扫描ADB漏洞</h3><pre><code>import shodan  # 导入shodan库
+
+api = shodan.Shodan("shodan的api")  # 指定API_KEY,返回句柄
+try:
+    results = api.search('android debug bridge product:”Android Debug Bridge”')  # 搜索apache，返回 JSON格式的数据
+    print(results)
+    print("Results found:%s" % results['total'])
+    # for result in results['matches']:
+    #     print(result['ip_str'])     #打印出ip地址
+except shodan.APIError:
+    print("Error:{}")</code></pre>
+<!-- toc -->
+
+<h3 id="3-返回的JSON格式的数据"><a href="#3-返回的JSON格式的数据" class="headerlink" title="3.返回的JSON格式的数据"></a>3.返回的JSON格式的数据</h3><pre><code>{'matches': [{'product': 'Android Debug Bridge', 'hash': 2059269440, 'ip': 2965132595, 'org': 'Bouygues Telecom',
+              'isp': 'Bouygues Telecom', 'transport': 'tcp',
+              'data': 'Android Debug Bridge:\n  Name: rk3328\n  Model: H96 Max+\n  Device: rk3328\n  Features:\n    cmd\n    shell_v2\n    stat_v2',
+              'asn': 'AS5410', 'port': 5555, 'hostnames': ['lcs05-lyo-176-188-85-51.sfr.lns.abo.bbox.fr'],
+              'location': {'city': 'Toulon', 'region_code': 'PAC', 'area_code': None, 'longitude': 5.9257,
+                           'country_code3': None, 'latitude': 43.1263, 'postal_code': None, 'dma_code': None,
+                           'country_code': 'FR', 'country_name': 'France'}, 'timestamp': '2020-11-02T04:11:03.015459',
+              'domains': ['bbox.fr'],
+              'http': {'robots_hash': None, 'redirects': [], 'securitytxt': None, 'title': None, 'sitemap_hash': None,
+                       'robots': None, 'server': None, 'host': '176.188.85.51', 'html': None, 'location': '/',
+                       'securitytxt_hash': None, 'sitemap': None, 'html_hash': None}, 'os': None,
+              '_shodan': {'crawler': 'd264629436af1b777b3b513ca6ed1404d7395d80', 'ptr': True,
+                          'id': '2ef8573c-69f3-4352-b828-a4202896a8ee', 'module': 'http-simple-new', 'options': {}},
+              'ip_str': '176.188.85.51'},{...},{...}], 'total': 5640}</code></pre>
+
             </div>
             <hr/>
 
@@ -1075,7 +1114,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.6k</span>&nbsp;字
+                class="white-color">6k</span>&nbsp;字
             
             
             
