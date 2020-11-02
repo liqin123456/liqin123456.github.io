@@ -391,14 +391,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    369
+                    416
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -430,7 +430,17 @@ try:
     # for result in results['matches']:
     #     print(result['ip_str'])     #打印出ip地址
 except shodan.APIError:
-    print("Error:{}")</code></pre>
+    print("Error:{}")
+添加写入文件的脚本:
+f=open("target.txt","w")
+        results=api.search('JAWS/1.0') 
+        print("Results found:%s"%results['total'])
+        for result in results['matches']:
+            url=result['ip_str']+":"+str(result['port'])
+            print(url) 
+            f.write(url)
+            f.write("\n")
+        f.close()</code></pre>
 <!-- toc -->
 
 <h3 id="3-返回的JSON格式的数据"><a href="#3-返回的JSON格式的数据" class="headerlink" title="3.返回的JSON格式的数据"></a>3.返回的JSON格式的数据</h3><pre><code>{'matches': [{'product': 'Android Debug Bridge', 'hash': 2059269440, 'ip': 2965132595, 'org': 'Bouygues Telecom',
