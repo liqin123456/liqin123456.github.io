@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    591
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -465,6 +465,68 @@ GLOBAL OPTIONS:
    --config FILE  Load configuration from FILE
    --help, -h     show help</code></pre>
 <p>我这个是社区版没有子域名扫描的功能<br><img src="https://docs.xray.cool/assets/compare.jpg"><br>我相信在不久的将来我也会拥有xray高级版的,奥里给!!!</p>
+<!-- toc -->
+
+<h3 id="1-webscan"><a href="#1-webscan" class="headerlink" title="1.webscan"></a>1.webscan</h3><pre><code>PS D:\武器库\工具\xray_windows_amd64.exe&gt; .\xray_windows_amd64.exe webscan -h
+
+____  ___.________.    ____.   _____.___.
+\   \/  /\_   __   \  /  _  \  \__  |   |
+ \     /  |    _  _/ /  /_\  \  /   |   |
+ /     \  |    |   \/    |    \ \____   |
+\___/\  \ |____|   /\____|_   / / _____/
+      \_/       \_/        \_/  \/
+
+Version: 1.3.3/1d166d72/COMMUNITY
+
+[INFO] 2020-11-03 19:29:18 [default:entry.go:157] loading config file from D:\武器库\工具\xray_windows_amd64.exe\config.yaml
+NAME:
+    webscan - Run a webscan task
+
+USAGE:
+    webscan [command options] [arguments...]
+
+OPTIONS:
+   --plugins value         加载插件,以","分隔
+   --poc value             加载poc, separated by ','
+
+   --listen value         启动一个被动代理服务器作为输入，如 --listen 127.0.0.1:7777
+   --basic-crawler value  启用一个基础爬虫作为输入， 如 --basic-crawler http://example.com
+   --url-file value       批量从文件中读取URL
+   --url value            用于快速测试单个URL，不带爬虫，默认为GET请求
+   --data value           指定 data，同时变为POST请求(e.g. 'username=admin')
+   --raw-request FILE     加载一个原始的 HTTP 请求并用于扫描，类似于sqlmap -r
+   --force-ssl             force usage of SSL/HTTPS for raw-request
+
+   --json-output FILE     将结果输出到一个 json 文件中，输出是JSON格式的结构化数据
+   --html-output FILE     将结果输出为 html 报告
+   --webhook-output value 将结果发送到一个地址，输出是JSON格式的结构化数据，需要自己搭建一个Web服务器，接收到xray发送的漏洞信息
+
+在--json-output和--html-otput参数中使用变量__timestamp__和__datetime__，这样文件名中对应位置会自动替换为时间戳或日期时间，避免输出到同一文件时报错。如--html-output report-__datetime__.html将使用report-2019_11_01-10_03_26.html作为报告文件名。</code></pre>
+<h4 id="1-plugins"><a href="#1-plugins" class="headerlink" title="1.plugins"></a>1.plugins</h4><pre><code>--plugins xss
+--plugins xss,sqldet,phantasm</code></pre>
+<h4 id="2-poc"><a href="#2-poc" class="headerlink" title="2.poc"></a>2.poc</h4><pre><code># 只加载一个 POC, 精准匹配
+--plugins phantasm --poc poc-yaml-thinkphp5-controller-rce
+
+# 加载内置的所有带 `thinkphp` 的 POC
+--plugins phantasm --poc "*thinkphp*"
+
+# 加载本地 `/home/test/pocs/` 目录所有的 POC:
+--plugins phantasm --poc "/home/test/pocs/*"
+
+# 加载 `/home/test/pocs/` 下包含 thinkphp 的 POC
+--plugins phantasm --poc "/home/test/pocs/*thinkphp*"</code></pre>
+<h4 id="2-组合使用"><a href="#2-组合使用" class="headerlink" title="2.组合使用"></a>2.组合使用</h4><p>将上面说的一些结合起来使用，就可以满足多种场景下的使用需求了:</p>
+<pre><code># 使用xss模块 启用1111端口的代理服务器进行web漏洞扫描，输出漏洞报告到1.html中
+➜ ./xray webscan --plugins xss --listen 127.0.0.1:1111 --html-output 1.html
+
+# 将日志级别设置为debug 然后使用xss和命令执行插件 使用内置的爬虫来扫描，输出漏洞报告到1.json中
+➜ ./xray --log_level debug webscan --plugins xss,cmd_injection --basic-crawler http://example.com --json-output 1.json
+
+# 对目标资产进行POST方式漏洞检测，data为 x=y 并输出漏洞报告到1.json中
+➜ ./xray webscan --url http://example.com --data "x=y" --html-output 2.html --json-output 1.json
+
+# 对目标资产进行单个URL检测，路灯报告输出到指定的接受服务器中
+➜ ./xray webscan --url http://example.com/ --webhook-output http://host:port/path</code></pre>
 
             </div>
             <hr/>
@@ -1138,7 +1200,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.6k</span>&nbsp;字
+                class="white-color">7.3k</span>&nbsp;字
             
             
             
