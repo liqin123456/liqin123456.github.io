@@ -364,9 +364,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/">
+                                <span class="chip bg-color">安全工具</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99web%E6%89%AB%E6%8F%8F%E5%99%A8%E4%B9%8B%E8%B7%AF/">
+                                <span class="chip bg-color">动手写web扫描器之路</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -387,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    569
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -404,7 +412,60 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>之前听信安的小伙伴推荐过xray,说xray很牛批,挖洞一流,今天来试试,随便为自己django写漏洞扫描器作准备<br><a target="_blank" rel="noopener" href="https://github.com/chaitin/xray/releases" title="xray">xray下载链接</a></p>
+<!-- toc -->
+
+<h3 id="1-代理模式"><a href="#1-代理模式" class="headerlink" title="1.代理模式"></a>1.代理模式</h3><h4 id="1-生成CA证书"><a href="#1-生成CA证书" class="headerlink" title="1. 生成CA证书:"></a>1. 生成CA证书:</h4><pre><code>#  生成 ca 证书
+➜ ./xray genca
+
+#  在当前文件夹生成 ca.crt 和 ca.key 两个文件
+➜ ls
+ca.crt      ca.key      config.yaml xray</code></pre>
+<h4 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2. 修改配置文件"></a>2. 修改配置文件</h4><p>第一次玩XRAY这个把要扫描的网站换为AWVS的标准靶场<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-03_19-10-39.jpg"></p>
+<h4 id="3-启用代理"><a href="#3-启用代理" class="headerlink" title="3. 启用代理"></a>3. 启用代理</h4><p>火狐推荐使用:FoxyProxy 标准版<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-03_19-09-01.jpg"><br>监听本地的7777端口，并设置漏洞报告的输出的文件名为：xray-testphp.html</p>
+<pre><code>./xray webscan --listen 127.0.0.1:7777 --html-output xray-testphp.html</code></pre>
+<h4 id="4-开始扫描"><a href="#4-开始扫描" class="headerlink" title="4.开始扫描"></a>4.开始扫描</h4><p>使用刚刚设置过代理的Firefox浏览器访问：<a target="_blank" rel="noopener" href="http://testphp.vulnweb.com/">http://testphp.vulnweb.com</a><br>然后可以打开xray-testphp.html看扫描结果</p>
+<!-- toc -->
+
+<h3 id="1-爬虫模式"><a href="#1-爬虫模式" class="headerlink" title="1.爬虫模式"></a>1.爬虫模式</h3><p>上面是代理模式,接下来是爬虫模式,和代理模式不同的是，爬虫不需要人工的介入，访问速度要快很多，但是也有一些缺点需要注意:</p>
+<ol>
+<li>xray 的基础爬虫不能处理 js 渲染的页面</li>
+<li>需要首先人工配置登录 cookie，必需的 http 头等，如果登录失败，也不容易发现问题<pre><code>./xray webscan --basic-crawler http://testphp.vulnweb.com/ --html-output xray-crawler-testphp.html</code></pre>
+在这个模式下，相当于主动扫描模式，自主分析页面的链接，然后自动探测是否有漏洞<!-- toc -->
+
+</li>
+</ol>
+<h3 id="1-基础命令"><a href="#1-基础命令" class="headerlink" title="1.基础命令"></a>1.基础命令</h3><pre><code>PS D:\武器库\工具\xray_windows_amd64.exe&gt; .\xray_windows_amd64.exe -h
+____  ___.________.    ____.   _____.___.
+\   \/  /\_   __   \  /  _  \  \__  |   |
+ \     /  |    _  _/ /  /_\  \  /   |   |
+ /     \  |    |   \/    |    \ \____   |
+\___/\  \ |____|   /\____|_   / / _____/
+      \_/       \_/        \_/  \/
+
+Version: 1.3.3/1d166d72/COMMUNITY
+
+NAME:
+   xray - A powerful scanner engine [https://docs.xray.cool]
+
+USAGE:
+    [global options] command [command options] [arguments...]
+
+COMMANDS:
+     webscan      xray核心功能，用来发现探测Web漏洞
+     servicescan  服务扫描功能 用来探测服务漏洞
+     poclint      检测poc是否符合规范
+     reverse      启动单独的盲打平台服务
+     genca        用于快速生成一个根证书，主要用于被动代理扫描HTTPS流量时用到
+     upgrade      检查新版本并自动升级
+     version      版本信息
+     help, h      显示命令列表或一个命令的帮助
+
+GLOBAL OPTIONS:
+   --config FILE  Load configuration from FILE
+   --help, -h     show help</code></pre>
+<p>我这个是社区版没有子域名扫描的功能<br><img src="https://docs.xray.cool/assets/compare.jpg"></p>
+
             </div>
             <hr/>
 
@@ -466,7 +527,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/">
+                                    <span class="chip bg-color">安全工具</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99web%E6%89%AB%E6%8F%8F%E5%99%A8%E4%B9%8B%E8%B7%AF/">
+                                    <span class="chip bg-color">动手写web扫描器之路</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -809,6 +878,18 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">安全工具</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99web%E6%89%AB%E6%8F%8F%E5%99%A8%E4%B9%8B%E8%B7%AF/">
+                        <span class="chip bg-color">动手写web扫描器之路</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -844,6 +925,18 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">安全开发</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A8%E5%9D%91/">
+                        <span class="chip bg-color">巨坑</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1045,7 +1138,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6k</span>&nbsp;字
+                class="white-color">6.6k</span>&nbsp;字
             
             
             
