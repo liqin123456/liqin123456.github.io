@@ -391,7 +391,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    334
+                    352
                 </div>
                 
 
@@ -418,8 +418,8 @@ from random import randint
 
 
 def scapy_ping_one(host):
-    id_ip = randint(1, 65535)  # 随机整数产生器
-    id_ping = randint(1, 65535)
+    id_ip = randint(1, 65535)  # 随机整数产生器,随机产生ip的id (随机才能伪装)
+    id_ping = randint(1, 65535)  # 随机产生icmp的id
     seq_ping = randint(1, 65535) # ICMP序列号
     packet = IP(dst=host, ttl=1, id=id_ip)/ICMP(id=id_ping, seq=seq_ping)/b'welcome to wuhan'
     ping = sr1(packet, timeout=2, verbose=False)
