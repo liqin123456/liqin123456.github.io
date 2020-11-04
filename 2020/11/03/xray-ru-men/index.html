@@ -395,7 +395,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
@@ -502,6 +502,18 @@ OPTIONS:
    --webhook-output value 将结果发送到一个地址，输出是JSON格式的结构化数据，需要自己搭建一个Web服务器，接收到xray发送的漏洞信息
 
 在--json-output和--html-otput参数中使用变量__timestamp__和__datetime__，这样文件名中对应位置会自动替换为时间戳或日期时间，避免输出到同一文件时报错。如--html-output report-__datetime__.html将使用report-2019_11_01-10_03_26.html作为报告文件名。</code></pre>
+<h2 id="–data实例"><a href="#–data实例" class="headerlink" title="–data实例:"></a>–data实例:</h2><pre><code>--url http://example.com/?p=q --data "x=y&amp;a=b"
+
+将产生如下的请求进行探测:
+
+POST http://example.com/?p=q HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169
+Content-Length: 7
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+a=b&amp;x=y</code></pre>
 <h4 id="1-plugins"><a href="#1-plugins" class="headerlink" title="1.plugins"></a>1.plugins</h4><pre><code>--plugins xss
 --plugins xss,sqldet,phantasm</code></pre>
 <h4 id="2-poc"><a href="#2-poc" class="headerlink" title="2.poc"></a>2.poc</h4><pre><code># 只加载一个 POC, 精准匹配
@@ -906,18 +918,17 @@ OPTIONS:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/03/xray-ru-men/">
+                <a href="/2020/11/04/scapy/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="xray入门">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="scapy">
                         
-                        <span class="card-title">xray入门</span>
+                        <span class="card-title">scapy</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -927,9 +938,9 @@ OPTIONS:
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -938,16 +949,11 @@ OPTIONS:
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">安全工具</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99web%E6%89%AB%E6%8F%8F%E5%99%A8%E4%B9%8B%E8%B7%AF/">
-                        <span class="chip bg-color">动手写web扫描器之路</span>
+                    <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99%E6%89%AB%E6%8F%8F%E5%99%A8/">
+                        <span class="chip bg-color">动手写扫描器</span>
                     </a>
                     
                 </div>
@@ -1200,7 +1206,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.3k</span>&nbsp;字
+                class="white-color">7.7k</span>&nbsp;字
             
             
             

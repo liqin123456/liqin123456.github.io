@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="从零开始构思xss自动挖掘项目, secqin">
+    <meta name="keywords" content="scapy, secqin">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>从零开始构思xss自动挖掘项目 | secqin</title>
+    <title>scapy | secqin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +240,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">从零开始构思xss自动挖掘项目</h1>
+                    <h1 class="description center-align post-title">scapy</h1>
                 </div>
             </div>
         </div>
@@ -366,12 +366,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/">
-                                <span class="chip bg-color">安全开发</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%B7%A8%E5%9D%91/">
-                                <span class="chip bg-color">巨坑</span>
+                            <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99%E6%89%AB%E6%8F%8F%E5%99%A8/">
+                                <span class="chip bg-color">动手写扫描器</span>
                             </a>
                         
                     </div>
@@ -386,7 +382,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-26
+                    2020-11-04
                 </div>
                 
 
@@ -395,7 +391,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    334
                 </div>
                 
 
@@ -412,7 +408,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="一-动手写ping扫描"><a href="#一-动手写ping扫描" class="headerlink" title="一.动手写ping扫描"></a>一.动手写ping扫描</h3><p>很多机器都禁用ping扫描了,但是我刚刚入门,还是要学的.<br>ping.py</p>
+<pre><code>import logging
+logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
+# 导入scapy报错日志,清除掉报错日志
+from scapy.layers.inet import IP, ICMP
+from scapy.all import *
+from random import randint
+
+
+def scapy_ping_one(host):
+    id_ip = randint(1, 65535)  # 随机整数产生器
+    id_ping = randint(1, 65535)
+    seq_ping = randint(1, 65535) # ICMP序列号
+    packet = IP(dst=host, ttl=1, id=id_ip)/ICMP(id=id_ping, seq=seq_ping)/b'welcome to wuhan'
+    ping = sr1(packet, timeout=2, verbose=False)
+    ping.show()
+    if ping:  # 如果有结果就退出
+        os._exit(3)  # 自定义退出码为3,区分多进程
+
+
+if __name__ == '__main__':
+    scapy_ping_one("127.0.0.1")
+# dst 目的IP地址
+# ttl自连为1
+# IP和ICMP的id位为随机产生</code></pre>
+<p>ping1.py</p>
+<pre><code>import logging
+logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
+
+from scapy.layers.inet import IP, ICMP
+
+import ipaddress  # 可以写入地址段,且为数组 192.168.1.0/24
+import time
+import multiprocessing
+from ping import scapy_ping_one # 从ping.py里面导入函数scapy_ping_one
+from scapy.all import *
+def scapy_ping_scan(network):
+    net = ipaddress.ip_network(network)
+    ip_processes = {}
+    for ip in net:
+        ip_addr = str(ip)
+        ping_one = multiprocessing.Process(target=scapy_ping_one, args=(ip_addr,))
+        ping_one.start()
+        ip_processes[ip_addr] = ping_one
+    ip_list=[]
+    for ip,process in ip_processes.items():
+        if process.exitcode == 3:  # 退出码为3,说明PING成功
+            ip_list.append(ip)
+        else:
+            process.terminate()
+    return sorted(ip_list)  # 排序返回,因为有些先PING通
+if __name__ == '__main__':
+    import time
+    t1 = time.time()
+    active_ip = scapy_ping_scan('47.98.97.0/24')
+    print('活动的IP地址为:')
+    for ip in active_ip:
+        print(ip)
+    t2 = time.time()
+    print(t2-t1)</code></pre>
+
             </div>
             <hr/>
 
@@ -437,7 +493,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.secqin.top/2020/10/26/cong-ling-kai-shi-gou-si-xss-zi-dong-wa-jue-xiang-mu/">http://www.secqin.top/2020/10/26/cong-ling-kai-shi-gou-si-xss-zi-dong-wa-jue-xiang-mu/</a>
+                    <a href="http://www.secqin.top/2020/11/04/scapy/">http://www.secqin.top/2020/11/04/scapy/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -475,12 +531,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/">
-                                    <span class="chip bg-color">安全开发</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B7%A8%E5%9D%91/">
-                                    <span class="chip bg-color">巨坑</span>
+                                <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99%E6%89%AB%E6%8F%8F%E5%99%A8/">
+                                    <span class="chip bg-color">动手写扫描器</span>
                                 </a>
                             
                         </div>
@@ -791,17 +843,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/10/26/badusb-ru-men/">
+                <a href="/2020/11/04/scapy/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="badusb入门">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="scapy">
                         
-                        <span class="card-title">badusb入门</span>
+                        <span class="card-title">scapy</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -811,9 +864,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -822,11 +875,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/badusb/">
-                        <span class="chip bg-color">badusb</span>
+                    <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99%E6%89%AB%E6%8F%8F%E5%99%A8/">
+                        <span class="chip bg-color">动手写扫描器</span>
                     </a>
                     
                 </div>
@@ -840,13 +894,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/26/vue-kai-shi-shi-yong/">
+                <a href="/2020/11/03/xray-ru-men/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="vue开始使用">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="xray入门">
                         
-                        <span class="card-title">vue开始使用</span>
+                        <span class="card-title">xray入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -857,16 +911,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/vue/" class="post-category">
-                                    vue
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            secqin
                             
                         </span>
                     </div>
@@ -874,8 +924,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">安全工具</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%A8%E6%89%8B%E5%86%99web%E6%89%AB%E6%8F%8F%E5%99%A8%E4%B9%8B%E8%B7%AF/">
+                        <span class="chip bg-color">动手写web扫描器之路</span>
                     </a>
                     
                 </div>
