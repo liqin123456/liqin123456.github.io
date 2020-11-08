@@ -391,14 +391,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    373
+                    743
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -470,7 +470,61 @@ if __name__ == '__main__':
     print(t2-t1)</code></pre>
 <!-- toc -->
 
-<h3 id="一-动手写arp扫描"><a href="#一-动手写arp扫描" class="headerlink" title="一.动手写arp扫描"></a>一.动手写arp扫描</h3><p>适合自连的扫描,不能扫描跨网段</p>
+<h3 id="一-动手写arp扫描"><a href="#一-动手写arp扫描" class="headerlink" title="一.动手写arp扫描"></a>一.动手写arp扫描</h3><p>适合自连的扫描,不能扫描跨网段<br>arp只能扫自连,跨网络是不支持的,(二层)<br>arp.py</p>
+<pre><code>import logging
+
+from scapy.layers.l2 import Ether, ARP
+
+logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
+from scapy.all import *
+
+def scapy_arp_request(ip_address, queue = None): #queue是多进程里面用的, ifname = 'eno'
+   #dst原mark地址,出口不用填写,会自动填写上,ARP操作码为1,目的mark不知道和目的ip自己给的.二层接口(iface)多网卡一定要填,timeout设置最多等待时间,verbose设置自己打印,三层sr1,verbose一般设置false
+    result_raw = srp(Ether(dst='FF:FF:FF:FF:FF')/ARP(op=1,hwdst='00:00:00:00:00', pdst=ip_address),timeout = 1, verbose =False)# ,iface = ifname
+    print(result_raw)
+    # result_raw是一个特殊的类(收到结果的包,和未收到结果的包)
+    try:
+        result_list = result_raw[0].res #收到结果的数据包,res把包做成一个list,0是收到的结果,1是未收到的结果
+        if queue == None:
+            return result_list[0][1].getlayer(ARP).fields['hwsrc'] # [s  r,s  r,s  r]
+        else: # 有队列的情况
+            queue.put((ip_address, result_list[0][1].getlayer(ARP).fields['hwsrc']))  # hwsrc表示源mark地址信息,向队列里面传ip和mark
+    except:
+        return
+if __name__ == "__main__":
+    import sys
+    print(scapy_arp_request('192.168.13.134'))</code></pre>
+<p>arp1.py</p>
+<pre><code>import logging
+logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
+
+import ipaddress
+import time
+from arp import scapy_arp_request
+from multiprocessing import Process,Queue
+def scapy_arp_scan(network):
+    qyt_queue = Queue()
+    net = ipaddress.ip_network(network)
+    for ip in net:
+        ip_addr = str(ip)
+        arp_one = Process(target=scapy_arp_request,args=(ip_addr,qyt_queue))
+        arp_one.start()
+    time.sleep(2)
+    ip_mac_list = []
+    while True:
+        if qyt_queue.empty():
+            break
+        else:
+            ip,mac = qyt_queue.get()
+            ip_mac_list.append((ip,mac))
+    return ip_mac_list
+if __name__==  '__main__':
+    import sys
+    active_ip_mac = scapy_arp_scan(sys.argv[1])
+    print('活动的IP与mac地址如下:')
+    for ip,mac in active_ip_mac:
+        print(ip,mac)
+</code></pre>
 
             </div>
             <hr/>
@@ -1136,7 +1190,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.7k</span>&nbsp;字
+                class="white-color">8.1k</span>&nbsp;字
             
             
             
