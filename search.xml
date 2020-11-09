@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>nessus破解</title>
+      <link href="2020/11/09/nessus-po-jie/"/>
+      <url>2020/11/09/nessus-po-jie/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-下载Nessus"><a href="#1-下载Nessus" class="headerlink" title="1.下载Nessus"></a>1.下载Nessus</h3><p><a href="https://www.tenable.com/downloads/api/v1/public/pages/nessus/downloads/11760/download?i_agree_to_tenable_license_agreement=true%22nessus%22">nessus kali2020版</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 安全工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>scapy</title>
       <link href="2020/11/04/scapy/"/>
       <url>2020/11/04/scapy/</url>
@@ -139,7 +158,7 @@
       <link href="2020/10/30/metasploit2/"/>
       <url>2020/10/30/metasploit2/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-数据库相关"><a href="#1-数据库相关" class="headerlink" title="1.数据库相关"></a>1.数据库相关</h3><h4 id="1-msf界面的数据库命令"><a href="#1-msf界面的数据库命令" class="headerlink" title="1.msf界面的数据库命令"></a>1.msf界面的数据库命令</h4><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_15-07-46.jpg"></p><h4 id="2-Linux界面的数据库命令"><a href="#2-Linux界面的数据库命令" class="headerlink" title="2.Linux界面的数据库命令"></a>2.Linux界面的数据库命令</h4><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_15-34-06.jpg"></p><h5 id="1-db-rebuilt-cache"><a href="#1-db-rebuilt-cache" class="headerlink" title="1.db_rebuilt_cache"></a>1.db_rebuilt_cache</h5><p>因为Linux文件检索比较慢,所以设计者把东西都放进数据库,因为更快</p><p>msfdb命令<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-02_11-25-27.jpg"><br>刚刚使用msf时需要msfdb init来初始化数据库(十分重要)</p><p>连接数据库:</p><pre><code>db_connect -y /usr/share/metasploit-framework/config/database.yml #如果没有用msfdb init就没有database.yml文件</code></pre><!-- toc --><h3 id="1-连接成功后的操作"><a href="#1-连接成功后的操作" class="headerlink" title="1.连接成功后的操作"></a>1.连接成功后的操作</h3><h4 id="1-db-nmap"><a href="#1-db-nmap" class="headerlink" title="1.db_nmap"></a>1.db_nmap</h4><p>和namp操作一样</p><pre><code>db_namp 192.168.1.1 # 自动存在数据库中hosts  # 查看nmap扫描的结果services # 看各个主机开的服务hosts -c address,os_flavor -S Linuxservices -c port,state -p 1-200</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-02_11-39-39.jpg"></p><!-- toc --><h3 id="1-set"><a href="#1-set" class="headerlink" title="1.set"></a>1.set</h3><pre><code>setg rhost 192.168.0.1(设置全局模块)unsetg(取消全局设置)save(保存设置下次启动自动读取里面的配置)</code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-数据库相关"><a href="#1-数据库相关" class="headerlink" title="1.数据库相关"></a>1.数据库相关</h3><h4 id="1-msf界面的数据库命令"><a href="#1-msf界面的数据库命令" class="headerlink" title="1.msf界面的数据库命令"></a>1.msf界面的数据库命令</h4><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_15-07-46.jpg"></p><h4 id="2-Linux界面的数据库命令"><a href="#2-Linux界面的数据库命令" class="headerlink" title="2.Linux界面的数据库命令"></a>2.Linux界面的数据库命令</h4><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-10-30_15-34-06.jpg"></p><h5 id="1-db-rebuilt-cache"><a href="#1-db-rebuilt-cache" class="headerlink" title="1.db_rebuilt_cache"></a>1.db_rebuilt_cache</h5><p>因为Linux文件检索比较慢,所以设计者把东西都放进数据库,因为更快</p><p>msfdb命令<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-02_11-25-27.jpg"><br>刚刚使用msf时需要msfdb init来初始化数据库(十分重要)</p><p>连接数据库:</p><pre><code>db_connect -y /usr/share/metasploit-framework/config/database.yml #如果没有用msfdb init就没有database.yml文件</code></pre><!-- toc --><h3 id="1-连接成功后的操作"><a href="#1-连接成功后的操作" class="headerlink" title="1.连接成功后的操作"></a>1.连接成功后的操作</h3><h4 id="1-db-nmap"><a href="#1-db-nmap" class="headerlink" title="1.db_nmap"></a>1.db_nmap</h4><p>和namp操作一样</p><pre><code>db_namp 192.168.1.1 # 自动存在数据库中hosts  # 查看nmap扫描的结果services # 看各个主机开的服务hosts -c address,os_flavor -S Linuxservices -c port,state -p 1-200</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-02_11-39-39.jpg"></p><!-- toc --><h3 id="1-set"><a href="#1-set" class="headerlink" title="1.set"></a>1.set</h3><pre><code>setg rhost 192.168.0.1(设置全局模块)unsetg(取消全局设置)save(保存设置下次启动自动读取里面的配置)</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-08_10-22-25.jpg"></p><!-- toc --><h3 id="1-run-amp-exploit"><a href="#1-run-amp-exploit" class="headerlink" title="1.run&amp;exploit"></a>1.run&amp;exploit</h3><p>执行命令,两者都可以</p><!-- toc --><h3 id="1-ms08-067漏洞"><a href="#1-ms08-067漏洞" class="headerlink" title="1.ms08-067漏洞"></a>1.ms08-067漏洞</h3>]]></content>
       
       
       <categories>
