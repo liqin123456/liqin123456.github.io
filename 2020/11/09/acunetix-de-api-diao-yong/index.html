@@ -400,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    510
+                    676
                 </div>
                 
 
@@ -534,14 +534,28 @@ URL: /api/v1/notifications</code></pre>
 <h4 id="4-Dashboard信息"><a href="#4-Dashboard信息" class="headerlink" title="4.Dashboard信息"></a>4.Dashboard信息</h4><pre><code>Method:GET 
 URL: /api/v1/me/stats</code></pre>
 <p>json数据</p>
-<pre><code>{'most_vulnerable_targets': [], # 最脆弱的目标
-'scans_conducted_count': 0, # 总进行扫描个数
-'scans_running_count': 0, # 正在扫描的个数
+<pre><code>{'most_vulnerable_targets': [   ## 最脆弱的目标
+{'address': 'http://testphp.vulnweb.com/',
+ 'criticality': 10, 
+'high_vuln_count': 32, 
+'med_vuln_count': 60, 
+'target_id': 'dbf82332-965c-4e5a-ac6b-06c9e78bc8c8'}], 
+'scans_conducted_count': 0,  # 总进行扫描个数
+'scans_running_count': 1, # 正在扫描的个数
 'scans_waiting_count': 0, # 等待扫描的个数
-'targets_count': 0, # 总进行扫描个数
-'top_vulnerabilities': [], # 排名靠前漏洞分布
-'vuln_count': {'high': None, 'low': None, 'med': None}, # 漏洞数据
-'vuln_count_by_criticality': {'critical': None, 'high': None, 'low': None, 'normal': None},  # 通过危险程度进行漏洞等级个数分布 'vulnerabilities_open_count': 0} # 共发现漏洞总数</code></pre>
+'targets_count': 1, # 总进行扫描个数
+'top_vulnerabilities': [  # 排名靠前漏洞分布
+{'count': 20, 'name': 'HTML form without CSRF protection', 'severity': 2, 'vt_id': 'ca3a4dd5-3f3b-4b43-527e-3210a52f9c8c'}, 
+{'count': 14, 'name': 'Cross site scripting', 'severity': 3, 'vt_id': '7a2fa5a4-7125-1062-0651-ed5219f05809'}, 
+{'count': 14, 'name': 'Directory listing', 'severity': 2, 'vt_id': 'b53afc6c-83c3-7ea8-ce7b-d5f5fb01b7d7'}, {'count': 12, 'name': 'SQL injection', 'severity': 3, 'vt_id': 'db04b846-7dec-fb62-f12d-1a152945cdae'}, {'count': 3, 'name': 'Error message on page', 'severity': 2, 'vt_id': 'd6b36f54-09ec-af8d-df8a-5f76932151ca'}, 
+{'count': 3, 'name': 'Application error message', 'severity': 2, 'vt_id': '760d5a01-dc58-fcbe-6c21-4f04c64a2467'}, 
+{'count': 2, 'name': 'Backup files', 'severity': 2, 'vt_id': '7777c336-316c-a967-2acd-45b7ee798413'}, {'count': 2, 'name': 'Source code disclosure', 'severity': 2, 'vt_id': '61125d6e-3fdf-a73d-1c2d-1bf8a3bef84d'}, 
+{'count': 2, 'name': 'User credentials are sent in clear text', 'severity': 2, 'vt_id': '92a2df52-5f25-bff6-2e5b-64717a2a417e'}, 
+{'count': 1, 'name': 'PHPinfo page found', 'severity': 2, 'vt_id': 'c2b212e3-2b4a-8f74-792d-2870a02eec1c'}
+], 
+'vuln_count': {'high': 32, 'low': 11, 'med': 60},  # 漏洞数据
+'vuln_count_by_criticality': {'critical': None, 'high': None, 'low': None, 'normal': {'high': 32, 'low': 11, 'med': 60}}, # 通过危险程度进行漏洞等级个数分布
+'vulnerabilities_open_count': 103} # 共发现漏洞总数</code></pre>
 
             </div>
             <hr/>
@@ -1211,7 +1225,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.1k</span>&nbsp;字
+                class="white-color">9.3k</span>&nbsp;字
             
             
             
