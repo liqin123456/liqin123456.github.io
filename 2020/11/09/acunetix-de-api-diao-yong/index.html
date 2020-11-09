@@ -400,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    82
+                    510
                 </div>
                 
 
@@ -417,7 +417,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>从决定开始写web扫描器时开始,注定这是一个耗时特别长时间的巨坑,python调用Acunetix的api的代码如下</p>
+                <p>从决定开始写web扫描器时开始,注定这是一个耗时特别长时间的巨坑</p>
+<!-- toc -->
+
+<h3 id="1-生成Acunetix的api"><a href="#1-生成Acunetix的api" class="headerlink" title="1.生成Acunetix的api"></a>1.生成Acunetix的api</h3><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-09_13-05-50.jpg"></p>
+<!-- toc -->
+
+<h3 id="1-python调用api"><a href="#1-python调用api" class="headerlink" title="1.python调用api"></a>1.python调用api</h3><h4 id="1-打印证书信息"><a href="#1-打印证书信息" class="headerlink" title="1.打印证书信息"></a>1.打印证书信息</h4><p>python调用Acunetix的api的打印证书信息的代码如下</p>
 <pre><code>import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -429,6 +435,113 @@ headers = {
 }
 r = requests.get(url=api_url, headers=headers, verify=False)
 print(r.json())</code></pre>
+<p>返回的json的数据</p>
+<pre><code>{
+'acumonitor': False, 
+'build_number': '200205121',
+ 'license': {
+'access': True,
+'activated': True, 
+'email': 'test@test.com', 
+'error': None, 
+'expired': False,
+'expires': 'false', 
+'features': ['target_business_criticality', 
+'network_scans', 
+'multi_user', 
+'api_key',
+'offline_activations', 
+'target_groups',
+'bug_tracking_integration',
+'compliance_reports',
+'continuous_scans',
+'vuln_retest',
+'trending_graphs', 
+'export_waf', 
+'updates', 
+'scanning_profiles',
+'pause_resume', 
+'multi_engine', 
+'acumonitor'], 
+'grace_period_end': None,
+'license_key': 'Cracked-By-nszy007-Funning',
+'limits': {
+'demo_targets': 5,
+'standard_targets': 999999, 
+'engines': 999999, 
+'users': None
+},
+'maintenance_expired': False, 
+'maintenance_expires': '2099-10-01T20:17:52', 
+'product_code': 'AOPENT'
+},
+ 'licensing_extra': 
+{'extra_std_target_count': 0, 
+'extra_user_count': 0, 
+'can_create_new_std_target': True,
+'can_create_new_demo_target': True, 
+'can_create_new_user': True, 
+'target_deletion_allowance': 2,
+'unique_std_target_count': 0, 
+'unique_net_target_count': 0, 
+'user_count': 1},
+'major_version': '13', 
+'max_network_scan_time': 2880, 
+'max_web_scan_time': 2880, 
+'minor_version': '0',
+'update_info':{
+'build_number': '-', 
+'major_version': '12', 
+'minor_version': '-', 
+'new_update': False,
+'update_status': 'none'
+}
+}</code></pre>
+<h4 id="2-账户信息"><a href="#2-账户信息" class="headerlink" title="2.账户信息"></a>2.账户信息</h4><p>修改一下代码url部分</p>
+<pre><code>Method:GET 
+URL: /api/v1/me</code></pre>
+<p>json数据</p>
+<pre><code>{
+'child_account': False,  #是否子账户
+'email': '515262617@qq.com', 
+'enabled': True, # 当前账户是否启用
+'first_name': 'Administrator', # 当前账户名
+'user_id': '986ad8c0-a5b3-df4d-7028-d5f3c06e936c', # 当前用户id 
+'totp_enabled': False, # 是否启用toptp
+'su': True # 是否最高权限
+}</code></pre>
+<h4 id="3-节点引擎信息"><a href="#3-节点引擎信息" class="headerlink" title="3.节点引擎信息"></a>3.节点引擎信息</h4><pre><code>Method:GET 
+URL: /api/v1/workers</code></pre>
+<p>json数据</p>
+<pre><code>{'workers': [    #工作的节点引擎
+{'endpoint': 'Main Installation', #      节点信息
+'scanning_app': 'wvs',  # 扫描应用程序
+'app_version': '13.0.200205121',  #      应用程序版本信息
+'authorization': 'authorized',  # 授权状态
+'description': 'Main Installation',  #      节点引擎描述
+'status': 'online',  # 节点引擎状态
+'worker_id': 'ffffffff-ffff-ffff-ffff-ffffffffffff'}] # 节点引擎id
+}</code></pre>
+<h4 id="4-通知信息"><a href="#4-通知信息" class="headerlink" title="4.通知信息"></a>4.通知信息</h4><pre><code>Method:GET 
+URL: /api/v1/notifications</code></pre>
+<p>json数据</p>
+<pre><code>{'notifications': [],  # 通知
+'pagination':  # 分页
+{'count': 0, 
+'cursor_hash': 'd16cdad638d278c14a209a6189016393', 
+'cursors': [None], 
+'sort': None}}</code></pre>
+<h4 id="4-Dashboard信息"><a href="#4-Dashboard信息" class="headerlink" title="4.Dashboard信息"></a>4.Dashboard信息</h4><pre><code>Method:GET 
+URL: /api/v1/me/stats</code></pre>
+<p>json数据</p>
+<pre><code>{'most_vulnerable_targets': [], # 最脆弱的目标
+'scans_conducted_count': 0, # 总进行扫描个数
+'scans_running_count': 0, # 正在扫描的个数
+'scans_waiting_count': 0, # 等待扫描的个数
+'targets_count': 0, # 总进行扫描个数
+'top_vulnerabilities': [], # 排名靠前漏洞分布
+'vuln_count': {'high': None, 'low': None, 'med': None}, # 漏洞数据
+'vuln_count_by_criticality': {'critical': None, 'high': None, 'low': None, 'normal': None},  # 通过危险程度进行漏洞等级个数分布 'vulnerabilities_open_count': 0} # 共发现漏洞总数</code></pre>
 
             </div>
             <hr/>
@@ -1098,7 +1211,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.7k</span>&nbsp;字
+                class="white-color">9.1k</span>&nbsp;字
             
             
             
