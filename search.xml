@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Acunetix的api调用</title>
+      <link href="2020/11/09/acunetix-de-api-diao-yong/"/>
+      <url>2020/11/09/acunetix-de-api-diao-yong/</url>
+      
+        <content type="html"><![CDATA[<p>从决定开始写web扫描器时开始,注定这是一个耗时特别长时间的巨坑,python调用Acunetix的api的代码如下</p><pre><code>import requestsfrom requests.packages.urllib3.exceptions import InsecureRequestWarningrequests.packages.urllib3.disable_warnings(InsecureRequestWarning)api_url = 'https://127.0.0.1:3443/api/v1/info'headers = {    'X-Auth': '1986ad8c0a5b3df4d7028d5f3c06e936c2561802e7fca4687b81de68875a05bfb',    'Content-type': 'application/json'}r = requests.get(url=api_url, headers=headers, verify=False)print(r.json())</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 巨坑 </tag>
+            
+            <tag> 自己动手写web扫描器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Acunetix破解使用(win版本)</title>
       <link href="2020/11/09/acunetix-po-jie-shi-yong/"/>
       <url>2020/11/09/acunetix-po-jie-shi-yong/</url>
