@@ -654,14 +654,14 @@ d = {"address":"http://www.sqlsec.com","description":"python测试","criticality
 r = requests.post(url=api_url, data=json.dumps(d), headers=headers, verify=False)
 print(r.json())</code></pre>
 <p>返回的数据</p>
-<pre><code>{'address': 'http://www.sqlsec.com', 目标网址
-'criticality': 10, 危险程度
-'description': 'python测试', 备注
-'type': 'default', 类型
-'domain': 'www.sqlsec.com', 域名
-'target_id': 'c9d2f5b9-e43e-45fa-be1e-f80860f3e7cd', 目标id
-'target_type': None, 目标类型
-'canonical_address': 'sqlsec.com',根域名  'canonical_address_hash': 'bad762b4a4bf172ab58592476b6d9ee7'}根域名hash</code></pre>
+<pre><code>{'address': 'http://www.sqlsec.com', # 目标网址
+'criticality': 10, # 危险程度
+'description': 'python测试', # 备注
+'type': 'default', # 类型
+'domain': 'www.sqlsec.com', # 域名
+'target_id': 'c9d2f5b9-e43e-45fa-be1e-f80860f3e7cd', # 目标id
+'target_type': None, # 目标类型
+'canonical_address': 'sqlsec.com',# 根域名  'canonical_address_hash': 'bad762b4a4bf172ab58592476b6d9ee7'}# 根域名hash</code></pre>
 
             </div>
             <hr/>
