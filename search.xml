@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Acunetix破解使用(win版本)</title>
+      <link href="2020/11/09/acunetix-po-jie-shi-yong/"/>
+      <url>2020/11/09/acunetix-po-jie-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-软件"><a href="#1-软件" class="headerlink" title="1.软件"></a>1.软件</h3><p><a href="https://pan.baidu.com/s/10lQceB7e5AAmPmFbsYf51w" title="Acunetix">https://pan.baidu.com/s/10lQceB7e5AAmPmFbsYf51w</a><br>提取码：loz7</p><!-- toc --><h3 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h3><p>下一步下一步安装即可。破解过程：</p><ol><li>wvsc.exe 覆盖C:\Program Files (x86)\Acunetix\13.0.200205121目录下同名文件</li><li>license_info.json 覆盖C:\ProgramData\Acunetix\shared\license目录下同名文件 (隐藏文件夹要加)<!-- toc --></li></ol><h3 id="2-开始使用"><a href="#2-开始使用" class="headerlink" title="2.开始使用"></a>2.开始使用</h3><pre><code>https://localhost:3443/#/dashboard</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-09_12-28-35.jpg"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 安全工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nessus破解</title>
       <link href="2020/11/09/nessus-po-jie/"/>
       <url>2020/11/09/nessus-po-jie/</url>
