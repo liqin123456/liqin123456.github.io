@@ -303,17 +303,21 @@
     
     
     <entry>
-      <title>badusb入门</title>
+      <title>记一次badusb的骚操作</title>
       <link href="2020/10/26/badusb-ru-men/"/>
       <url>2020/10/26/badusb-ru-men/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="1-准备条件"><a href="#1-准备条件" class="headerlink" title="1.准备条件"></a>1.准备条件</h3><ol><li>一个badusb(digistump)这个类型的badusb成本最低,但是配置开发环境有点麻烦,而且需要随时搭梯子(开发环境我下一次更新博客)<br><img src="https://gitee.com/secqin/tu/raw/master/img/QQ%E5%9B%BE%E7%89%8720201111184327.jpg"><br><img src="https://gitee.com/secqin/tu/raw/master/img/1605091366027.jpg"></li><li>烧录工具<br>下载<br><a href="https://downloads.arduino.cc/arduino-1.8.13-windows.exe" title="https://downloads.arduino.cc/arduino-1.8.13-windows.exe">https://downloads.arduino.cc/arduino-1.8.13-windows.exe</a><br>配置arduino的digistump的开发环境<br><a href="https://www.bilibili.com/video/av18699066/" title="https://www.bilibili.com/video/av18699066/">https://www.bilibili.com/video/av18699066/</a></li><li>digistump的驱动程序<br>(具体的配置看那个B站的视频)<br><a href="https://github.com/digistump/DigistumpArduino/releases" title="https://github.com/digistump/DigistumpArduino/releases">https://github.com/digistump/DigistumpArduino/releases</a></li><li>下载生成代码的工具<br><a href="https://github.com/CYRO4S/Automator" title="https://github.com/CYRO4S/Automator">https://github.com/CYRO4S/Automator</a><br>需要安装Visual Studio 2019,而且要安装ASP组件(刚好我们ASP.NET课下载了这个组件)<h1 id="官方开发者给出来的一系列代码"><a href="#官方开发者给出来的一系列代码" class="headerlink" title="官方开发者给出来的一系列代码"></a>官方开发者给出来的一系列代码</h1><h2 id="https-github-com-hak5darren-USB-Rubber-Ducky-wiki-Payloads"><a href="#https-github-com-hak5darren-USB-Rubber-Ducky-wiki-Payloads" class="headerlink" title="https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads"></a><a href="https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads" title="https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads">https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads</a></h2><!-- toc --></li></ol><h3 id="1-第一个程序hello-world"><a href="#1-第一个程序hello-world" class="headerlink" title="1.第一个程序hello world"></a>1.第一个程序hello world</h3><p>arduino<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-11_19-05-27.jpg"><br>Automator<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-11_19-04-41.jpg"></p><pre><code>#include "DigiKeyboard.h"void loop() {}void setup() {DigiKeyboard.print("hello world");}</code></pre>]]></content>
       
       
       
         <tags>
             
             <tag> badusb </tag>
+            
+            <tag> 硬件 </tag>
+            
+            <tag> 近源渗透 </tag>
             
         </tags>
       
