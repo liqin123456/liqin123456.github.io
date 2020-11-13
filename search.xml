@@ -8,7 +8,7 @@
       <link href="2020/11/13/ssti-zhu-ru/"/>
       <url>2020/11/13/ssti-zhu-ru/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="漏洞复现环境"><a href="#漏洞复现环境" class="headerlink" title="漏洞复现环境"></a>漏洞复现环境</h3><ol><li>flask的Jinja2模板语言(和Django的有些相似)</li><li>python3环境</li></ol>]]></content>
       
       
       <categories>
