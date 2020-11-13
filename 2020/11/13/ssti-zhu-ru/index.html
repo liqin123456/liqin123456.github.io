@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    780
+                    774
                 </div>
                 
 
@@ -483,15 +483,11 @@ def index():
 app.run(host="127.0.0.1", port=9527, debug=True)</code></pre>
 <!-- toc -->
 
-<h3 id="漏洞个人的一点理解1"><a href="#漏洞个人的一点理解1" class="headerlink" title="漏洞个人的一点理解1"></a>漏洞个人的一点理解1</h3><p>后台嵌入前端页面的参数,必须是来自用户自己输入,不能是后台提前设定好的值,post或者get方式来接受用户输入的参数<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-12_13-20-33.jpg"><br>不用担心不知道get传入的参数是什么,因为CTF SSTI注入题目一般会有输入框,</p>
-<pre><code>http://127.0.0.1:9527/?name=123{{9*9}} 正确
-http://127.0.0.1:9527/?name=123{{9+9}} 报错</code></pre>
-<p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-13_12-20-54.jpg"></p>
-<pre><code>http://127.0.0.1:9527/?name=123{{9%2b9}} 正确</code></pre>
+<h3 id="漏洞个人的一点理解1"><a href="#漏洞个人的一点理解1" class="headerlink" title="漏洞个人的一点理解1"></a>漏洞个人的一点理解1</h3><p>后台嵌入前端页面的参数,必须是来自用户自己输入,不能是后台提前设定好的值,post或者get方式来接受用户输入的参数<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-12_13-20-33.jpg"><br>不用担心不知道get传入的参数是什么,因为CTF SSTI注入题目一般会有输入框,<br><a target="_blank" rel="noopener" href="http://127.0.0.1:9527/?name=123">http://127.0.0.1:9527/?name=123</a>81 正确<br><a target="_blank" rel="noopener" href="http://127.0.0.1:9527/?name=123">http://127.0.0.1:9527/?name=123</a>18 报错<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-13_12-20-54.jpg"><br><a target="_blank" rel="noopener" href="http://127.0.0.1:9527/?name=123">http://127.0.0.1:9527/?name=123</a>NaN 正确</p>
 <p>必须把+进行url编码,*不用url编码</p>
 <!-- toc -->
 
-<h3 id="漏洞进阶"><a href="#漏洞进阶" class="headerlink" title="漏洞进阶"></a>漏洞进阶</h3><pre><code>由此就有大神找出了任意命令执行的方法了。但是需要执行系统命令,就要导入os模块,想要在模板中直接调用内置模块 os，即需要在模板环境中对其注册需要在上面的代码里加一句：t.globals['os'] =os,如果没有加这一句，直接使用os中的方法会报错。</code></pre>
+<h3 id="漏洞进阶"><a href="#漏洞进阶" class="headerlink" title="漏洞进阶"></a>漏洞进阶</h3><p>由此就有大神找出了任意命令执行的方法了。但是需要执行系统命令,就要导入os模块,想要在模板中直接调用内置模块 os，即需要在模板环境中对其注册需要在上面的代码里加一句：t.globals[‘os’] =os,如果没有加这一句，直接使用os中的方法会报错。</p>
 <pre><code>http://127.0.0.1:9527/?name={{%22aaa%22.upper()}}</code></pre>
 <p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-13_12-22-57.jpg"></p>
 
@@ -1167,7 +1163,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.8k</span>&nbsp;字
+                class="white-color">10.7k</span>&nbsp;字
             
             
             
