@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SSTI注入</title>
+      <link href="2020/11/13/ssti-zhu-ru/"/>
+      <url>2020/11/13/ssti-zhu-ru/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 常见漏洞 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 常见漏洞 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020.11.12刷题记录</title>
       <link href="2020/11/12/2020-11-12-shua-ti-ji-lu/"/>
       <url>2020/11/12/2020-11-12-shua-ti-ji-lu/</url>
