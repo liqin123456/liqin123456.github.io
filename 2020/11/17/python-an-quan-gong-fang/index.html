@@ -392,7 +392,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    70
+                    85
                 </div>
                 
 
@@ -415,7 +415,12 @@
 <h3 id="1-渗透测试框架"><a href="#1-渗透测试框架" class="headerlink" title="1.渗透测试框架"></a>1.渗透测试框架</h3><p>我之前一直在学的渗透测试框架是msf,但是这边书上给的是Pocsuite</p>
 <!-- toc -->
 
-<h3 id="1-被动信息收集"><a href="#1-被动信息收集" class="headerlink" title="1.被动信息收集"></a>1.被动信息收集</h3><h4 id="1-DNS解析"><a href="#1-DNS解析" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h4><h5 id="1-DNS解析-1"><a href="#1-DNS解析-1" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h5>
+<h3 id="1-被动信息收集"><a href="#1-被动信息收集" class="headerlink" title="1.被动信息收集"></a>1.被动信息收集</h3><h4 id="1-DNS解析"><a href="#1-DNS解析" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h4><h5 id="1-IP获取"><a href="#1-IP获取" class="headerlink" title="1.IP获取"></a>1.IP获取</h5><pre><code>import socket
+ip = socket.gethostbyname('www.baidu.com')
+print(ip)</code></pre>
+<p>输出</p>
+<pre><code>14.215.177.38</code></pre>
+
             </div>
             <hr/>
 
