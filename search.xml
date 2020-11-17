@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>python安全攻防</title>
+      <link href="2020/11/17/python-an-quan-gong-fang/"/>
+      <url>2020/11/17/python-an-quan-gong-fang/</url>
+      
+        <content type="html"><![CDATA[<p>双十一买的python安全攻防(ms08067实验室写的)到了,开始淦书了</p><!-- toc --><h3 id="1-渗透测试框架"><a href="#1-渗透测试框架" class="headerlink" title="1.渗透测试框架"></a>1.渗透测试框架</h3><p>我之前一直在学的渗透测试框架是msf,但是这边书上给的是Pocsuite</p><!-- toc --><h3 id="1-被动信息收集"><a href="#1-被动信息收集" class="headerlink" title="1.被动信息收集"></a>1.被动信息收集</h3><h4 id="1-DNS解析"><a href="#1-DNS解析" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h4><h5 id="1-DNS解析-1"><a href="#1-DNS解析-1" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h5>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CRC算法详解</title>
       <link href="2020/11/16/crc-suan-fa-xiang-jie/"/>
       <url>2020/11/16/crc-suan-fa-xiang-jie/</url>

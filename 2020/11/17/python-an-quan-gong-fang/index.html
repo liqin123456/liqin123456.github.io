@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="centos安装python, secqin">
+    <meta name="keywords" content="python安全攻防, secqin">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>centos安装python | secqin</title>
+    <title>python安全攻防 | secqin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +240,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">centos安装python</h1>
+                    <h1 class="description center-align post-title">python安全攻防</h1>
                 </div>
             </div>
         </div>
@@ -364,13 +364,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -382,21 +378,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-16
+                    2020-11-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-16
+                    2020-11-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    133
+                    70
                 </div>
                 
 
@@ -413,25 +409,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="安装python前的库环境，非常重要"><a href="#安装python前的库环境，非常重要" class="headerlink" title="安装python前的库环境，非常重要"></a>安装python前的库环境，非常重要</h3><pre><code>yum install gcc patch libffi-devel python-devel  zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel -y</code></pre>
+                <p>双十一买的python安全攻防(ms08067实验室写的)到了,开始淦书了</p>
 <!-- toc -->
 
-<h3 id="下载，解压安装源码包"><a href="#下载，解压安装源码包" class="headerlink" title="下载，解压安装源码包"></a>下载，解压安装源码包</h3><pre><code>wget https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz
-xz -d Python-3.7.9.tar.xz
-tar -xf Python-3.7.9.tar</code></pre>
+<h3 id="1-渗透测试框架"><a href="#1-渗透测试框架" class="headerlink" title="1.渗透测试框架"></a>1.渗透测试框架</h3><p>我之前一直在学的渗透测试框架是msf,但是这边书上给的是Pocsuite</p>
 <!-- toc -->
 
-<h3 id="编译-安装"><a href="#编译-安装" class="headerlink" title="编译,安装"></a>编译,安装</h3><pre><code>#yum install gcc -y
-./configure --prefix=/opt/python
-make &amp;&amp; make install</code></pre>
-<!-- toc -->
-
-<h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><pre><code>python3.4默认没添加path
-在/etc/profile最后一行添加
-export PATH=$PATH:/opt/python/bin
-然后
-source /etc/profile</code></pre>
-
+<h3 id="1-被动信息收集"><a href="#1-被动信息收集" class="headerlink" title="1.被动信息收集"></a>1.被动信息收集</h3><h4 id="1-DNS解析"><a href="#1-DNS解析" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h4><h5 id="1-DNS解析-1"><a href="#1-DNS解析-1" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h5>
             </div>
             <hr/>
 
@@ -456,7 +440,7 @@ source /etc/profile</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.secqin.top/2020/10/16/centos-an-zhuang-python/">http://www.secqin.top/2020/10/16/centos-an-zhuang-python/</a>
+                    <a href="http://www.secqin.top/2020/11/17/python-an-quan-gong-fang/">http://www.secqin.top/2020/11/17/python-an-quan-gong-fang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -493,11 +477,7 @@ source /etc/profile</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -806,62 +786,18 @@ source /etc/profile</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/10/18/asp-net-ru-men/">
+                <a href="/2020/11/17/python-an-quan-gong-fang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ASP.NET入门">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="python安全攻防">
                         
-                        <span class="card-title">ASP.NET入门</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            secqin
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">开发</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/10/15/ba-chang-da-jian/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="靶场搭建">
-                        
-                        <span class="card-title">靶场搭建</span>
+                        <span class="card-title">python安全攻防</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -872,7 +808,45 @@ source /etc/profile</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            secqin
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/16/crc-suan-fa-xiang-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="CRC算法详解">
+                        
+                        <span class="card-title">CRC算法详解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
                             </span>
                         <span class="publish-author">
                             
@@ -885,12 +859,12 @@ source /etc/profile</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
-                    <a href="/tags/%E9%9D%B6%E5%9C%BA/">
-                        <span class="chip bg-color">靶场</span>
+                    <a href="/tags/%E8%80%83%E7%A0%94%E8%AF%BE%E7%A8%8B/">
+                        <span class="chip bg-color">考研课程</span>
                     </a>
                     
                 </div>
