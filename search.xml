@@ -242,7 +242,7 @@
       <link href="2020/11/03/zi-ji-dong-shou-xie-web-zong-he-sao-miao-qi/"/>
       <url>2020/11/03/zi-ji-dong-shou-xie-web-zong-he-sao-miao-qi/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>2020年11月19日晚上9点自己开始了综合扫描器的编写<br>开工大吉<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_21-05-34.jpg"><br>开工大吉,好的开始,自己就不写Django创建的具体细节了<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_21-18-44.jpg"></p>]]></content>
       
       
       
@@ -465,29 +465,6 @@
             <tag> 硬件 </tag>
             
             <tag> 近源渗透 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>从零开始构思xss自动挖掘项目</title>
-      <link href="2020/10/26/cong-ling-kai-shi-gou-si-xss-zi-dong-wa-jue-xiang-mu/"/>
-      <url>2020/10/26/cong-ling-kai-shi-gou-si-xss-zi-dong-wa-jue-xiang-mu/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 巨坑 </tag>
-            
-            <tag> 动手写扫描器 </tag>
-            
-            <tag> 安全开发 </tag>
             
         </tags>
       
