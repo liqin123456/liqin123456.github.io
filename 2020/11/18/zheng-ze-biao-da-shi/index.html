@@ -398,14 +398,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-18
+                    2020-11-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    588
+                    772
                 </div>
                 
 
@@ -510,7 +510,43 @@ ret = re.search('(^[1-9]\d?$|100$)', text)
 print(ret.group())</code></pre>
 <!-- toc -->
 
-<h3 id="5-转义字符和原生字符串"><a href="#5-转义字符和原生字符串" class="headerlink" title="5.转义字符和原生字符串"></a>5.转义字符和原生字符串</h3>
+<h3 id="5-转义字符和原生字符串"><a href="#5-转义字符和原生字符串" class="headerlink" title="5.转义字符和原生字符串"></a>5.转义字符和原生字符串</h3><p>r(python那一层)</p>
+<pre><code>text = r'\n' #加了r表示原生字符串
+print(text)</code></pre>
+<p>\</p>
+<pre><code>text = "\\n"
+ret = re.match('\\\\n',text) # 第一步python解码\\\\=\\然后正则表达式\\=\
+print(ret.group())</code></pre>
+<p>等同于</p>
+<pre><code>text = "\n"
+ret = re.match(r'\\n',text) 
+print(ret.group())</code></pre>
+<!-- toc -->
+
+<h3 id="6-re模块常用函数"><a href="#6-re模块常用函数" class="headerlink" title="6.re模块常用函数"></a>6.re模块常用函数</h3><h4 id="1-match"><a href="#1-match" class="headerlink" title="1.match"></a>1.match</h4><p>开头开始找</p>
+<h4 id="2-search"><a href="#2-search" class="headerlink" title="2.search"></a>2.search</h4><p>任意位置开始找</p>
+<h4 id="3-group"><a href="#3-group" class="headerlink" title="3.group"></a>3.group</h4><pre><code>import re
+text = "apple's price $99,gfbgfbg$67"
+ret = re.search('.*(\$\d+).*(\$\d+)', text)
+print(ret.group())
+group(1)==&gt;$99
+group(2)==&gt;$67
+group = group(0)==&gt;整个
+print(1,2)==&gt;提取两个分组
+所有的子分组都拿出来
+print(ret.groups())</code></pre>
+<h4 id="3-findall"><a href="#3-findall" class="headerlink" title="3.findall"></a>3.findall</h4><p>提取全部,返回来的是列表</p>
+<pre><code>import re
+text = "apple's price $99,gfbgfbg$67"
+ret = re.findall('.*(\$\d+).*(\$\d+)', text)
+print(ret)</code></pre>
+<p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_14-22-31.jpg"></p>
+<h4 id="3-sub"><a href="#3-sub" class="headerlink" title="3.sub"></a>3.sub</h4><pre><code>import re
+text = "apple's price $99,gfbgfbg$67"
+ret = re.sub('\$\d+',"0",text)
+print(ret)</code></pre>
+<p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_14-25-15.jpg"></p>
+
             </div>
             <hr/>
 
@@ -1187,7 +1223,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.6k</span>&nbsp;字
+                class="white-color">13k</span>&nbsp;字
             
             
             
