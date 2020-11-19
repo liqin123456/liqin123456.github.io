@@ -360,9 +360,21 @@
       <link href="2020/10/30/cs4-0/"/>
       <url>2020/10/30/cs4-0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="1-认识cs4-0"><a href="#1-认识cs4-0" class="headerlink" title="1.认识cs4.0"></a>1.认识cs4.0</h3><p>目录结构:<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_13-04-21.jpg"><br>分为服务器端和客户端<br>客户端我是用我的win电脑,服务器端我是用云kali<br>win端点击start.bat批处理文件就可以打开<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_13-08-50.jpg"><br>服务器端用</p><pre><code>./teamserver 云kali的ip 设置密码</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_13-10-53.jpg"><br>连接上以后的样子:<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_13-11-27.jpg"></p><!-- toc --><h3 id="3-瞎子表哥写了一个cs上线的微信提醒脚本"><a href="#3-瞎子表哥写了一个cs上线的微信提醒脚本" class="headerlink" title="3.瞎子表哥写了一个cs上线的微信提醒脚本"></a>3.瞎子表哥写了一个cs上线的微信提醒脚本</h3><p>链接：<a href="https://pan.baidu.com/s/1NQG9UBW-cJnbtMADW7W09g" title="https://pan.baidu.com/s/1NQG9UBW-cJnbtMADW7W09g">https://pan.baidu.com/s/1NQG9UBW-cJnbtMADW7W09g</a><br>提取码：bfb1<br>复制这段内容后打开百度网盘手机App，操作更方便哦–来自百度网盘超级会员V4的分享<br>把这个脚本放在服务器端<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_13-16-08.jpg"><br>输入命令</p><pre><code>./agscript 云kali的ip 50050 jiaobao secqin http_ftqq.cna</code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> 安全工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安全工具 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -540,8 +552,14 @@
       <link href="2020/10/18/asp-net-ru-men/"/>
       <url>2020/10/18/asp-net-ru-men/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>本来打算只学习Django框架,这个学期选了.NET架构,于是又要学习.NET架构,毕竟要考试,两个项目从头开始</p><!-- toc --><h3 id="1-个人资料的项目"><a href="#1-个人资料的项目" class="headerlink" title="1.个人资料的项目"></a>1.个人资料的项目</h3><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_10-55-31.jpg"><br>MVC编程<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_10-56-57.jpg"><br>项目结构<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_10-58-44.jpg"><br>在controllers里面新建一个空控制器<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-19_11-00-12.jpg"><br>之后在Views里面创建一个chtml网页(创建Test试图以后编辑器自动创建了一个Test文件夹在Views里面,在Test里面创建文件)</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 开发 </category>
+          
+      </categories>
       
       
         <tags>
