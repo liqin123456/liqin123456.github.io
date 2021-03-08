@@ -4,6 +4,65 @@
   
     
     <entry>
+      <title>LeetCode1</title>
+      <link href="2021/03/08/leetcode1/"/>
+      <url>2021/03/08/leetcode1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>django的路由系统</title>
+      <link href="2021/02/22/django-de-lu-you-xi-tong/"/>
+      <url>2021/02/22/django-de-lu-you-xi-tong/</url>
+      
+        <content type="html"><![CDATA[<h3 id="urls-py"><a href="#urls-py" class="headerlink" title="urls.py"></a>urls.py</h3><p>from django.urls import path,re_path 导入re_path</p><pre><code>re_path(r'^index/([0-9]{4})/[0-9]{2}/$', views.index),path(r'press_list/', views.press_list),</code></pre><p>想在里面使用正则表达式就用要导入re_path模块,path不支持正则表达式</p><blockquote><p>传参新姿势,通过正则表达式的()传参(爬虫经常碰到)</p></blockquote><pre><code>http://127.0.0.1:8000/index/1233/12/</code></pre><pre><code>def index(request,year):    print(year)    return render(request, "index.html")</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-23_11-05-24.jpg"></p><blockquote><p><a class="btn btn-primary" href="/app01/delete_press//">删除</a>修改press_list里面的删除按钮取缔掉?id=<br>re_path(r’^delete_press/(\d+)/$’, views.delete_press),<br>改views.py里面的函数</p></blockquote><pre><code>def delete_press(request, delete_id):    print(reverse('press_list'), type(reverse('press_list')))    Press.objects.filter(id=delete_id).delete()    return redirect(reverse('press_list'))</code></pre><!-- toc --><h3 id="路由系统之URL命名和反向解析"><a href="#路由系统之URL命名和反向解析" class="headerlink" title="路由系统之URL命名和反向解析"></a>路由系统之URL命名和反向解析</h3><blockquote><p>from django.shortcuts import render, HttpResponse, redirect, reverse</p></blockquote><pre><code>    path(r'press/', views.press_list, name='press_list'),</code></pre><pre><code>def delete_press(request, delete_id):    # delete_id = request.GET.get('id')    print(reverse('press_list'), type(reverse('press_list')))    Press.objects.filter(id=delete_id).delete()    return redirect(reverse('press_list'))</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+            <tag> django </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>django-request和response</title>
+      <link href="2021/02/22/django-request-he-response/"/>
+      <url>2021/02/22/django-request-he-response/</url>
+      
+        <content type="html"><![CDATA[<h3 id="request"><a href="#request" class="headerlink" title="request"></a>request</h3><blockquote><p><a href="http://127.0.0.1:8000/index/?name=123123">http://127.0.0.1:8000/index/?name=123123</a></p></blockquote><pre><code>    print(request, type(request))    print(request.GET)    print(request.POST)    print(request.FILES)    print(request.path_info)    print(request.body)    print(request.path)</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-22_14-54-57.jpg"></p><pre><code>    print(request.get_host())    print(request.get_full_path())    print(request.is_secure())    print(request.is_ajax())</code></pre><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-22_15-05-11.jpg"></p><!-- toc --><h3 id="response"><a href="#response" class="headerlink" title="response"></a>response</h3><p>三剑客:HttpResponse,render,redirect+JsonResponse<br>redirect本质,在响应头里面加Location:/press_list/<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-22_16-36-23.jpg"></p><h4 id="向前端传Json数据"><a href="#向前端传Json数据" class="headerlink" title="向前端传Json数据"></a>向前端传Json数据</h4><pre><code>def index(request):    ret = {'name': 'alex', 'age': 84}    # return HttpResponse(json.dumps(ret), content_type='application/json')    # return JsonResponse(ret)    return redirect('/press_list/')    # return render(request, "index.html")</code></pre><h4 id="JsonResponse源码"><a href="#JsonResponse源码" class="headerlink" title="JsonResponse源码"></a>JsonResponse源码</h4><p><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-22_16-40-31.jpg"><br>可知JsonResponse自动设置响应包里面的content_type:application/json<br>HttpResponse的部分源码<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-02-22_16-43-30.jpg"><br>发现如果没有指定content_type,就会默认响应包里面的content_type = ‘text/html; charset=%s’ % self.charset,</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+            <tag> django </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>django-CBV源码</title>
       <link href="2021/02/20/django-cbv-yuan-ma/"/>
       <url>2021/02/20/django-cbv-yuan-ma/</url>
