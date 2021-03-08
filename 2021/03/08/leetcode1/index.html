@@ -364,9 +364,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/LeetCode/">
+                                <span class="chip bg-color">LeetCode</span>
+                            </a>
+                        
+                            <a href="/tags/BUUCTF/">
+                                <span class="chip bg-color">BUUCTF</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -392,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.1k
                 </div>
                 
 
@@ -409,7 +417,95 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>备用知识:<br>列表的备用知识:<br>1.列表的index函数返回对应元素的下标</p>
+<blockquote>
+<p>a=[1,2,3] print(a.index(3)) =&gt; 2</p>
+</blockquote>
+<p>2.python列表怎么传入一个函数呢?</p>
+<blockquote>
+<p>直接传入列表的名称就行了</p>
+</blockquote>
+<!-- toc -->
+
+<h3 id="两数相加"><a href="#两数相加" class="headerlink" title="两数相加"></a>两数相加</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。<br>你可以按任意顺序返回答案。<br>示例 1：<br>输入：nums = [2,7,11,15], target = 9<br>输出：[0,1]<br>解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。<br>示例 2：<br>输入：nums = [3,2,4], target = 6<br>输出：[1,2]<br>示例 3：<br>输入：nums = [3,3], target = 6<br>输出：[0,1]<br>提示：<br>    2 &lt;= nums.length &lt;= 103<br>    -109 &lt;= nums[i] &lt;= 109<br>    -109 &lt;= target &lt;= 109<br>    只会存在一个有效答案<br>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum">https://leetcode-cn.com/problems/two-sum</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>1.我想着遍历两遍数组,用index()保证其下标不相同<br>2.先用sort排序,然后用首尾相加(以后再验证)</p>
+<h4 id="第一代代码"><a href="#第一代代码" class="headerlink" title="第一代代码:"></a>第一代代码:</h4><pre><code>class Solution:
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+        li=[]
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if nums[i]+nums[j] == target and i!=j:
+                    li.append(i)
+                    li.append(j)
+        L1 = set(li)
+        li = list(L1)
+        return li</code></pre>
+<h4 id="第二代代码"><a href="#第二代代码" class="headerlink" title="第二代代码:"></a>第二代代码:</h4><pre><code>class Solution:
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i]+nums[j] == target and i!=j:
+                    return [i,j]</code></pre>
+<p>总结:第一次写LeedCode,不是发现不用写输入输出</p>
+<!-- toc -->
+
+<h3 id="两数相加-1"><a href="#两数相加-1" class="headerlink" title="两数相加"></a>两数相加</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><p>给你一个 32 位的有符号整数 x ，返回 x 中每位上的数字反转后的结果。</p>
+<p>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。<br>假设环境不允许存储 64 位整数（有符号或无符号）。<br>示例 1：<br>输入：x = 123<br>输出：321</p>
+<p>示例 2：<br>输入：x = -123<br>输出：-321</p>
+<p>示例 3：<br>输入：x = 120<br>输出：21</p>
+<p>示例 4：<br>输入：x = 0<br>输出：0<br>提示：<br>    -231 &lt;= x &lt;= 231 - 1</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-integer">https://leetcode-cn.com/problems/reverse-integer</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre><code>class Solution:
+    def reverse(self, x: int) -&gt; int:
+        if x&gt;=0:
+            x = str(x)
+            x = x[::-1]
+        else:
+            x = -x
+            x = str(x)
+            x = x[::-1]
+            x = int(x)
+            x = -x
+        x = int(x)
+        if -2**31&lt;=x&lt;=2**31-1:
+            return x
+        else:
+            return 0</code></pre>
+<!-- toc -->
+
+<h3 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h3><h4 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h4><p>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。<br>示例 1：<br>输入：x = 121<br>输出：true<br>示例 2：<br>输入：x = -121<br>输出：false<br>解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。<br>示例 3：<br>输入：x = 10<br>输出：false<br>解释：从右向左读, 为 01 。因此它不是一个回文数。<br>示例 4：<br>输入：x = -101<br>输出：false<br>提示：<br>    -231 &lt;= x &lt;= 231 - 1<br>进阶：你能不将整数转为字符串来解决这个问题吗？</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-number">https://leetcode-cn.com/problems/palindrome-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>1.如果不转换为字符串,然后反转,看是不是一样的话,就用二分法来做</p>
+<pre><code>class Solution:
+    def isPalindrome(self, x: int) -&gt; bool:
+        b = x
+        flag = 1
+        while x//10!=0:
+            a=x//10
+            flag = flag +1
+        c = 0
+        while flag!=0:
+            flag = flag-1
+            c = c + (b % 10)*10**flag
+            b=b//10
+        if c == b:
+            return True
+        else:
+            return False</code></pre>
+<p>超出了时间限制<br><img src="https://gitee.com/secqin/tu/raw/master/img/Snipaste_2021-03-08_13-40-31.jpg"><br>官方题解里面没有python3的解决办法</p>
+<!-- toc -->
+
+<h3 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h3><h4 id="丢失的MD5"><a href="#丢失的MD5" class="headerlink" title="丢失的MD5"></a>丢失的MD5</h4><pre><code>import hashlib   
+for i in range(32,127):
+    for j in range(32,127):
+        for k in range(32,127):
+            m=hashlib.md5()
+            m.update('TASC'.encode('utf-8')+chr(i).encode('utf-8')+'O3RJMV'.encode('utf-8')+chr(j).encode('utf-8')+'WDJKX'.encode('utf-8')+chr(k).encode('utf-8')+'ZM'.encode('utf-8'))
+            des=m.hexdigest()
+            if 'e9032' in des and 'da' in des and '911513' in des:
+                print(des)</code></pre>
+<p>结果:e9032994dabac08080091151380478a2<br>至于为什么加了一个.encode(‘utf-8’)我也不清楚</p>
+
             </div>
             <hr/>
 
@@ -471,7 +567,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/LeetCode/">
+                                    <span class="chip bg-color">LeetCode</span>
+                                </a>
+                            
+                                <a href="/tags/BUUCTF/">
+                                    <span class="chip bg-color">BUUCTF</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -814,6 +918,18 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                    <a href="/tags/BUUCTF/">
+                        <span class="chip bg-color">BUUCTF</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -1066,7 +1182,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.2k</span>&nbsp;字
+                class="white-color">17.3k</span>&nbsp;字
             
             
             
