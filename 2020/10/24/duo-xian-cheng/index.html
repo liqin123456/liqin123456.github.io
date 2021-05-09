@@ -374,6 +374,10 @@
                                 <span class="chip bg-color">多线程</span>
                             </a>
                         
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -384,6 +388,10 @@
                         
                             <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
                                 操作系统
+                            </a>
+                        
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -402,14 +410,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-24
+                    2021-05-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    542
                 </div>
                 
 
@@ -426,7 +434,72 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <hr>
+<!-- toc -->
+
+<h3 id="1-进程-同步与异步"><a href="#1-进程-同步与异步" class="headerlink" title="1.进程,同步与异步"></a>1.进程,同步与异步</h3><h4 id="创建子进程的两种方式"><a href="#创建子进程的两种方式" class="headerlink" title="创建子进程的两种方式"></a>创建子进程的两种方式</h4><p>1.</p>
+<pre><code>p = Process(target=func, args=(1,), name='alex')</code></pre>
+<p>2.写出MyProcess类,继承Process</p>
+<pre><code>class MyProcess(Process):
+
+    def __init__(self, name, target=None):
+        self.target = target
+        self.name = name
+        super(MyProcess, self).__init__(target=self.target, name=self.name)
+
+    def run(self):
+        print('这是继承类的方式开启一个进程,进程名称是%s' % self.name)
+
+
+if __name__ == "__main__":
+    p1 = MyProcess(target=func, name='liqin')
+    p1.start()</code></pre>
+<h4 id="子进程和父进程的PID"><a href="#子进程和父进程的PID" class="headerlink" title="子进程和父进程的PID"></a>子进程和父进程的PID</h4><p>os.getpid()  # 子进程的pid<br>os.getppid()  # 父进程的pid</p>
+<h4 id="判断子进程是否活着"><a href="#判断子进程是否活着" class="headerlink" title="判断子进程是否活着"></a>判断子进程是否活着</h4><p>p.is_alive()</p>
+<h4 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h4><p>随父进程的结束而结束,守护进程,正常情况父进程结束,子进程不结束<br>p.daemon()让一个子进程变成这个父进程的守护进程,必须写在p.start()之前<br>p.daemon = True开启守护进程</p>
+<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>让代码本来的异步变成同步.父进程执行完才执行子进程<br>p.join()</p>
+<h4 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h4><p>p.terminate()</p>
+<h4 id="1-复习的汇总代码"><a href="#1-复习的汇总代码" class="headerlink" title="1.复习的汇总代码"></a>1.复习的汇总代码</h4><pre><code>from multiprocessing import Process
+import time
+
+def func1():
+    for i in range(65, 70):
+        print(chr(i))
+        time.sleep(0.5)
+
+
+def func():
+    for i in range(10):
+        print(i)
+        time.sleep(0.5)
+
+
+if __name__ == '__main__':
+    p = Process(target=func)
+    p.start()
+    p1 = Process(target=func1)
+    p1.daemon = True  # 随父进程的结束而结束,守护进程,正常情况父进程结束,子进程不结束
+    p1.start()
+    time.sleep(1)
+    print(p.is_alive())
+    p.terminate()
+    p.join() # 让父进程执行到子进程的结束,异步变同步,先子进程再父进程
+    print(p.is_alive()) # 操作系统没有来得急杀死它
+    print(p.pid)
+    print(p.name)
+    for i in range(10,21):
+        print(i)
+        time.sleep(1)</code></pre>
+<!-- toc -->
+
+<h3 id="2-锁"><a href="#2-锁" class="headerlink" title="2.锁"></a>2.锁</h3><p>为什么要引入锁机制?<br>因为在子进程和父进程内存共享的时候会发生错乱<br>锁涉及两个操作:1.拿钥匙锁门(不让别人进屋) 2.换钥匙开门(让别人进屋)<br>就像在自己登录账号的别人就不能登我自己的账号<br>锁的特点是一把钥匙配一把锁</p>
+<pre><code>from multiprocessing import Lock
+l = Lock()
+
+l.acquire()  # 拿走钥匙不让别人进屋
+l.release()  # 释放锁,换钥匙,打开门,让别人进屋</code></pre>
+<p>这个锁与操作系统的锁机制不一样,不是同一回事</p>
+
             </div>
             <hr/>
 
@@ -495,6 +568,10 @@
                             
                                 <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
                                     <span class="chip bg-color">多线程</span>
+                                </a>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
                         </div>
@@ -858,13 +935,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/18/asp-net-ru-men/">
+                <a href="/2020/10/16/centos-an-zhuang-python/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ASP.NET入门">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="centos安装python">
                         
-                        <span class="card-title">ASP.NET入门</span>
+                        <span class="card-title">centos安装python</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -875,16 +952,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
-                                    开发
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            secqin
                             
                         </span>
                     </div>
@@ -892,8 +965,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">开发</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
@@ -1097,7 +1170,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.3k</span>&nbsp;字
+                class="white-color">20.8k</span>&nbsp;字
             
             
             

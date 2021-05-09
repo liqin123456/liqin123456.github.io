@@ -393,14 +393,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -449,7 +449,7 @@
 <p>总结:第一次写LeedCode,不是发现不用写输入输出</p>
 <!-- toc -->
 
-<h3 id="两数相加-1"><a href="#两数相加-1" class="headerlink" title="两数相加"></a>两数相加</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><p>给你一个 32 位的有符号整数 x ，返回 x 中每位上的数字反转后的结果。</p>
+<h3 id="两数反转"><a href="#两数反转" class="headerlink" title="两数反转"></a>两数反转</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><p>给你一个 32 位的有符号整数 x ，返回 x 中每位上的数字反转后的结果。</p>
 <p>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。<br>假设环境不允许存储 64 位整数（有符号或无符号）。<br>示例 1：<br>输入：x = 123<br>输出：321</p>
 <p>示例 2：<br>输入：x = -123<br>输出：-321</p>
 <p>示例 3：<br>输入：x = 120<br>输出：21</p>
@@ -475,7 +475,7 @@
 
 <h3 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h3><h4 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h4><p>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。<br>示例 1：<br>输入：x = 121<br>输出：true<br>示例 2：<br>输入：x = -121<br>输出：false<br>解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。<br>示例 3：<br>输入：x = 10<br>输出：false<br>解释：从右向左读, 为 01 。因此它不是一个回文数。<br>示例 4：<br>输入：x = -101<br>输出：false<br>提示：<br>    -231 &lt;= x &lt;= 231 - 1<br>进阶：你能不将整数转为字符串来解决这个问题吗？</p>
 <p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-number">https://leetcode-cn.com/problems/palindrome-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>1.如果不转换为字符串,然后反转,看是不是一样的话,就用二分法来做</p>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>1.如果不转换为字符串,然后反转,看是不是一样的话,模运算来求</p>
 <pre><code>class Solution:
     def isPalindrome(self, x: int) -&gt; bool:
         b = x
@@ -505,6 +505,10 @@ for i in range(32,127):
             if 'e9032' in des and 'da' in des and '911513' in des:
                 print(des)</code></pre>
 <p>结果:e9032994dabac08080091151380478a2<br>至于为什么加了一个.encode(‘utf-8’)我也不清楚</p>
+<h4 id="Alice与Bob"><a href="#Alice与Bob" class="headerlink" title="Alice与Bob"></a>Alice与Bob</h4><p>题目:<br>密码学历史中，有两位知名的杰出人物，Alice和Bob。他们的爱情经过置换和轮加密也难以混淆，即使是没有身份认证也可以知根知底。就像在数学王国中的素数一样，孤傲又热情。下面是一个大整数:98554799767,请分解为两个素数，分解后，小的放前面，大的放后面，合成一个新的数字，进行md5的32位小写哈希，提交答案。 注意：得到的 flag 请包上 flag{} 提交</p>
+<blockquote>
+<p>判断一个数是不是质数</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -884,18 +888,17 @@ for i in range(32,127):
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/08/leetcode1/">
+                <a href="/2021/03/09/leetcode2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="LeetCode1">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="LeetCode2">
                         
-                        <span class="card-title">LeetCode1</span>
+                        <span class="card-title">LeetCode2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -905,9 +908,9 @@ for i in range(32,127):
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -916,16 +919,15 @@ for i in range(32,127):
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
+                    <a href="/tags/buuctf/">
+                        <span class="chip bg-color">buuctf</span>
                     </a>
                     
-                    <a href="/tags/BUUCTF/">
-                        <span class="chip bg-color">BUUCTF</span>
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -1182,7 +1184,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <a href="/about" target="_blank">secqin</a>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.3k</span>&nbsp;字
+                class="white-color">20.8k</span>&nbsp;字
             
             
             
