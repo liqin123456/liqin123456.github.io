@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>7.DI依赖注入</title>
+      <link href="/2022/02/06/7-DI%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
+      <url>/2022/02/06/7-DI%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-依赖注入"><a href="#1-依赖注入" class="headerlink" title="1. 依赖注入"></a>1. 依赖注入</h1><h2 id="1-1-构造器注入"><a href="#1-1-构造器注入" class="headerlink" title="1.1 构造器注入"></a>1.1 构造器注入</h2><p>前面已经说过了,3种</p><h2 id="1-2-set方式注入-重点"><a href="#1-2-set方式注入-重点" class="headerlink" title="1.2 set方式注入[重点]"></a>1.2 set方式注入[重点]</h2><p>依赖注入:set注入!</p><ul><li><p>依赖:bean对象的创建依赖容器</p></li><li><p>注入:bean对象中的属性,由容器来注入</p></li></ul><p>[环境搭建]</p><ol><li>复杂类型</li><li>真实测试对象</li></ol><h2 id="1-3-拓展方式注入"><a href="#1-3-拓展方式注入" class="headerlink" title="1.3 拓展方式注入"></a>1.3 拓展方式注入</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>6.Spring的配置说明</title>
+      <link href="/2022/02/06/6-Spring%E7%9A%84%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/"/>
+      <url>/2022/02/06/6-Spring%E7%9A%84%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-Spring配置"><a href="#1-Spring配置" class="headerlink" title="1.Spring配置"></a>1.Spring配置</h1><h2 id="1-1-别名"><a href="#1-1-别名" class="headerlink" title="1.1 别名"></a>1.1 别名</h2><p>如果添加了别名,我们也可以通过别名取得对象</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">alias</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span> <span class="attr">alias</span>=<span class="string">&quot;li&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">alias</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="1-2-bean的配置"><a href="#1-2-bean的配置" class="headerlink" title="1.2 bean的配置"></a>1.2 bean的配置</h2><p>id是bean的唯一标识符,也就是相当于我们学的对象名</p><p>class:bean 对象所对应的权限定名:包名加类名</p><p>name:也是别名,而且name更高级,可以同时取多个别名,一般不用alias</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> =<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.qin.pojo.User&quot;</span> <span class="attr">name</span>=<span class="string">&quot;user2,u2 u3;u4&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><p>逗号,空格,分号均可分割</p><h2 id="1-3-import"><a href="#1-3-import" class="headerlink" title="1.3 import"></a>1.3 import</h2><p>这个import一般用于团队开发使用,可以将多个配置文件导入合并为一个</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;beans.xml&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;beans2.xml&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>假设,现在项目中有多个人开发,这三个人复制不同的类开发,不同的类需要注册在不同的bean中,我们可以利用import讲所有人的beans.xm合并为一个总的</p><p>使用的时候用总的即可,内容相同也会被合并</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>5.IOC创建对象的方式</title>
+      <link href="/2022/02/06/5-IOC%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
+      <url>/2022/02/06/5-IOC%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-创建方式"><a href="#1-创建方式" class="headerlink" title="1.创建方式"></a>1.创建方式</h1><p>通过无参方式构造</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> =<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.qin.pojo.User&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;黎钦&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>第一种构造器:下标赋值</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">&quot;0&quot;</span> <span class="attr">value</span>=<span class="string">&quot;黎钦说Java&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>通过类型创建(不建议使用)</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">type</span>=<span class="string">&quot;java.lang.String&quot;</span> <span class="attr">value</span>=<span class="string">&quot;黎钦说Java123&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>直接通过参数名来设置</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;黎钦&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>创建bean的时候已经初始化了,在配置文件加载的时候,容器里面的类就已经初始化了</p><p>内存中只有一个实例,就取那一个</p><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>4-HelloSpring</title>
+      <link href="/2022/02/06/4-HelloSpring/"/>
+      <url>/2022/02/06/4-HelloSpring/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-HelloSpring"><a href="#1-HelloSpring" class="headerlink" title="1.HelloSpring"></a>1.HelloSpring</h1><blockquote><p>mytest.java</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.qin.pojo.Hello;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取spring上下文对象</span></span><br><span class="line">        ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">&quot;beans.xml&quot;</span>);</span><br><span class="line">        <span class="comment">//我们的对象现在都在spring中的管理了，我们要使用，直接去里面取出来就可以了</span></span><br><span class="line">        Hello hello = (Hello) context.getBean(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">        System.out.println(hello.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Hello对象是谁创建的?</p></blockquote><p>spring创建的</p><p>bean=对象</p><p>类型 变量名 = new 类型();</p><p>id就是变量名</p><p>class就是要new的对象</p><p>property 相当于给对象中的属性设置一个值</p><blockquote><p>beans.xml</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="string"><span class="tag">        https://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--    使用spring来创建对象--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> =<span class="string">&quot;hello&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.qin.pojo.Hello&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;str&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Spring&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>hello.java</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.qin.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String str;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStr</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStr</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.str = str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;str=&#x27;&quot;</span> + str + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>关键是靠这个set对象,如果去掉就不能注册</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;UserServiceImpl&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.qin.service.UserServiceImpl&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        ref引用spring容器中创建好的对象--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        value:具体的值--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;userDao&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;asd&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure><p>引用类型用ref</p><blockquote><p>拿到spring容器</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">&quot;beans.xml&quot;</span>);</span><br></pre></td></tr></table></figure><blockquote><p>对象由spring创建,管理以及装配</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>3.smbms项目搭建</title>
+      <link href="/2022/02/03/3-smbms%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+      <url>/2022/02/03/3-smbms%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-项目搭建"><a href="#1-项目搭建" class="headerlink" title="1.项目搭建"></a>1.项目搭建</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-03_21-44-56.png" alt="Snipaste_2022-02-03_21-44-56"></p><p>使不使用maven?</p><ol><li><p>搭建一个maven webapp项目</p></li><li><p>配置tomcat</p></li><li><p>测试项目可不可以跑起来</p></li><li><p>导入项目中会遇到的jar包</p><p>jsp,servlet,mysql驱动,jstl</p></li><li><p>创建项目包结构</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-03_21-59-33.png"></p></li><li><p>编写实体类</p><p>ORM映射:表-&gt;类映射</p></li><li><p>编写基础公共类</p><ol><li><p>数据库配置文件</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">driver=com.mysql.jdbc.Driver</span><br><span class="line">url=jdbc:mysql:<span class="comment">//localhost:3306?useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line">user=root</span><br><span class="line">password=secqin</span><br></pre></td></tr></table></figure></li><li><p>读取数据库配置文件</p></li><li><p>编写数据库公共类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.qin.dao;</span><br><span class="line"><span class="comment">//操作数据库公共类</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 操作数据库的基类--静态类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDao</span> </span>&#123;</span><br><span class="line"><span class="comment">//静态代码块,在类加载的时候执行</span></span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">init();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String driver;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String url;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String user;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String password;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化连接参数,从配置文件里获得</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">Properties params=<span class="keyword">new</span> Properties();</span><br><span class="line">String configFile = <span class="string">&quot;database.properties&quot;</span>;</span><br><span class="line">InputStream is= BaseDao.class.getClassLoader().getResourceAsStream(configFile); <span class="comment">//资源变成流</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">params.load(is); <span class="comment">//加载流</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">driver=params.getProperty(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">url=params.getProperty(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">user=params.getProperty(<span class="string">&quot;user&quot;</span>);</span><br><span class="line">password=params.getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取数据库连接</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</span><br><span class="line">Connection connection = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Class.forName(driver); <span class="comment">//反射</span></span><br><span class="line">connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> connection;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 查询操作</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> connection</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> pstm</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> rs</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> sql</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> params</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ResultSet <span class="title">execute</span><span class="params">(Connection connection,PreparedStatement pstm,ResultSet rs,</span></span></span><br><span class="line"><span class="params"><span class="function">String sql,Object[] params)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">pstm = connection.prepareStatement(sql);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; params.length; i++)&#123;</span><br><span class="line">pstm.setObject(i+<span class="number">1</span>, params[i]);</span><br><span class="line">&#125;</span><br><span class="line">rs = pstm.executeQuery();</span><br><span class="line"><span class="keyword">return</span> rs;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 更新操作</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> connection</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> pstm</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> sql</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> params</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">execute</span><span class="params">(Connection connection,PreparedStatement pstm,</span></span></span><br><span class="line"><span class="params"><span class="function">String sql,Object[] params)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line"><span class="keyword">int</span> updateRows = <span class="number">0</span>;</span><br><span class="line">pstm = connection.prepareStatement(sql);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; params.length; i++)&#123;</span><br><span class="line">pstm.setObject(i+<span class="number">1</span>, params[i]);</span><br><span class="line">&#125;</span><br><span class="line">updateRows = pstm.executeUpdate();</span><br><span class="line"><span class="keyword">return</span> updateRows;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 释放资源</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> connection</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> pstm</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> rs</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">closeResource</span><span class="params">(Connection connection,PreparedStatement pstm,ResultSet rs)</span></span>&#123;</span><br><span class="line"><span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">if</span>(rs != <span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">rs.close();</span><br><span class="line">rs = <span class="keyword">null</span>;<span class="comment">//GC回收</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">flag = <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(pstm != <span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">pstm.close();</span><br><span class="line">pstm = <span class="keyword">null</span>;<span class="comment">//GC回收</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">flag = <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(connection != <span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">connection.close();</span><br><span class="line">connection = <span class="keyword">null</span>;<span class="comment">//GC回收</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">flag = <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> flag;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li></ol></li><li><p>导入静态资源,导入到webapp下面</p></li></ol><h1 id="2-登录功能实现"><a href="#2-登录功能实现" class="headerlink" title="2.登录功能实现"></a>2.登录功能实现</h1><ol><li><p>编写前端页面</p></li><li><p>设置首页</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>login.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> javaweb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2.web.xml的头部信息</title>
+      <link href="/2022/02/03/2-web-xml%E7%9A%84%E5%A4%B4%E9%83%A8%E4%BF%A1%E6%81%AF/"/>
+      <url>/2022/02/03/2-web-xml%E7%9A%84%E5%A4%B4%E9%83%A8%E4%BF%A1%E6%81%AF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee</span></span></span><br><span class="line"><span class="string"><span class="tag">          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>1.需要的maven仓库包</title>
+      <link href="/2022/02/03/1-%E9%9C%80%E8%A6%81%E7%9A%84maven%E4%BB%93%E5%BA%93%E5%8C%85/"/>
+      <url>/2022/02/03/1-%E9%9C%80%E8%A6%81%E7%9A%84maven%E4%BB%93%E5%BA%93%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet.jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp.jstl<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/taglibs/standard --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>standard<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> javaweb环境 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>helloservlet</title>
+      <link href="/2022/02/03/helloservlet/"/>
+      <url>/2022/02/03/helloservlet/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-Servlet"><a href="#1-Servlet" class="headerlink" title="1.Servlet"></a>1.Servlet</h1><h2 id="1-1-servlet简介"><a href="#1-1-servlet简介" class="headerlink" title="1.1 servlet简介"></a>1.1 servlet简介</h2><ul><li><p>Servlet就是sun公司开发动态web的技术</p></li><li><p>sun公司在这些API中提供了一个接口叫做:servlet,如果你想开发一个servlet程序,只需要完成两个小步骤:</p></li></ul><ol><li>编写一个类实现servlet接口</li><li>把开好的类部署到web服务器中</li></ol><p><strong>把实现了servlet接口的Java程序叫servlet</strong></p><h2 id="1-2-HelloServlet"><a href="#1-2-HelloServlet" class="headerlink" title="1.2 HelloServlet"></a>1.2 HelloServlet</h2><p>servlet接口sun公司有两个默认的实现类:httpservlet</p><ol><li>构建一个普通Maven项目</li><li>删除src文件夹</li><li>以后我们的学习就在这个项目里面建立moudel;这个空的工程就是maven的主工程</li></ol><p><a href="https://mvnrepository.com/">maven仓库</a></p><blockquote><p>关于maven父子工程的理解</p></blockquote><p>父项目中会有</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>javaweb-01-01<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br></pre></td></tr></table></figure><p>子项目中会有</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javaweb-01<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.qin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure><p>父项目中的Java子项目jar包可以直接使用</p><p>在main下面新建java和资源文件夹</p><p>Maven环境优化</p><p>1.修改web.xml为最新的</p><p>2.将maven的结构搭建完整</p><p>编写一个servlet程序</p><p>编写一个普通类</p><p>实现servlet接口,这里我们注解继承httpservlet</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-03_17-44-46.png" alt="Snipaste_2022-02-03_17-44-46"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>聊聊Java这条路(狂神说)</title>
+      <link href="/2022/02/03/%E8%81%8A%E8%81%8AJava%E8%BF%99%E6%9D%A1%E8%B7%AF-%E7%8B%82%E7%A5%9E%E8%AF%B4/"/>
+      <url>/2022/02/03/%E8%81%8A%E8%81%8AJava%E8%BF%99%E6%9D%A1%E8%B7%AF-%E7%8B%82%E7%A5%9E%E8%AF%B4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="聊聊Java这条路"><a href="#聊聊Java这条路" class="headerlink" title="聊聊Java这条路"></a>聊聊Java这条路</h1><p><img src="https://raw.githubusercontent.com/liqincoding/img/master/1.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>方法的重写</title>
+      <link href="/2022/02/02/%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E5%86%99/"/>
+      <url>/2022/02/02/%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E5%86%99/</url>
+      
+        <content type="html"><![CDATA[<h1 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h1><p>重写都是方法的重写,和属性无关</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面向对象 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面向对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>继承</title>
+      <link href="/2022/02/02/%E7%BB%A7%E6%89%BF/"/>
+      <url>/2022/02/02/%E7%BB%A7%E6%89%BF/</url>
+      
+        <content type="html"><![CDATA[<p>JAVA中类只有单继承,没有多继承</p><p>但可以简介继承多个(爷爷辈)</p><p>子类(派生类)和父类(基类)</p><p>extends</p><p>继承和组合</p><blockquote><p>public class Student extends Man</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    Man man = <span class="keyword">new</span> Man();</span><br></pre></td></tr></table></figure><p>子类可以继承父类的所有方法</p><p>四个修饰符:</p><p>public</p><p>protected</p><p>default</p><p>private</p><p><em>ctrl+h</em>:打开类树</p><p>在Java中所有的类都默认直接或者间接继承Object类</p><p>一个儿子只能有一个爸爸,一个爸爸可以有多个儿子</p><h1 id="Super"><a href="#Super" class="headerlink" title="Super"></a>Super</h1><p>调父类的方法或者属性</p><p>注意点:</p><p>1.super调用父类的构造方法,必须在构造方法的第一个</p><p>2.super必须只能出现在子类的方法或者构造方法中</p><p>3.super和this不能同时调用构造方法</p><p>this:</p><p>代表的对象不同</p><p>this:本身调用者这个对象</p><p>super:代表父类对象的应用</p><p>前提</p><p>this:没有继承也可以使用</p><p>super:只能在继承条件下可以使用</p><p>构造方法</p><p>this();本类的构造</p><p>super():父类的构造</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面向对象 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面向对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>封装</title>
+      <link href="/2022/02/02/%E5%B0%81%E8%A3%85/"/>
+      <url>/2022/02/02/%E5%B0%81%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><p><strong>高内聚,低耦合</strong></p><p>该漏的漏,该藏的藏</p><p>属性私有</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-02_19-23-23.png" alt="Snipaste_2022-02-02_19-23-23"></p><p>要提供一些操作这个数据的方法</p><p>属性私有,get/set</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">private</span> String name;    </span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> name;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.name = name;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><p><em>alt+insert</em></p><p>提高程序的安全性,保护数据</p><p>隐藏代码的实现细节</p><p>统一接口</p><p>系统可维护性增加了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面向对象 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面向对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数组</title>
+      <link href="/2022/02/01/%E6%95%B0%E7%BB%84/"/>
+      <url>/2022/02/01/%E6%95%B0%E7%BB%84/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-一维数组"><a href="#1-一维数组" class="headerlink" title="1.一维数组"></a>1.一维数组</h1><h2 id="1-数组定义"><a href="#1-数组定义" class="headerlink" title="1.数组定义"></a>1.数组定义</h2><p>int[] nums;</p><p>int nums[];</p><p>nums = new int[10];//这里面可以存放十个int类型的数字</p><h2 id="2-开辟一个空间"><a href="#2-开辟一个空间" class="headerlink" title="2.开辟一个空间"></a>2.开辟一个空间</h2><p>nums = new int[10];</p><h2 id="3-给数组元素赋值"><a href="#3-给数组元素赋值" class="headerlink" title="3.给数组元素赋值"></a>3.给数组元素赋值</h2><p>没有赋值默认值是0</p><h2 id="4-通过下标去取"><a href="#4-通过下标去取" class="headerlink" title="4.通过下标去取"></a>4.通过下标去取</h2><p>num[0]</p><h2 id="5-计算所有元素的和"><a href="#5-计算所有元素的和" class="headerlink" title="5.计算所有元素的和"></a>5.计算所有元素的和</h2><p>arrays.Length //计算数组长度</p><p>数组的四个基本特点</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-20-53.png" alt="Snipaste_2022-01-30_17-20-53"></p><h1 id="2-内存"><a href="#2-内存" class="headerlink" title="2.内存"></a>2.内存</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-21-58.png" alt="Snipaste_2022-01-30_17-21-58"></p><p>声明数组</p><p>int[] array = null;</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-25-19.png" alt="Snipaste_2022-01-30_17-25-19"></p><p>创建数组</p><p>array = new int[10]; //默认初始化</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-35-01.png" alt="Snipaste_2022-01-30_17-35-01"></p><p>3.给数组元素中赋值</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-27-39.png" alt="Snipaste_2022-01-30_17-27-39"></p><h1 id="3-数组越界"><a href="#3-数组越界" class="headerlink" title="3.数组越界"></a>3.数组越界</h1><blockquote><p>java.lang.ArrayIndexOutOfBoundsException</p></blockquote><h1 id="4-数组三种初始化方式"><a href="#4-数组三种初始化方式" class="headerlink" title="4.数组三种初始化方式"></a>4.数组三种初始化方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//静态初始化:创建+赋值</span></span><br><span class="line">        <span class="keyword">int</span>[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">        <span class="comment">//动态初始化:包含默认初始化</span></span><br><span class="line">        <span class="keyword">int</span>[] b = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        b[<span class="number">0</span>] = <span class="number">19</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-33-15.png" alt="Snipaste_2022-01-30_17-33-15"></p><p>没有被初始化的空间默认值都是0;</p><h1 id="5-下标越界"><a href="#5-下标越界" class="headerlink" title="5.下标越界"></a>5.下标越界</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-38-37.png" alt="Snipaste_2022-01-30_17-38-37"></p><h1 id="6-数组的使用"><a href="#6-数组的使用" class="headerlink" title="6.数组的使用"></a>6.数组的使用</h1><h2 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1.for循环"></a>1.for循环</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//打印全部的数组元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">    System.out.println(a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="2-增强型for循环-for-each循环"><a href="#2-增强型for循环-for-each循环" class="headerlink" title="2.增强型for循环(for-each循环)"></a>2.增强型for循环(for-each循环)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增强型for循环,没有下标</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : a) &#123;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="7-多维数组"><a href="#7-多维数组" class="headerlink" title="7.多维数组"></a>7.多维数组</h1><h1 id="8-Arrays类"><a href="#8-Arrays类" class="headerlink" title="8.Arrays类"></a>8.Arrays类</h1><h1 id="9-稀疏数组"><a href="#9-稀疏数组" class="headerlink" title="9.稀疏数组"></a>9.稀疏数组</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数组 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>选择结构</title>
+      <link href="/2022/02/01/%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84/"/>
+      <url>/2022/02/01/%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-if"><a href="#1-if" class="headerlink" title="1.if"></a>1.if</h1><p>if{}else if{}else if{}else{}</p><h1 id="2-switch"><a href="#2-switch" class="headerlink" title="2.switch"></a>2.switch</h1><h2 id="2-1case穿透"><a href="#2-1case穿透" class="headerlink" title="2.1case穿透"></a>2.1case穿透</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (grade)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">//可选</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;挂科&quot;</span>);</span><br></pre></td></tr></table></figure><h2 id="2-2switch注意点"><a href="#2-2switch注意点" class="headerlink" title="2.2switch注意点"></a>2.2switch注意点</h2><p><code>break;</code>全部加上</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_16-11-51.png" alt="Snipaste_2022-01-30_16-11-51"></p><p>字符的本质还是数字</p><p>java—-class(字节码文件) —反编译(IDEA)<img src="C:/Users/secqin/Desktop/Snipaste_2022-01-30_16-16-38.png" alt="Snipaste_2022-01-30_16-16-38"></p><h1 id="3-怎么看反编译文件"><a href="#3-怎么看反编译文件" class="headerlink" title="3.怎么看反编译文件?"></a>3.怎么看反编译文件?</h1><p>IDEA里面打开项目结构</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_16-19-19.png" alt="Snipaste_2022-01-30_16-19-19"></p><p>反编译文件和自己写的代码对比</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_16-20-48.png" alt="Snipaste_2022-01-30_16-20-48"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+          <category> java流程控制 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+            <tag> java流程控制 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面向对象编程</title>
+      <link href="/2022/01/30/%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+      <url>/2022/01/30/%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-OOP-面向对象编程"><a href="#1-OOP-面向对象编程" class="headerlink" title="1.OOP(面向对象编程)"></a>1.OOP(面向对象编程)</h1><p>一个项目应该只存在一个main方法</p><p>以类的方式组织代码</p><p>以对象的方式封装数据</p><h1 id="2-构造器"><a href="#2-构造器" class="headerlink" title="2.构造器"></a>2.构造器</h1><p>也叫构造方法</p><blockquote><p>test1.java</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Man man = <span class="keyword">new</span> Man();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Man.java</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Man</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>看一下反编译的文件(out里面的.class文件)</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-02_16-52-24.png" alt="Snipaste_2022-02-02_16-52-24"></p><p>一个类即使什么都不写,它也会存在一个方法,构造方法</p><p>显示的定义构造器</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Man</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>1.使用new关键字,本质是在调用构造器</p><p>干掉无参:定义有参构造器</p><p><strong>一旦定义了有参构造,无参就必须显示定义</strong></p><p><em>alt+insert可以快速无参和有参构造</em></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Man</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Man</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Man</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意点:</p><p>构造器:1.和类名相同</p><p>2.没有返回值</p><p>作用:</p><p>new的本质是调用构造方法</p><p>2.初始化对象的值</p><p>3.定了有参后,一定要显示调用无参</p><h1 id="3-内存分析"><a href="#3-内存分析" class="headerlink" title="3.内存分析"></a>3.内存分析</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-02_19-09-57.png" alt="Snipaste_2022-02-02_19-09-57"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-02_19-10-48.png" alt="Snipaste_2022-02-02_19-10-48"></p><p>对象是通过引用来操作的:栈-&gt;堆</p><p>类:</p><p>静态的属性   属性</p><p>动态的行为   方法</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面向对象 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面向对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>方法</title>
+      <link href="/2022/01/30/%E6%96%B9%E6%B3%95/"/>
+      <url>/2022/01/30/%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-方法的组成"><a href="#1-方法的组成" class="headerlink" title="1.方法的组成"></a>1.方法的组成</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_16-38-23.png" alt="Snipaste_2022-01-30_16-38-23"></p><p>return 可以终止方法</p><h1 id="2-命令行传参"><a href="#2-命令行传参" class="headerlink" title="2.命令行传参"></a>2.命令行传参</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;args[&quot;</span>+i+<span class="string">&quot;]:&quot;</span>+args[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_16-57-47.png" alt="Snipaste_2022-01-30_16-57-47"></p><h1 id="3-可变参数"><a href="#3-可变参数" class="headerlink" title="3.可变参数"></a>3.可变参数</h1><p>不定项参数</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_17-00-17.png" alt="Snipaste_2022-01-30_17-00-17"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        test01 t1 = <span class="keyword">new</span> test01();</span><br><span class="line">        t1.test(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">23</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span>... i)</span></span>&#123;</span><br><span class="line">        System.out.println(i[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 方法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 方法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>破解软件合集</title>
+      <link href="/2022/01/30/%E7%A0%B4%E8%A7%A3%E8%BD%AF%E4%BB%B6%E5%90%88%E9%9B%86/"/>
+      <url>/2022/01/30/%E7%A0%B4%E8%A7%A3%E8%BD%AF%E4%BB%B6%E5%90%88%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><h2 id="Navicat-15"><a href="#Navicat-15" class="headerlink" title="Navicat 15"></a>Navicat 15</h2><p>链接：<a href="https://pan.baidu.com/s/1wzoYWUvdzjACbhade_GYPA">https://pan.baidu.com/s/1wzoYWUvdzjACbhade_GYPA</a><br>提取码：1234 </p><h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p>链接：<a href="https://pan.baidu.com/s/1ditBXPwn7K_QaKpyeK8Akg">https://pan.baidu.com/s/1ditBXPwn7K_QaKpyeK8Akg</a><br>提取码：1234 </p><h2 id="xshell"><a href="#xshell" class="headerlink" title="xshell"></a>xshell</h2><p>链接：<a href="https://pan.baidu.com/s/13_hF4doPZdIYHHEj1TwCVA">https://pan.baidu.com/s/13_hF4doPZdIYHHEj1TwCVA</a><br>提取码：1234 </p><h2 id="xmind"><a href="#xmind" class="headerlink" title="xmind"></a>xmind</h2><p>链接：<a href="https://pan.baidu.com/s/1ZQgMMAq878HRXMtczw1c3g">https://pan.baidu.com/s/1ZQgMMAq878HRXMtczw1c3g</a><br>提取码：1234 </p><h2 id="IDEA-2021-03版本以下全破解"><a href="#IDEA-2021-03版本以下全破解" class="headerlink" title="IDEA(2021.03版本以下全破解)"></a>IDEA(2021.03版本以下全破解)</h2><p>链接：<a href="https://pan.baidu.com/s/1576LM-6vtiYFTICL2ZT4YQ">https://pan.baidu.com/s/1576LM-6vtiYFTICL2ZT4YQ</a><br>提取码：1234 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 破解软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 破解软件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>centos8.2上面安装java8</title>
+      <link href="/2022/01/29/centos8-2%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85java8/"/>
+      <url>/2022/01/29/centos8-2%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85java8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-jdk8-linux链接"><a href="#1-jdk8-linux链接" class="headerlink" title="1.jdk8(linux链接)"></a>1.jdk8(linux链接)</h1><p>链接：<a href="https://pan.baidu.com/s/1qIogUyhH8vicHgBKwKw0Uw">https://pan.baidu.com/s/1qIogUyhH8vicHgBKwKw0Uw</a><br>提取码：1234 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux开发环境配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux开发环境配置 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在华为云上面安装kali</title>
+      <link href="/2022/01/29/%E5%9C%A8%E5%8D%8E%E4%B8%BA%E4%BA%91%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85kali/"/>
+      <url>/2022/01/29/%E5%9C%A8%E5%8D%8E%E4%B8%BA%E4%BA%91%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85kali/</url>
+      
+        <content type="html"><![CDATA[<p>39元买了一台华为云耀云服务器1年,香的一批</p><p>第一步:检查自己的服务器在那个城市,哪个可用区</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-03-01.png" alt="Snipaste_2022-01-29_23-03-01"></p><p>然后去购买额外的磁盘(和自己的服务器在同一个城市,同一个可用区)</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-05-01.png" alt="Snipaste_2022-01-29_23-05-01"></p><p>然后来对应的服务器挂载磁盘</p><p><img src="C:/Users/secqin/Desktop/Snipaste_2022-01-29_23-06-46.png" alt="Snipaste_2022-01-29_23-06-46"></p><p>然后通过登录界面登录,然后执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.163.com/kali-images/kali-2021.4a/kali-linux-2021.4a-installer-amd64.iso</span><br></pre></td></tr></table></figure><p>下载到当前目录</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-14-59.png" alt="Snipaste_2022-01-29_23-14-59"></p><p>这个速度还是很猛的,不能使用kali的官方源,官方源蜗速,用163的下载</p><p>挂载好我们添加的数据盘之后，首先执行一下<code>fdisk -l</code>看一下磁盘的情况：<img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-20-53.png" alt="Snipaste_2022-01-29_23-20-53"></p><p>突然发现我那个10GB的硬盘没有挂载上去,挂载一下硬盘<img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-27-12.png" alt="Snipaste_2022-01-29_23-27-12"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-28-07.png" alt="Snipaste_2022-01-29_23-28-07"></p><p>在这里我将把镜像写入<code>vdb</code>这块数据盘，请确保里面没有需要的数据了，所以更加建议创建一个临时的云硬盘来做这件事情。Linux 下写 ISO 是很简单的，用<code>dd</code>就可以了，非 root 的情况下别忘了<code>sudo</code>哦。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if=kali-linux-2021.4a-installer-amd64.iso of=/dev/vdb</span><br></pre></td></tr></table></figure><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-32-16.png" alt="Snipaste_2022-01-29_23-32-16"></p><p>接下来我们需要把安装程序跑起来，途径也是多样的，我选择直接操作 GRUB 2 的命令行。不过，先调整一下超时时间来避免来不及操作。编辑<code>/etc/default/grub</code>这个文件，将<code>GRUB_TIMEOUT</code>调得足够长，例如 60 秒。然后运行<code>grub2-mkconfig -o /boot/grub2/grub.cfg</code>写入配置。</p><blockquote><p><strong>引导进入安装程序</strong></p></blockquote><p>这时可以<code>reboot</code>了，然后登录华为云的控制台，在对应的云主机处点击 “操作” 下的 “登录” 即可以进入网页 VNC。若之前配置无误，现在应该正处于 GRUB 菜单，看起来就像这样：<img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-35-39.png" alt="Snipaste_2022-01-29_23-35-39"></p><p>然后我们按<code>c</code>键进入命令行模式，来手动引导。现在的发行版基本都是使用 GRUB 2 了，如果还是 GRUB 的话要把下面的<code>set root=(hd1)</code>改成<code>root (hd1)</code>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grub&gt; set root=(hd1)</span><br><span class="line">grub&gt; chainloader +1</span><br><span class="line">grub&gt; boot</span><br></pre></td></tr></table></figure><p>进入安装目录</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-36-08.png" alt="Snipaste_2022-01-29_23-36-08"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-39-31.png" alt="Snipaste_2022-01-29_23-39-31"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-41-58.png" alt="Snipaste_2022-01-29_23-41-58"></p><p>到这一步 kali会检测安装安装光盘，这时候我们选择手动探测加载光盘，然后我们选 none</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-40-18.png" alt="Snipaste_2022-01-29_23-40-18"></p><p>注意这个地方是<code>/dev/vdb1</code></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-42-46.png" alt="Snipaste_2022-01-29_23-42-46"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-44-08.png" alt="Snipaste_2022-01-29_23-44-08"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-44-13.png" alt="Snipaste_2022-01-29_23-44-13"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-44-27.png" alt="Snipaste_2022-01-29_23-44-27"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-44-49.png" alt="Snipaste_2022-01-29_23-44-49"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-45-36.png" alt="Snipaste_2022-01-29_23-45-36"></p><p>然后回车后就可以接着安装，磁盘分区的位置我们选我们的系统盘。</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-46-04.png" alt="Snipaste_2022-01-29_23-46-04"></p><p>然后将所有文件放在同一个分区中</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-46-13.png" alt="Snipaste_2022-01-29_23-46-13"></p><p>最后结束分区设定并将修改写入磁盘</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-46-23.png" alt="Snipaste_2022-01-29_23-46-23"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-46-32.png" alt="Snipaste_2022-01-29_23-46-32"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_23-49-05.png" alt="Snipaste_2022-01-29_23-49-05"></p><p>下面这里安装grub启动器也是安装到第一个磁盘</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_00-00-16.png" alt="Snipaste_2022-01-30_00-00-16"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_00-00-48.png" alt="Snipaste_2022-01-30_00-00-48"></p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_00-01-51.png" alt="Snipaste_2022-01-30_00-01-51"></p><p>登录</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_00-03-19.png" alt="Snipaste_2022-01-30_00-03-19"></p><blockquote><p>在腾讯云下面:提示光盘一直挂载报错。可以终止安装 进入kali安装界面的 shell 里面执行这个 mount /dev/vdb1 /cdrom  先挂载到cdrom 然后再去安装就好了</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> kali_linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kali_linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用户交互Scanner</title>
+      <link href="/2022/01/29/%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92Scanner/"/>
+      <url>/2022/01/29/%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92Scanner/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-Scanner对象"><a href="#1-Scanner对象" class="headerlink" title="1.Scanner对象"></a>1.Scanner对象</h1><p>java.util.Scanner:获得用户的输入</p><p>Scanner s = new Scanner(System.in);</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_15-23-47.png" alt="Snipaste_2022-01-30_15-23-47"></p><h1 id="2-代码"><a href="#2-代码" class="headerlink" title="2.代码"></a>2.代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;使用next方式接收:&quot;</span>);</span><br><span class="line"><span class="comment">//        判断用户有没有输入字符串</span></span><br><span class="line">        <span class="keyword">if</span>(scanner.hasNext()==<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="comment">//使用next方式接收用户输入</span></span><br><span class="line">            String str = scanner.next();</span><br><span class="line">            System.out.println(<span class="string">&quot;输出的内容为:&quot;</span>+str);</span><br><span class="line">        &#125;</span><br><span class="line">        scanner.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="3-next和nextLine的区别"><a href="#3-next和nextLine的区别" class="headerlink" title="3.next和nextLine的区别"></a>3.next和nextLine的区别</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-30_15-31-26.png" alt="Snipaste_2022-01-30_15-31-26"></p><h1 id="4-判断输入是否是整数-小数"><a href="#4-判断输入是否是整数-小数" class="headerlink" title="4.判断输入是否是整数(小数)"></a>4.判断输入是否是整数(小数)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">float</span> f = <span class="number">0.0f</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;请输入整数:&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(scanner.hasNextInt())&#123;</span><br><span class="line">    i = scanner.nextInt();</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;输入的不是整数数据&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">float</span> f = <span class="number">0.0f</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;请输入小数:&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(scanner.hasNextFloat())&#123;</span><br><span class="line">    f = scanner.nextFloat();</span><br><span class="line">    System.out.println(f);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;输入的不是小数数据&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+          <category> java流程控制 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+            <tag> java流程控制 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>javaDoc生成文档</title>
+      <link href="/2022/01/29/javaDoc%E7%94%9F%E6%88%90%E6%96%87%E6%A1%A3/"/>
+      <url>/2022/01/29/javaDoc%E7%94%9F%E6%88%90%E6%96%87%E6%A1%A3/</url>
+      
+        <content type="html"><![CDATA[<p><img src="C:/Users/secqin/Desktop/Snipaste_2022-01-29_15-23-52.png" alt="Snipaste_2022-01-29_15-23-52"></p><p><img src="C:/Users/secqin/Desktop/Snipaste_2022-01-29_15-23-36.png" alt="Snipaste_2022-01-29_15-23-36"></p><p>命令行生成</p><blockquote><p>javadoc -encoding UTF-8 -charset UTF-8 Doc.java</p></blockquote><p>学会查找IDEA生成javadoc文档</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>idea快捷键</title>
+      <link href="/2022/01/29/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+      <url>/2022/01/29/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      
+        <content type="html"><![CDATA[<p>psvm</p><p>sout</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> idea </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>包机制</title>
+      <link href="/2022/01/29/%E5%8C%85%E6%9C%BA%E5%88%B6/"/>
+      <url>/2022/01/29/%E5%8C%85%E6%9C%BA%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><p>包的本质是文件夹</p><p>package开头</p><p>import:导入一个包</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_15-14-59.png" alt="Snipaste_2022-01-29_15-14-59"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基本运算符</title>
+      <link href="/2022/01/29/%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+      <url>/2022/01/29/%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_12-10-21.png" alt="Snipaste_2022-01-29_12-10-21"></p><p><em>ctrl+d:复制当前行到下一行</em></p><p><img src="C:/Users/secqin/Desktop/Snipaste_2022-01-29_14-42-28.png" alt="Snipaste_2022-01-29_14-42-28"></p><p>cast:转换</p><p><strong>自动升为混合运算的最高优先级</strong></p><h1 id="1-自增自减运算符-一元运算符"><a href="#1-自增自减运算符-一元运算符" class="headerlink" title="1.自增自减运算符(一元运算符)"></a>1.自增自减运算符(一元运算符)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> b = a++;</span><br><span class="line"><span class="keyword">int</span> c == ++a</span><br></pre></td></tr></table></figure><blockquote><p>5</p><p>3</p><p>5</p></blockquote><h1 id="2-幂运算"><a href="#2-幂运算" class="headerlink" title="2.幂运算"></a>2.幂运算</h1><p>2^3:java不能这样写</p><p>很多运算需要工具类来操作</p><p>math类厉害的一批</p><p>Math.pow(2,3);这是java的正确表述</p><h1 id="3-逻辑运算符"><a href="#3-逻辑运算符" class="headerlink" title="3.逻辑运算符"></a>3.逻辑运算符</h1><p>&amp;&amp;                             ||                              !</p><p>短路运算&amp;&amp;</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> c = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">boolean</span> d = (c&lt;<span class="number">4</span>)&amp;&amp;(c++&lt;<span class="number">4</span>);</span><br><span class="line">System.out.println(d);</span><br><span class="line">System.out.println(c);</span><br></pre></td></tr></table></figure><blockquote><p>false</p><p>5</p></blockquote><h1 id="4-位运算"><a href="#4-位运算" class="headerlink" title="4.位运算"></a>4.位运算</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="number">00111100</span>;</span><br><span class="line">B = <span class="number">00001101</span>;</span><br><span class="line">A&amp;B</span><br><span class="line">A|B</span><br><span class="line">A^B <span class="comment">// 异或,相同为0,不同为1</span></span><br><span class="line">~B</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">2</span>&lt;&lt;<span class="number">3</span>);<span class="comment">//16</span></span><br></pre></td></tr></table></figure><p>&lt;&lt; (左移)*2;    &gt;&gt;(右移)/2;</p><h1 id="5-条件运算符"><a href="#5-条件运算符" class="headerlink" title="5.条件运算符"></a>5.条件运算符</h1><p><strong>x?y:z</strong></p><p>如果x==true则结果为y,否者结果为z</p><h1 id="6-字符串连接符"><a href="#6-字符串连接符" class="headerlink" title="6.字符串连接符"></a>6.字符串连接符</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;&quot;</span>+a+b);</span><br><span class="line">System.out.println(a+b+<span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure><blockquote><p>1020</p><p>30</p></blockquote><h1 id="7-运算符优先级"><a href="#7-运算符优先级" class="headerlink" title="7.运算符优先级"></a>7.运算符优先级</h1><p>不用刻意记忆,多用一些括号</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>变量.常量.作用域</title>
+      <link href="/2022/01/29/%E5%8F%98%E9%87%8F-%E5%B8%B8%E9%87%8F-%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+      <url>/2022/01/29/%E5%8F%98%E9%87%8F-%E5%B8%B8%E9%87%8F-%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>变量是什么:可以变化的量</p><p>java是一种强类型语言,每个变量都必须声明其类型(基本+引用)</p><p>Java变是程序中最基本的存储单元,其要素包括变量名,变量类型和<strong>作用域</strong></p><p>注意:</p><p>1.变量名必须是合法标识符</p><p>2.;结束</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//int a,b,c;</span></span><br><span class="line"><span class="comment">//int a=1,b=2,c=3;可以一行,但不提倡,可读性</span></span><br><span class="line">String name = <span class="string">&quot;qingjiang&quot;</span>;</span><br></pre></td></tr></table></figure><p><strong>变量作用域</strong></p><p>类变量</p><p>实例变量</p><p>局部变量</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="comment">//属性:变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    类变量</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">double</span> salary = <span class="number">100000</span>;</span><br><span class="line">    <span class="comment">//实例变量:从属于对象;如果不自行初始化,就是这个类型的默认值0 0.0</span></span><br><span class="line">    <span class="comment">//布尔值:默认是false</span></span><br><span class="line">    <span class="comment">//除了基本类型,其余默认值都是null</span></span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//main方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">//局部变量:必须声明和初始化值</span></span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">10</span>;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">        <span class="comment">//变量类型  变量名字</span></span><br><span class="line">        test01 test01 = <span class="keyword">new</span> test01();</span><br><span class="line">        System.out.println(test01.age);</span><br><span class="line">        System.out.println(salary);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(salary);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>初始化后不能改变值 final</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> PI =<span class="number">3.14</span>;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">double</span> PI2 = <span class="number">3.15</span>;</span><br><span class="line">    <span class="comment">//修饰符,不存在先后顺序</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(PI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_11-53-25.png" alt="Snipaste_2022-01-29_11-53-25"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+          <category> java基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+            <tag> java基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java数据类型讲解</title>
+      <link href="/2022/01/29/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%AE%B2%E8%A7%A3/"/>
+      <url>/2022/01/29/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%AE%B2%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p><strong>强类型语言</strong></p><p>要求变量使用要严格符合规定,所有变量必须先定义后才能使用</p><p><strong>弱类型语言</strong></p><p><strong>Java数据类型分为两大类</strong></p><p>基本类型</p><p>引用类型</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_09-44-15.png" alt="Snipaste_2022-01-29_09-44-15"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> num1 = <span class="number">30L</span>;</span><br><span class="line"><span class="keyword">float</span> num3 = <span class="number">3.14F</span></span><br></pre></td></tr></table></figure><p>String不是关键字,是类</p><p>String在idea里面不会报蓝,关键字在idea里面会报蓝</p><p>Integer:int对应的类</p><p>Byte:byte对应的类</p><p>什么是字节?</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_09-54-04.png" alt="Snipaste_2022-01-29_09-54-04"></p><h2 id="数据类型拓展"><a href="#数据类型拓展" class="headerlink" title="数据类型拓展"></a>数据类型拓展</h2><h3 id="1-整数拓展"><a href="#1-整数拓展" class="headerlink" title="1.整数拓展"></a>1.整数拓展</h3><p>表示:二进制0b     十进制    八进制0         十六进制0x</p><p>int i = 10;</p><p>int i2 = 010; //八进制0</p><p>int i3 = 0x10; //十六进制0x 0<del>9 A</del>F</p><p>sout打印的都是十进制</p><h3 id="2-浮点数拓展"><a href="#2-浮点数拓展" class="headerlink" title="2.浮点数拓展"></a>2.浮点数拓展</h3><p>float:</p><p>double:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="keyword">float</span> f = <span class="number">0.1f</span>;  <span class="comment">//0.1</span></span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">1.0</span>/<span class="number">10</span>;  <span class="comment">//0.1</span></span><br><span class="line">        System.out.println(f == d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输出:false</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f = <span class="number">12412414143242342234234f</span>;</span><br><span class="line"><span class="keyword">double</span> d = f+<span class="number">1</span>;  </span><br><span class="line">System.out.println(f == d);</span><br></pre></td></tr></table></figure><p>输出:true</p><p>浮点数:float 有限   离散   舍入误差     大约     接近但不等于</p><p>double</p><p>最好完全使用浮点数进行比较</p><p>银行业务:</p><p>BigDecimal</p><h3 id="3-字符拓展"><a href="#3-字符拓展" class="headerlink" title="3.字符拓展"></a>3.字符拓展</h3><p>char c1 = ‘a’;</p><p>char c2 = ‘中’</p><p>//所有的字符本质还是数字</p><p>//编码     Unicode     2字节    0-65535    Excel    2^16 = 65536</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c3 = <span class="string">&#x27;\u0061&#x27;</span>;</span><br><span class="line">System.out.println(c3);</span><br></pre></td></tr></table></figure><h3 id="4-转义字符"><a href="#4-转义字符" class="headerlink" title="4.转义字符"></a>4.转义字符</h3><p>\t:制表符</p><p>\n:换行</p><h3 id="5-问题"><a href="#5-问题" class="headerlink" title="5.问题"></a>5.问题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String sa = <span class="keyword">new</span> String(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">String sb = <span class="keyword">new</span> String(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(sa == sb);</span><br><span class="line">String sc = <span class="string">&quot;he&quot;</span>;</span><br><span class="line">String sd = <span class="string">&quot;he&quot;</span>;</span><br><span class="line">System.out.println(sc==sd);</span><br></pre></td></tr></table></figure><p>Less is more!代码要精简易读!</p><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-01-29_10-43-48.png" alt="Snipaste_2022-01-29_10-43-48"></p><p>double优先级最高</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i =<span class="number">128</span>;</span><br><span class="line"><span class="keyword">byte</span> b = (<span class="keyword">byte</span>)i;</span><br><span class="line">System.out.println(b);</span><br><span class="line">System.out.println(i);</span><br></pre></td></tr></table></figure><p>输出(内存溢出):</p><p>-128</p><p>128</p><p>//强制转换:(类型)变量名</p><p>高-&gt;低:强制类型转换</p><p>低-&gt;高:自动类型转换</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i =<span class="number">128</span>;</span><br><span class="line"><span class="keyword">double</span> b =i;</span><br><span class="line">System.out.println(b);</span><br><span class="line">System.out.println(i);</span><br></pre></td></tr></table></figure><p>注意点:</p><p>不能对布尔值进行转换</p><p>不能把对象类型转换为不相干的类型</p><p>在把高容量转到低容量的时候,强制转换</p><p>转换的时候可能存在内存溢出,或者精度问题</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(((<span class="keyword">int</span>)<span class="number">23.7</span>));</span><br><span class="line">System.out.println((<span class="keyword">int</span>)-<span class="number">45.89f</span>);</span><br><span class="line"><span class="keyword">char</span> c = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="keyword">int</span> d = c+<span class="number">1</span>;</span><br><span class="line">System.out.println(d);</span><br><span class="line">System.out.println((<span class="keyword">char</span>)d);</span><br></pre></td></tr></table></figure><p>jdk7的新特性,数字之间可以用下划线分割</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> money=<span class="number">10_0000_0000</span>;</span><br><span class="line"><span class="keyword">int</span> year = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> total = money*year;</span><br><span class="line">System.out.println(total);  <span class="comment">//-1474836480</span></span><br><span class="line"><span class="keyword">long</span> total2 = money*year; <span class="comment">//默认是int,转换的时候已经出问题了</span></span><br><span class="line"><span class="keyword">long</span> total3 = money*((<span class="keyword">long</span>)year); <span class="comment">//先把一个数字转换为long</span></span><br><span class="line">System.out.println(total3);</span><br><span class="line"><span class="comment">//L,l小写可能看为1</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IOC理论推导</title>
+      <link href="/2022/01/29/IOC%E7%90%86%E8%AE%BA%E6%8E%A8%E5%AF%BC/"/>
+      <url>/2022/01/29/IOC%E7%90%86%E8%AE%BA%E6%8E%A8%E5%AF%BC/</url>
+      
+        <content type="html"><![CDATA[<ol><li>UserDao接口</li><li>UserDaoImpl实现类</li><li>UserService业务接口</li><li>UserServiceImpl业务实现类</li></ol><p>导入jar包</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><p>用户实际调用的是业务层,不直接接触Dao层</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>spring5的组成和拓展</title>
+      <link href="/2022/01/27/spring5%E7%9A%84%E7%BB%84%E6%88%90%E5%92%8C%E6%8B%93%E5%B1%95/"/>
+      <url>/2022/01/27/spring5%E7%9A%84%E7%BB%84%E6%88%90%E5%92%8C%E6%8B%93%E5%B1%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-spring7大模块"><a href="#1-spring7大模块" class="headerlink" title="1.spring7大模块"></a>1.spring7大模块</h1><p><img src="https://gitee.com/secqin/img/raw/master/img/20170713150400373.bmp" alt="20170713150400373"></p><p>在Spring的官网有这个介绍:现代化Java开发!说白了就是基于spring的开发</p><p><img src="https://gitee.com/secqin/img/raw/master/img/Snipaste_2022-02-03_16-52-03.png" alt="Snipaste_2022-02-03_16-52-03"></p><h1 id="2-spring-Coot"><a href="#2-spring-Coot" class="headerlink" title="2.spring Coot"></a>2.spring Coot</h1><p>一个快速开发的脚手架</p><p>基于spring boot可以快速开发单个微服务</p><p>约定大于配置</p><h1 id="3-spring-Cloud"><a href="#3-spring-Cloud" class="headerlink" title="3.spring Cloud"></a>3.spring Cloud</h1><p>springcloud是基于spring boot实现的</p><p>因为现在大多数公司都在使用spring boot进行快速开发,学习spring boot是前提,需要完全掌握spring和springmvc!承上启下的作用!</p><p><em>spring弊端:发展了太久后违背的原来的理念!</em></p><p><em>配置十分繁琐,人称”配置地狱”</em></p><p><strong>现在大多数公司都在使用spring boot进行开发,学习spring boot的前提,需要完全掌握spring,以及springmvc!承上启下是作用!</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>spring简介</title>
+      <link href="/2022/01/27/spring%E7%AE%80%E4%BB%8B/"/>
+      <url>/2022/01/27/spring%E7%AE%80%E4%BB%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-spring简介"><a href="#1-spring简介" class="headerlink" title="1.spring简介"></a>1.spring简介</h1><p>Spring框架以interface21为基础</p><p>不要重复造轮子</p><p>有强大的向后兼容性,整合了现有的技术框架</p><p>spring为了简化开发,使现有的技术更容易使用,本身是一个大杂烩</p><p>SSH:Struct2+Spring+Hibernate</p><p>SSM:SpringMVC+Spring+Mybatis</p><p><a href="https://spring.io/">spring官网</a></p><p><a href="https://repo.spring.io/ui/native/release/org/springframework/spring">spring全版本下载</a></p><h1 id="2-maven仓库里面的spring-web-mvc"><a href="#2-maven仓库里面的spring-web-mvc" class="headerlink" title="2.maven仓库里面的spring web mvc"></a>2.maven仓库里面的spring web mvc</h1><p><a href="https://mvnrepository.com/artifact/org.springframework/spring-webmvc">https://mvnrepository.com/artifact/org.springframework/spring-webmvc</a></p><h1 id="3-spring优点"><a href="#3-spring优点" class="headerlink" title="3.spring优点"></a>3.spring优点</h1><p>spring是一个免费开源的框架</p><p>spring是一个轻量级,非入侵式的框架</p><p>控制反转(IOC),面向切面编程(AOP)</p><p>支持事务的处理,对框架整合的支持</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>注解和反射</title>
+      <link href="/2022/01/22/%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/"/>
+      <url>/2022/01/22/%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> javase </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
