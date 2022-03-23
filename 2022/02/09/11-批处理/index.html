@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>11-批处理 | secqin</title><meta name="keywords" content="批处理"><meta name="author" content="secqin"><meta name="copyright" content="secqin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="命令  1. 常见cmd命令 dir 　　　列文件名   cd　　　　改变当前目录   ren 　　　改变文件名   copy　　　拷贝文件   del 　　　删除文件   md　　　　建立子目录   rd　　　　删除目录   deltree　 删除目录树   format　　格式化磁盘   edit　　　文本编辑   type　　　显示文件内容   mem 　　　查看内存状况  以下是新增加的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="11-批处理">
+<meta property="og:url" content="https://liqin123456.github.io/2022/02/09/11-%E6%89%B9%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="secqin">
+<meta property="og:description" content="命令  1. 常见cmd命令 dir 　　　列文件名   cd　　　　改变当前目录   ren 　　　改变文件名   copy　　　拷贝文件   del 　　　删除文件   md　　　　建立子目录   rd　　　　删除目录   deltree　 删除目录树   format　　格式化磁盘   edit　　　文本编辑   type　　　显示文件内容   mem 　　　查看内存状况  以下是新增加的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg">
+<meta property="article:published_time" content="2022-02-09T03:06:12.000Z">
+<meta property="article:modified_time" content="2022-02-09T08:01:15.905Z">
+<meta property="article:author" content="secqin">
+<meta property="article:tag" content="批处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg"><link rel="shortcut icon" href="http://q.qlogo.cn/headimg_dl?dst_uin=515262617&spec=640&img_type=jpg"><link rel="canonical" href="https://liqin123456.github.io/2022/02/09/11-%E6%89%B9%E5%A4%84%E7%90%86/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '11-批处理',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-02-09 16:01:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liqin123456/liqin123456.github.io/css/li.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q.qlogo.cn/headimg_dl?dst_uin=515262617&amp;spec=640&amp;img_type=jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-heart"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">secqin</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-heart"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">11-批处理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-09T03:06:12.000Z" title="发表于 2022-02-09 11:06:12">2022-02-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-02-09T08:01:15.905Z" title="更新于 2022-02-09 16:01:15">2022-02-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%89%B9%E5%A4%84%E7%90%86/">批处理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="11-批处理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><blockquote>
+<p>命令</p>
+</blockquote>
+<h1 id="1-常见cmd命令"><a href="#1-常见cmd命令" class="headerlink" title="1. 常见cmd命令"></a>1. 常见cmd命令</h1><ol>
+<li><p><strong>dir</strong> 　　　列文件名 </p>
+</li>
+<li><p><strong>cd</strong>　　　　改变当前目录 </p>
+</li>
+<li><p><strong>ren</strong> 　　　改变文件名 </p>
+</li>
+<li><p><strong>copy</strong>　　　拷贝文件 </p>
+</li>
+<li><p><strong>del</strong> 　　　删除文件 </p>
+</li>
+<li><p><strong>md</strong>　　　　建立子目录 </p>
+</li>
+<li><p><strong>rd</strong>　　　　删除目录 </p>
+</li>
+<li><p><strong>deltree</strong>　 删除目录树 </p>
+</li>
+<li><p><strong>format</strong>　　格式化磁盘 </p>
+</li>
+<li><p><strong>edit</strong>　　　文本编辑 </p>
+</li>
+<li><p><strong>type</strong>　　　显示文件内容 </p>
+</li>
+<li><p><strong>mem</strong> 　　　查看内存状况 </p>
+<p>以下是新增加的命令 </p>
+</li>
+<li><p><strong>help</strong>　　　显示帮助提示 </p>
+</li>
+<li><p><strong>cls</strong> 　　　清屏 </p>
+</li>
+<li><p><strong>move</strong>　　　移动文件，改目录名 </p>
+</li>
+<li><p><strong>more</strong>　　　分屏显示 </p>
+</li>
+<li><p><strong>xcopy</strong> 　　拷贝目录和文件</p>
+</li>
+</ol>
+<p><strong>此时我们来尝试一下使用一些基本的DOS命令</strong><br>比如，键入 **dir (不区分大小写)**并按回车后，我们会得到当前文件夹下所有的子文件夹和文件的相关信息。输入 <strong>dir c:\windows</strong>  ，可以查看指定的路径文件夹(这里假定我们指定的文件夹是C盘的WINDOWS文件夹)中的信息。在输入该命令后，只见刷地一下啥也没看清，N多文件或文件夹就已一闪而过，因为一个屏幕无法显示这么多的文件或文件夹。好在在DOS5中我们可以用鼠标滚轮向前滚动查看更多的内容。然而，早期的DOS版本并不具有保存多页信息的功能，我们不妨使用 dir 的一些参数(适当的参数加在相应的命令后面可以实现更多的扩展功能)，比如 /p ，即输入 <strong>dir c:\windows /p</strong>  。这样就能在每显示一个屏幕的内容后暂停一下以便查看。 </p>
+<p>只要输入 <strong>dir /?</strong> 就能得到关于dir命令完整的使用介绍，而且是中文的。同理，<strong>任何命令后面跟上 /? 的参数，都能得到该命令的完整说明</strong></p>
+<p>输入 <strong>help dir</strong> 就能得到命令 dir 的具体参数及其用法(等同与 dir /? )</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><ol>
+<li><p><strong>d:</strong> </p>
+<p>转到驱动器D盘下，此时我们能看到 D:&gt; 的提示符(前提是您的电脑硬盘必须至少划分出D盘)。如果看到的不是就再输入下一行命令。 </p>
+</li>
+<li><p>*<em>cd\*</em> </p>
+<p>这一条命令 cd 的作用是改变当前的工作目录，后面加上 \ 表示返回到该驱动器的最顶级目录。另外，一个句点 . 表示当前文件夹，两个连续的句点 .. 则表示上一级文件夹， cd.. 即目录向上一级。 </p>
+</li>
+<li><p><strong>md test</strong> </p>
+<p>正如前文所说，命令 md 的作用是创建子目录，此时打开D盘看一看，是不是多了一个名叫test的文件夹(如果不是事先早已存在的话)。事实上该命令的完整写法为 md d:\test ，由于当前目录已经在D盘了，所以我们把具体的路径给简化了。 </p>
+</li>
+<li><p><strong>md “test my folder”</strong> </p>
+<p>同理，在D盘创建一个名为test my  folder的文件夹。加双引号的目的是告诉计算机我们要创建一个名字中含有空格的文件夹，而不是分别创建名字分别为test、my和folder的3个不同的文件夹。注：除了空格以外，在路径或文件名中含有 &amp;()[]{}^=;!’+,`~ 特殊字符时也需要用双引号引用起来，以便机器能够正确地识别。 </p>
+</li>
+<li><p><strong>cd test</strong> </p>
+<p>改变当前工作目录，此时不再是D盘了，而是在 D:\test 的目录下。 </p>
+</li>
+<li><p><strong>echo Hello world&gt;a.txt</strong> </p>
+<p>遇到了一个新命令 echo ，它可以将某某内容显示出来。只考虑 echo Hello world 就是把字符串 Hello world  显示出来而已。后面使用了符号 &gt; 表示将这句 Hello world 写入到某文件中。结果为：在 D:\test 文件夹里多了一个叫  a.txt 的文件，其内容为 Hello world 。 </p>
+</li>
+<li><p><strong>copy a.txt “d:\test my folder”</strong> </p>
+<p>这就是将当前文件夹里的那个 a.txt 文件复制到 D:\test my folder 文件夹中 </p>
+</li>
+<li><p><strong>copy a.txt “..\test my folder\b.txt”</strong> </p>
+<p>还是复制 a.txt ，但这次的路径与上一条命令的写法不同。 .. 表示先向上一级，再挪到 test my folder  文件夹里。其实还是复制到 D:\test my folder  这个文件夹里了。这次复制过去的文件名也不一样，因为这次我们指定了要复制过去的目标文件名为 b.txt 。 </p>
+</li>
+<li><p><strong>copy a.txt “..\test my folder\c.bmp”</strong> </p>
+<p>再次复制 a.txt 到同样的文件夹里。不过这次不光改文件的标题名了，连文件的后缀名也改了。打开 D:\test my folder 文件夹检查一下，是不是多了名字分别叫 a.txt b.txt c.bmp 的3个文件。 </p>
+</li>
+<li><p><strong>cd..</strong> </p>
+<p>向上一级 </p>
+</li>
+<li><p><strong>cd “test my folder”</strong> </p>
+<p>进入 D:\test my folder 文件夹 </p>
+</li>
+<li><p><strong>ren c.bmp d.bin</strong> </p>
+<p>重新命名文件 c.bmp 为 d.bin 。完整地写法为 ren “d:\test my folder\c.bmp” d.bin 。 </p>
+</li>
+<li><p>*<em>del <em>.txt</em></em> </p>
+<p>删除当前工作目录中所有文件后缀名为 .txt 的文件。 * 表示通配符。例如：a.* 表示所有文件标题为 a 的文件，不论后缀名。  <em>.</em> 则表示任何标题名和任何后缀名的文件，即所有文件。此时结果应为：该目录里的 a.txt b.txt  这两个文件已经不存在了，即使是在回收站里也找不到了。 </p>
+</li>
+<li><p><strong>cd..</strong> </p>
+<p>向上一级 </p>
+</li>
+<li><p><strong>rd test “test my folder”</strong> </p>
+<p>这一条命令是想同时移除 test 和 test my folder 这两个文件夹。不过结果并没有成功，因为它会提示：目录不是空的。test 文件夹中有 a.txt ，test my folder 文件夹中还有 d.bin ，因此文件夹删不掉。 </p>
+</li>
+<li><p><strong>rd test “test my folder” /s</strong> </p>
+<p>如果加上 /s 这个参数后就能删除这两个文件夹以及其文件夹中所包含的所有内容了。注意：删除前请确认这些文件夹是否是您以前就有的文件夹，或者说里面是否存有任何有用文件，不要因为这个测试而丢掉了重要文件。 </p>
+</li>
+</ol>
+<h1 id="2-我们的第一个批处理"><a href="#2-我们的第一个批处理" class="headerlink" title="2. 我们的第一个批处理"></a>2. 我们的第一个批处理</h1><ol>
+<li><p>我们在桌面建一个文件MyFirstBatch.bat</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">md</span> &quot;d:\test&quot; &quot;d:\test my folder&quot;</span><br><span class="line"><span class="built_in">echo</span> Hello world&gt;&quot;d:\test\a.txt&quot;</span><br><span class="line"><span class="built_in">copy</span> &quot;d:\test\a.txt&quot; &quot;d:\test my folder&quot;</span><br><span class="line"><span class="built_in">copy</span> &quot;d:\test\a.txt&quot; &quot;d:\test my folder\b.txt&quot;</span><br><span class="line"><span class="built_in">copy</span> &quot;d:\test\a.txt&quot; &quot;d:\test my folder\c.bmp&quot;</span><br><span class="line"><span class="built_in">ren</span> &quot;d:\test my folder\c.bmp&quot; d.bin </span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>双击后，显示的只是一闪就关闭了。正确的结果是在D盘多了名字分别为 test 和 test my folder 的两个文件夹。文件夹 test  里有一个叫 a.txt 的文件。而文件夹 test my folder 里有名字分别为 a.txt b.txt 和 d.bin 的3个文件。</p>
+<h1 id="3-显示"><a href="#3-显示" class="headerlink" title="3. 显示"></a>3. 显示</h1><p>先看一下 <strong>echo、@、pause、&gt;、&gt;&gt;、title 、rem</strong> 这几个命令或符号的用法。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">secqin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://liqin123456.github.io/2022/02/09/11-%E6%89%B9%E5%A4%84%E7%90%86/">https://liqin123456.github.io/2022/02/09/11-%E6%89%B9%E5%A4%84%E7%90%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://liqin123456.github.io" target="_blank">secqin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%B9%E5%A4%84%E7%90%86/">批处理</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/02/09/13-Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/"><img class="prev-cover" src="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">13-Mysql数据库</div></div></a></div><div class="next-post pull-right"><a href="/2022/02/09/10-git%E5%85%A5%E9%97%A8/"><img class="next-cover" src="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">10-git入门</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q.qlogo.cn/headimg_dl?dst_uin=515262617&amp;spec=640&amp;img_type=jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">secqin</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liqin123456"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">以后不搞杂七杂八的技术,就全程跟狂神</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81cmd%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">1. 常见cmd命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">1.1.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%88%91%E4%BB%AC%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%89%B9%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">2. 我们的第一个批处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%98%BE%E7%A4%BA"><span class="toc-number">3.</span> <span class="toc-text">3. 显示</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/08/18-%E5%B7%A6%E7%A5%9E%E7%9A%84%E7%AE%97%E6%B3%95%E8%AF%BE/" title="18-左神的算法课"><img src="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="18-左神的算法课"/></a><div class="content"><a class="title" href="/2022/03/08/18-%E5%B7%A6%E7%A5%9E%E7%9A%84%E7%AE%97%E6%B3%95%E8%AF%BE/" title="18-左神的算法课">18-左神的算法课</a><time datetime="2022-03-08T09:33:51.000Z" title="发表于 2022-03-08 17:33:51">2022-03-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/22/16-AcWing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE-c-%E5%9F%BA%E7%A1%80/" title="16-AcWing算法基础课(c++基础)"><img src="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="16-AcWing算法基础课(c++基础)"/></a><div class="content"><a class="title" href="/2022/02/22/16-AcWing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE-c-%E5%9F%BA%E7%A1%80/" title="16-AcWing算法基础课(c++基础)">16-AcWing算法基础课(c++基础)</a><time datetime="2022-02-22T14:43:30.000Z" title="发表于 2022-02-22 22:43:30">2022-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/09/14-Mybatis/" title="14-Mybatis"><img src="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="14-Mybatis"/></a><div class="content"><a class="title" href="/2022/02/09/14-Mybatis/" title="14-Mybatis">14-Mybatis</a><time datetime="2022-02-09T08:39:14.000Z" title="发表于 2022-02-09 16:39:14">2022-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/09/12-js/" title="12-js"><img src="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="12-js"/></a><div class="content"><a class="title" href="/2022/02/09/12-js/" title="12-js">12-js</a><time datetime="2022-02-09T03:17:30.000Z" title="发表于 2022-02-09 11:17:30">2022-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/09/13-Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="13-Mysql数据库"><img src="https://raw.githubusercontent.com/liqincoding/img/master/95948932_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="13-Mysql数据库"/></a><div class="content"><a class="title" href="/2022/02/09/13-Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="13-Mysql数据库">13-Mysql数据库</a><time datetime="2022-02-09T03:16:37.000Z" title="发表于 2022-02-09 11:16:37">2022-02-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> secqin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'mAJSCjL3XojYLNydrp6vl3PD-gzGzoHsz',
+      appKey: 'HcgstxT8G8WoLYmjfXvVSgTj',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script data-pjax defer src="https://cdn.jsdelivr.net/gh/liqin123456/liqin123456.github.io/js/chocolate.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
